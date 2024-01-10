@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../../Layout/Admin/Navbar";
-import Sidebar from "../../../Layout/Admin/Sidebar";
+import Sidebar1 from "../../../Layout/Admin/Sidebar1";
 import "../../../Assets/css/main.css";
 
-const Main = () => {
+const MainAdminDashboard = () => {
   const [sidebarHidden, setSidebarHidden] = useState(window.innerWidth < 768);
   const [isDarkMode, setDarkMode] = useState(false);
 
@@ -30,7 +30,7 @@ const Main = () => {
 
   return (
     <>
-      <Sidebar isOpen={!sidebarHidden} />
+      <Sidebar1 isOpen={!sidebarHidden} />
       <Navbar toggleSidebar={toggleSidebar} toggleDarkMode={toggleDarkMode} />
       <section id="content">
         <main>
@@ -100,7 +100,7 @@ const Main = () => {
                   <tr>
                     <td>
                       <img
-                        src={require("../../../Assets/images/people.png")}
+                        src={require("../../../Assets/Images/people.png")}
                         alt="user"
                       />
                       <p>John Doe</p>
@@ -113,7 +113,7 @@ const Main = () => {
                   <tr>
                     <td>
                       <img
-                        src={require("../../../Assets/images/people.png")}
+                        src={require("../../../Assets/Images/people.png")}
                         alt="user"
                       />
                       <p>John Doe</p>
@@ -126,7 +126,7 @@ const Main = () => {
                   <tr>
                     <td>
                       <img
-                        src={require("../../../Assets/images/people.png")}
+                        src={require("../../../Assets/Images/people.png")}
                         alt="user"
                       />
                       <p>John Doe</p>
@@ -139,7 +139,7 @@ const Main = () => {
                   <tr>
                     <td>
                       <img
-                        src={require("../../../Assets/images/people.png")}
+                        src={require("../../../Assets/Images/people.png")}
                         alt="user"
                       />
                       <p>John Doe</p>
@@ -152,7 +152,7 @@ const Main = () => {
                   <tr>
                     <td>
                       <img
-                        src={require("../../../Assets/images/people.png")}
+                        src={require("../../../Assets/Images/people.png")}
                         alt="user"
                       />
                       <p>John Doe</p>
@@ -201,4 +201,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainAdminDashboard;

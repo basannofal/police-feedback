@@ -3,7 +3,7 @@ const twilio = require("twilio");
 
 // Twilio credentials
 const accountSid = "ACa99f7e636f920b0fea25afac9c1485ce";
-const authToken = "4d1bfa85032b262d31a0c43be057af59";
+const authToken = "d71a483a6f491a7dc33d136701768966";
 const client = new twilio(accountSid, authToken);
 
 // Map to store OTPs (replace with a database in a production environment)

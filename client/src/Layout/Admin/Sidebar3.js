@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "../../Assets/css/sidebar.css";
 import { useLocation } from "react-router-dom";
 
-const Sidebar = ({ isOpen }) => {
+const Sidebar3 = ({ isOpen }) => {
   const location = useLocation();
   console.log(location);
   return (
@@ -15,7 +15,11 @@ const Sidebar = ({ isOpen }) => {
         </NavLink>
         <ul className="side-menu top">
           {/* Main Admin */}
-          <li className={location.pathname === "/citizen-dashboard" ? "active" : ""}>
+          <li
+            className={
+              location.pathname === "/citizen-dashboard" ? "active" : ""
+            }
+          >
             <NavLink to="/citizen-dashboard">
               <i className="bx bxs-dashboard"></i>
               <span className="text">Admin Dashboard</span>
@@ -106,4 +110,4 @@ const Sidebar = ({ isOpen }) => {
   );
 };
 
-export default Sidebar;
+export default Sidebar3;

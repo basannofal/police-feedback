@@ -1,0 +1,51 @@
+:root {
+  --primary-color: #3c91e6;
+}
+
+.logOut_modal_section {
+  width: 20% !important;
+  top: 40% !important;
+  left: 40% !important;
+}
+
+/* log out modal */
+.logOut_modal_section {
+  background-color: white; /* Change background color to white */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  z-index: 999;
+  padding: 20px 17px;
+  border-radius: 10px;
+}
+
+.logOut_modal_section p {
+  font-size: 20px;
+}
+
+.logOut_modal_section button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1.5px solid var(--primary-color);
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 10px;
+  float: right; /* Adjusted to the right */
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.logOut_modal_section .logout_success_btn {
+  background-color: rgb(214, 44, 44);
+  color: white;
+  border: 1.5px solid rgb(214, 44, 44);
+}
+
+.logOut_modal_section .logout_success_btn:hover {
+  background-color: rgb(176, 37, 37);
+  color: white;
+}
