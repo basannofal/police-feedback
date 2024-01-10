@@ -69,14 +69,13 @@ const citizenRegister = async (req, res) => {
   } = req.body;
 
   const insertQuery =
-    "INSERT INTO `rj_citizen_register`(`fname`, `mname`, `surname`, `number`, `otp`, `email`, `password`, `c_password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    "INSERT INTO `rj_citizen_register`(`fname`, `mname`, `surname`, `number`,  `email`, `password`, `c_password`) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
   const values = [
     firstName,
     middleName,
     surname,
     phoneNumber,
-    otp,
     email,
     password,
     confirmPassword,
