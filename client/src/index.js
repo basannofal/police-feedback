@@ -6,6 +6,7 @@ import CitizenRoute from "./Routes/Admin/Citizen/CitizenRoute";
 import DistrictRoute from "./Routes/Admin/Main-Admin/DistrictRoute";
 import StationRoute from "./Routes/Admin/Main-Admin/StationRoute";
 import ClientMainRoute from "./Routes/Client/ClientMainRoute";
+import ComplaintRoute from "./Routes/Client/Complaint/ComplaintRoute";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -14,6 +15,7 @@ ReactDOM.render(
     <ClientMainRoute />
     <DistrictRoute />
     <StationRoute />
+    <ComplaintRoute />
   </BrowserRouter>,
   document.getElementById("root")
 );
