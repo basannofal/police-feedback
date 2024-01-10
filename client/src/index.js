@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import CitizenRegisterLoginRoute from "./Routes/Client/Citizen/CitizenRegisterLoginRoute";
 import CitizenRoute from "./Routes/Admin/Citizen/CitizenRoute";
-import DistrictRoute from "./Routes/Admin/Main_Admin/DistrictRoute";
+import DistrictRoute from "./Routes/Admin/Main-Admin/DistrictRoute";
+import StationRoute from "./Routes/Admin/Main-Admin/StationRoute";
 import ClientMainRoute from "./Routes/Client/ClientMainRoute";
 
 ReactDOM.render(
@@ -12,6 +13,7 @@ ReactDOM.render(
     <CitizenRoute />
     <ClientMainRoute />
     <DistrictRoute />
+    <StationRoute />
   </BrowserRouter>,
   document.getElementById("root")
 );

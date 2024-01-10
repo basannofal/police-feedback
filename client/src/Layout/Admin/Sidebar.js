@@ -9,26 +9,26 @@ const Sidebar = ({ isOpen }) => {
   return (
     <>
       <section id="sidebar" className={isOpen ? "" : "hide"}>
-        <NavLink to="/dashboard" className="brand">
+        <NavLink to="/citizen-dashboard" className="brand">
           <i class="bx bxs-chat"></i>
           <span className="text">PeopleHelps</span>
         </NavLink>
         <ul className="side-menu top">
           {/* Main Admin */}
-          <li className={location.pathname === "/dashboard" ? "active" : ""}>
-            <NavLink to="/dashboard">
+          <li className={location.pathname === "/citizen-dashboard" ? "active" : ""}>
+            <NavLink to="/citizen-dashboard">
               <i className="bx bxs-dashboard"></i>
               <span className="text">Admin Dashboard</span>
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/dashboard">
+          <li className={location.pathname === "/district" ? "active" : ""}>
+            <NavLink to="/district">
               <i class="bx bxs-city"></i>
               <span className="text">Add District</span>
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/dashboard">
+          <li className={location.pathname === "/station" ? "active" : ""}>
+            <NavLink to="/station">
               <i class="bx bx-building-house"></i>
               <span className="text">Add Station</span>
             </NavLink>
