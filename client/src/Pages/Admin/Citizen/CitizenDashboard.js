@@ -100,7 +100,7 @@ const Main = () => {
                   <tr>
                     <td>
                       <img
-                        src={require("../../../Assets/images/people.png")}
+                        src={require("../../../Assets/Images/people.png")}
                         alt="user"
                       />
                       <p>John Doe</p>
@@ -113,7 +113,7 @@ const Main = () => {
                   <tr>
                     <td>
                       <img
-                        src={require("../../../Assets/images/people.png")}
+                        src={require("../../../Assets/Images/people.png")}
                         alt="user"
                       />
                       <p>John Doe</p>
@@ -126,7 +126,7 @@ const Main = () => {
                   <tr>
                     <td>
                       <img
-                        src={require("../../../Assets/images/people.png")}
+                        src={require("../../../Assets/Images/people.png")}
                         alt="user"
                       />
                       <p>John Doe</p>
@@ -139,7 +139,7 @@ const Main = () => {
                   <tr>
                     <td>
                       <img
-                        src={require("../../../Assets/images/people.png")}
+                        src={require("../../../Assets/Images/people.png")}
                         alt="user"
                       />
                       <p>John Doe</p>
@@ -152,7 +152,7 @@ const Main = () => {
                   <tr>
                     <td>
                       <img
-                        src={require("../../../Assets/images/people.png")}
+                        src={require("../../../Assets/Images/people.png")}
                         alt="user"
                       />
                       <p>John Doe</p>
