@@ -7,14 +7,24 @@ import StationRoute from "./Routes/Admin/Main-Admin/StationRoute";
 import ClientMainRoute from "./Routes/Client/ClientMainRoute";
 import AdminLoginRoute from "./Routes/Admin/AdminLoginRoute";
 import MainDashboardRoute from "./Routes/Admin/Main-Admin/MainDashboardRoute";
+import DistrictDashboardRoute from "./Routes/Admin/District-Admin/DistrictDashboardRoute";
+import LocalDashboardRoute from "./Routes/Admin/Local-Admin/LocalDashboardRoute";
 
 ReactDOM.render(
   <BrowserRouter>
+    {/* Citizen Routes */}
     <CitizenRegisterLoginRoute />
     <ClientMainRoute />
+    {/* Main Admin Routes */}
     <MainDashboardRoute />
     <DistrictRoute />
     <StationRoute />
+    {/* District Admin Routes */}
+    <DistrictDashboardRoute />
+
+    {/* Local Admin Routes */}
+    <LocalDashboardRoute />
+    {/* Admins Login Routes */}
     <AdminLoginRoute />
   </BrowserRouter>,
   document.getElementById("root")

@@ -38,7 +38,6 @@ const AdminLogin = () => {
         setLoading(true);
 
         if (formData.role === "1") {
-          console.log(formData);
           // Send login data to the server
           const response = await axios.post(
             `${PORT}/main-admin-login`,
@@ -56,35 +55,42 @@ const AdminLogin = () => {
             setMessage(response.data.error || "Invalid Admin Credentials");
           }
         } else if (formData.role === "2") {
-          console.log(formData);
-
           // Send login data to the server
-          const response = await axios.post(`${PORT}/citizen-login`, formData);
+          const response = await axios.post(
+            `${PORT}/district-admin-login`,
+            formData
+          );
 
           // Check the response status code
           if (response.data.success) {
             localStorage.setItem(
-              "adminToken",
-              JSON.stringify(response.data.citizen)
+              "MainAdminToken",
+              JSON.stringify(response.data.district_admin)
             );
-            navigate("/", { replace: true });
+            navigate("../district-admin", { replace: true });
           } else {
-            setMessage(response.data.error || "Invalid Credentials");
+            setMessage(
+              response.data.error || "Invalid District Admin Credentials"
+            );
           }
         } else if (formData.role === "3") {
-          console.log(formData);
           // Send login data to the server
-          const response = await axios.post(`${PORT}/citizen-login`, formData);
+          const response = await axios.post(
+            `${PORT}/local-admin-login`,
+            formData
+          );
 
           // Check the response status code
           if (response.data.success) {
             localStorage.setItem(
-              "adminToken",
-              JSON.stringify(response.data.citizen)
+              "MainAdminToken",
+              JSON.stringify(response.data.local_admin)
             );
-            navigate("/", { replace: true });
+            navigate("../local-station-admin", { replace: true });
           } else {
-            setMessage(response.data.error || "Invalid Credentials");
+            setMessage(
+              response.data.error || "Invalid Local Station Admin Credentials"
+            );
           }
         }
       } catch (error) {

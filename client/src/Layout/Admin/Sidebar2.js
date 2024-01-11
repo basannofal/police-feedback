@@ -1,11 +1,40 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../../Assets/css/sidebar.css";
 import { useLocation } from "react-router-dom";
+import LogOut from "./LogOut";
 
 const Sidebar2 = ({ isOpen }) => {
   const location = useLocation();
-  console.log(location);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("MainAdminToken");
+    if (!token) {
+      navigate("/admin-login");
+    }
+  }, []);
+
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("MainAdminToken"))
+  );
+
+  const [isLogOutModalOpen, setIsLogOutModalOpen] = useState(false);
+
+  const openLogOutModal = () => {
+    setIsLogOutModalOpen(true);
+  };
+
+  const closeLogOutModal = () => {
+    setIsLogOutModalOpen(false);
+  };
+
+  const logOutAdmin = () => {
+    // Handle logout logic here (e.g., clear local storage)
+    localStorage.removeItem("MainAdminToken");
+    navigate("/admin-login");
+  };
+
   return (
     <>
       <section id="sidebar" className={isOpen ? "" : "hide"}>
@@ -51,13 +80,21 @@ const Sidebar2 = ({ isOpen }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard" className="logout">
+            <a
+              onClick={openLogOutModal}
+              className="logout"
+              style={{ cursor: "pointer" }}
+            >
               <i className="bx bx-log-out-circle"></i>
               <span className="text">Logout</span>
-            </NavLink>
+            </a>
           </li>
         </ul>
       </section>
+
+      {isLogOutModalOpen && (
+        <LogOut onCancel={closeLogOutModal} onLogOut={logOutAdmin} />
+      )}
     </>
   );
 };
