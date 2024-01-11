@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../../Assets/css/sidebar.css";
 import { useLocation } from "react-router-dom";
 
 const Sidebar = ({ isOpen }) => {
   const location = useLocation();
-  console.log(location);
+
+  useEffect(() => {
+
+  }, [location])
   return (
     <>
       <section id="sidebar" className={isOpen ? "" : "hide"}>

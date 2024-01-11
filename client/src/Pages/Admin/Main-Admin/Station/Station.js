@@ -58,7 +58,6 @@ const Station = () => {
         getAllStationData();
     }, [allstationData])
 
-
     const getAllData = () => {
         axios.get('http://localhost:1010/getDistrict')
             .then((res) => {
@@ -98,7 +97,7 @@ const Station = () => {
 
     const getAllStationData = () => {
         axios.get('http://localhost:1010/getStationData')
-            .then((res) => {
+            .then((res) => {    
                 setAllStationData(res.data);
             })
             .catch((error) => {

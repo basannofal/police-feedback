@@ -91,6 +91,7 @@ const District = () => {
         axios.get('http://localhost:1010/getDistrict')
             .then((res) => {
                 setAllData(res.data);
+                console.log(res.data)
             })
             .catch((error) => {
                 console.log("Error in Getting Data", error)

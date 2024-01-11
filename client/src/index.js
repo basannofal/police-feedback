@@ -5,15 +5,23 @@ import CitizenRegisterLoginRoute from "./Routes/Client/Citizen/CitizenRegisterLo
 import CitizenRoute from "./Routes/Admin/Citizen/CitizenRoute";
 import DistrictRoute from "./Routes/Admin/Main-Admin/DistrictRoute";
 import StationRoute from "./Routes/Admin/Main-Admin/StationRoute";
-import ClientMainRoute from "./Routes/Client/ClientMainRoute";
+import ComplaintRoute from "./Routes/Client/Complaint/ComplaintRoute";
+import HomeRoute from "./Routes/Client/Home/HomeRoute";
+import ContactRoute from "./Routes/Client/Contact/ContactRoute";
+import ServiseRoute from "./Routes/Client/Servise/ServiseRoute";
+import FeedbacksRoute from "./Routes/Client/Feedbacks/FeedbacksRoute";
 
 ReactDOM.render(
   <BrowserRouter>
     <CitizenRegisterLoginRoute />
     <CitizenRoute />
-    <ClientMainRoute />
     <DistrictRoute />
     <StationRoute />
+    <ComplaintRoute />
+    <HomeRoute />
+    <ContactRoute />
+    <ServiseRoute />
+    <FeedbacksRoute />
   </BrowserRouter>,
   document.getElementById("root")
 );
