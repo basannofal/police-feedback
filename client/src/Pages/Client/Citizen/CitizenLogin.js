@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../../../Assets/css/register_login.css";
-import "../../../Assets/css/bootstrap.min.css";
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 const PORT = process.env.REACT_APP_PROXY_URL;
