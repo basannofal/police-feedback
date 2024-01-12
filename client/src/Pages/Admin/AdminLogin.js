@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
-import "../../../Assets/css/register_login.css";
+import "../../Assets/css/register_login.css";
+import "../../Assets/css/bootstrap.min.css";
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 const PORT = process.env.REACT_APP_PROXY_URL;
 
-const CitizenLogin = () => {
+const AdminLogin = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    role: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -27,7 +29,6 @@ const CitizenLogin = () => {
   // Handle Login Form
   const handleLogin = async (e) => {
     e.preventDefault();
-
     // Perform form validation
     const validationErrors = validateForm(formData);
     setErrors(validationErrors);
@@ -35,18 +36,62 @@ const CitizenLogin = () => {
     if (Object.keys(validationErrors).length === 0) {
       try {
         setLoading(true);
-        // Send login data to the server
-        const response = await axios.post(`${PORT}/citizen-login`, formData);
 
-        // Check the response status code
-        if (response.data.success) {
-          localStorage.setItem(
-            "userToken",
-            JSON.stringify(response.data.citizen)
+        if (formData.role === "1") {
+          // Send login data to the server
+          const response = await axios.post(
+            `${PORT}/main-admin-login`,
+            formData
           );
-          navigate("/", { replace: true });
-        } else {
-          setMessage(response.data.error || "Invalid Credentials");
+
+          // Check the response status code
+          if (response.data.success) {
+            localStorage.setItem(
+              "MainAdminToken",
+              JSON.stringify(response.data.main_admin)
+            );
+            navigate("../main-admin", { replace: true });
+          } else {
+            setMessage(response.data.error || "Invalid Admin Credentials");
+          }
+        } else if (formData.role === "2") {
+          // Send login data to the server
+          const response = await axios.post(
+            `${PORT}/district-admin-login`,
+            formData
+          );
+
+          // Check the response status code
+          if (response.data.success) {
+            localStorage.setItem(
+              "MainAdminToken",
+              JSON.stringify(response.data.district_admin)
+            );
+            navigate("../district-admin", { replace: true });
+          } else {
+            setMessage(
+              response.data.error || "Invalid District Admin Credentials"
+            );
+          }
+        } else if (formData.role === "3") {
+          // Send login data to the server
+          const response = await axios.post(
+            `${PORT}/local-admin-login`,
+            formData
+          );
+
+          // Check the response status code
+          if (response.data.success) {
+            localStorage.setItem(
+              "MainAdminToken",
+              JSON.stringify(response.data.local_admin)
+            );
+            navigate("../local-station-admin", { replace: true });
+          } else {
+            setMessage(
+              response.data.error || "Invalid Local Station Admin Credentials"
+            );
+          }
         }
       } catch (error) {
         // Handle the error (e.g., display an error message)
@@ -85,16 +130,16 @@ const CitizenLogin = () => {
 
   useEffect(() => {
     // Check if the user is already authenticated (for example, using localStorage)
-    const storedUser = JSON.parse(localStorage.getItem("userToken"));
-    if (storedUser) {
-      navigate("/", { replace: true });
+    const storedAdmin = JSON.parse(localStorage.getItem("MainAdminToken"));
+    if (storedAdmin) {
+      navigate("/main-admin", { replace: true });
     }
   }, [navigate]);
 
   return (
     <>
       <section className="container">
-        <header>Citizen Login</header>
+        <header>Admin Login</header>
         <form action="#" className="form" onSubmit={handleLogin}>
           <div className="column">
             <div className="input-box">
@@ -128,18 +173,30 @@ const CitizenLogin = () => {
               )}
             </div>
           </div>
+          <div className="input-box">
+            <label>
+              Role <span className="text-danger">*</span>
+            </label>
+            <div className="select-box">
+              <select name="role" value={formData.role} onChange={handleChange}>
+                <option value="" selected>
+                  Please Select Role
+                </option>
+                <option value="1">Admin</option>
+                <option value="2">District</option>
+                <option value="3">Station</option>
+              </select>
+            </div>
+          </div>
+
           <button className="submit_button" type="submit">
             {loading ? "Logging in..." : "Login"}
           </button>
           {message && <p className="text-danger text-center pt-3">{message}</p>}
         </form>
-        <div className="text-center">
-          Don't have an account?
-          <NavLink to={"/citizen-register"}> Click here</NavLink>
-        </div>
       </section>
     </>
   );
 };
 
-export default CitizenLogin;
+export default AdminLogin;

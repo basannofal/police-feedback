@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../../Layout/Admin/Navbar";
-import Sidebar from "../../../Layout/Admin/Sidebar1";
 import "../../../Assets/css/main.css";
+import Sidebar3 from "../../../Layout/Admin/Sidebar3";
 
-const CitizenDashboard = () => {
+const LocalAdminDashboard = () => {
   const [sidebarHidden, setSidebarHidden] = useState(window.innerWidth < 768);
   const [isDarkMode, setDarkMode] = useState(false);
 
@@ -30,7 +30,7 @@ const CitizenDashboard = () => {
 
   return (
     <>
-      <Sidebar isOpen={!sidebarHidden} />
+      <Sidebar3 isOpen={!sidebarHidden} />
       <Navbar toggleSidebar={toggleSidebar} toggleDarkMode={toggleDarkMode} />
       <section id="content">
         <main>
@@ -201,4 +201,4 @@ const CitizenDashboard = () => {
   );
 };
 
-export default CitizenDashboard;
+export default LocalAdminDashboard;

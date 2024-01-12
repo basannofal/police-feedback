@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../../Assets/css/sidebar.css";
 import { useLocation } from "react-router-dom";
 import LogOut from "./LogOut";
 
-const Sidebar1 = ({ isOpen }) => {
+const Sidebar2 = ({ isOpen }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -38,14 +38,16 @@ const Sidebar1 = ({ isOpen }) => {
   return (
     <>
       <section id="sidebar" className={isOpen ? "" : "hide"}>
-        <NavLink to="/main-admin" className="brand">
+        <NavLink to="/district-admin" className="brand">
           <i class="bx bxs-chat"></i>
           <span className="text">PeopleHelps</span>
         </NavLink>
         <ul className="side-menu top">
           {/* Main Admin */}
-          <li className={location.pathname === "/main-admin" ? "active" : ""}>
-            <NavLink to="/main-admin">
+          <li
+            className={location.pathname === "/district-admin" ? "active" : ""}
+          >
+            <NavLink to="/district-admin">
               <i className="bx bxs-dashboard"></i>
               <span className="text">Dashboard</span>
             </NavLink>
@@ -53,17 +55,17 @@ const Sidebar1 = ({ isOpen }) => {
           <li className={location.pathname === "/district" ? "active" : ""}>
             <NavLink to="/district">
               <i class="bx bxs-city"></i>
-              <span className="text">District</span>
+              <span className="text">Police Station</span>
             </NavLink>
           </li>
           <li className={location.pathname === "/station" ? "active" : ""}>
             <NavLink to="/station">
               <i class="bx bx-building-house"></i>
-              <span className="text">Police Station</span>
+              <span className="text">Complaints</span>
             </NavLink>
           </li>
-          <li className={location.pathname === "/admin-notice" ? "active" : ""}>
-            <NavLink to="/admin-notice">
+          <li className={location.pathname === "/notice" ? "active" : ""}>
+            <NavLink to="/notice">
               <i class="bx bxs-notification"></i>
               <span className="text">Notice</span>
             </NavLink>
@@ -72,7 +74,7 @@ const Sidebar1 = ({ isOpen }) => {
 
         <ul className="side-menu">
           <li>
-            <NavLink to="/setting">
+            <NavLink to="/dashboard">
               <i className="bx bxs-cog"></i>
               <span className="text">Settings</span>
             </NavLink>
@@ -97,4 +99,4 @@ const Sidebar1 = ({ isOpen }) => {
   );
 };
 
-export default Sidebar1;
+export default Sidebar2;

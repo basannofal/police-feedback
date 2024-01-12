@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import CitizenRegisterLoginRoute from "./Routes/Client/Citizen/CitizenRegisterLoginRoute";
-import CitizenRoute from "./Routes/Admin/Citizen/CitizenRoute";
 import DistrictRoute from "./Routes/Admin/Main-Admin/DistrictRoute";
 import StationRoute from "./Routes/Admin/Main-Admin/StationRoute";
 import ComplaintRoute from "./Routes/Client/Complaint/ComplaintRoute";
@@ -11,8 +10,15 @@ import ContactRoute from "./Routes/Client/Contact/ContactRoute";
 import ServiseRoute from "./Routes/Client/Servise/ServiseRoute";
 import FeedbacksRoute from "./Routes/Client/Feedbacks/FeedbacksRoute";
 
+import ClientMainRoute from "./Routes/Client/ClientMainRoute";
+import AdminLoginRoute from "./Routes/Admin/AdminLoginRoute";
+import MainDashboardRoute from "./Routes/Admin/Main-Admin/MainDashboardRoute";
+import DistrictDashboardRoute from "./Routes/Admin/District-Admin/DistrictDashboardRoute";
+import LocalDashboardRoute from "./Routes/Admin/Local-Admin/LocalDashboardRoute";
+
 ReactDOM.render(
   <BrowserRouter>
+    {/* Citizen Routes */}
     <CitizenRegisterLoginRoute />
     <CitizenRoute />
     <DistrictRoute />
@@ -22,6 +28,18 @@ ReactDOM.render(
     <ContactRoute />
     <ServiseRoute />
     <FeedbacksRoute />
+    <ClientMainRoute />
+    {/* Main Admin Routes */}
+    <MainDashboardRoute />
+    <DistrictRoute />
+    <StationRoute />
+    {/* District Admin Routes */}
+    <DistrictDashboardRoute />
+
+    {/* Local Admin Routes */}
+    <LocalDashboardRoute />
+    {/* Admins Login Routes */}
+    <AdminLoginRoute />
   </BrowserRouter>,
   document.getElementById("root")
 );

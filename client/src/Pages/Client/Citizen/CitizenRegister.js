@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../../../Assets/css/register_login.css";
-import "../../../Assets/css/bootstrap.min.css";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";

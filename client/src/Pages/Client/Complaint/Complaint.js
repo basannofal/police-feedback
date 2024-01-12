@@ -14,7 +14,7 @@ const Complaint = () => {
 
                             <div class="fields">
                                 <div class="input-field">
-                                    <label>First Name</label>F
+                                   <label>First Name</label>
                                     <input type="text" placeholder="Enter First name" />
                                 </div>
 
