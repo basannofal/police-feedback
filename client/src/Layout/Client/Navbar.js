@@ -49,7 +49,7 @@ function Navbar() {
                         onClick={() => setMenuOpen(false)}>
                         <i className="fas fa-address-card"></i> Contact
                     </NavLink>
-                    <NavLink className="nav-link" to="/login" activeClassName="active"
+                    <NavLink className="nav-link" to="/citizen-login" activeClassName="active"
                         onClick={() => setMenuOpen(false)}>
                         <i className="fas fa-sign-in-alt"></i> Login/Registration
                     </NavLink>

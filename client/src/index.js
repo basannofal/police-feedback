@@ -9,8 +9,6 @@ import HomeRoute from "./Routes/Client/Home/HomeRoute";
 import ContactRoute from "./Routes/Client/Contact/ContactRoute";
 import ServiseRoute from "./Routes/Client/Servise/ServiseRoute";
 import FeedbacksRoute from "./Routes/Client/Feedbacks/FeedbacksRoute";
-
-import ClientMainRoute from "./Routes/Client/ClientMainRoute";
 import AdminLoginRoute from "./Routes/Admin/AdminLoginRoute";
 import MainDashboardRoute from "./Routes/Admin/Main-Admin/MainDashboardRoute";
 import DistrictDashboardRoute from "./Routes/Admin/District-Admin/DistrictDashboardRoute";
@@ -20,13 +18,11 @@ ReactDOM.render(
   <BrowserRouter>
     {/* Citizen Routes */}
     <CitizenRegisterLoginRoute />
-    <CitizenRoute />
     <ComplaintRoute />
     <HomeRoute />
     <ContactRoute />
     <ServiseRoute />
     <FeedbacksRoute />
-    <ClientMainRoute />
     {/* Main Admin Routes */}
     <MainDashboardRoute />
     <DistrictRoute />
