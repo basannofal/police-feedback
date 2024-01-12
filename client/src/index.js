@@ -21,8 +21,6 @@ ReactDOM.render(
     {/* Citizen Routes */}
     <CitizenRegisterLoginRoute />
     <CitizenRoute />
-    <DistrictRoute />
-    <StationRoute />
     <ComplaintRoute />
     <HomeRoute />
     <ContactRoute />
