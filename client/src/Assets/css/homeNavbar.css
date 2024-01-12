@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo-menu {
+    display: none;
+}
+
+.rj_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.rj_img img {
+    width: 110px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.rj_text p {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 7px;
+    color: #281859;
+}
+
+.custom-navbar {
+    background-color: #281859;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+}
+
+.logo {
+    display: none;
+}
+
+.menu-toggler {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 30px;
+    color: #281859;
+}
+
+.menu-icon {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #ecf0f1;
+    margin: 6px 0;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-link {
+    color: #c9e4ff;
+    text-decoration: none;
+    margin: 0 20px;
+    transition: color 0.3s ease;
+    font-weight: 600;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ff0c08;
+}
+
+.RAJASTHANPOLICE {
+    color: #ff0c08;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    white-space: 4px;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-toggler {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        width: 100%;
+
+        top: 100px;
+        left: 0;
+        background-color: #281859;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-link {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: blue;
+        margin: 6px 0;
+        transition: background-color 0.3s ease;
+    }
+
+    .rj_text {
+        display: none;
+    }
+
+    .custom-navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px 0px;
+    }
+
+    .rj_img {
+        order: -3;
+    }
+
+    .rj_img img {
+        width: 80px;
+        height: auto;
+        margin-right: 180px;
+    }
+
+    .logo-menu {
+        display: inline;
+    }
+
+    .fa-solid {
+        font-size: 20px;
+    }
+
+    .RAJASTHANPOLICE {
+        color: #ff0c08;
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        white-space: 4px;
+        display: inline;
+    }
+}

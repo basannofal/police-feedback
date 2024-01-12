@@ -1,0 +1,132 @@
+.OurServices {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 60px;
+}
+
+
+.OurServices_perent {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: 80%;
+    justify-content: start;
+    margin-top: 30px;
+    margin-left: 165px;
+}
+
+.OurServices_perent .OurServices_chaild {
+    border-radius: 20px;
+    width: 200px;
+    height: 220px;
+    background-color: #f0f0f0;
+    /* Light Gray */
+    border: 2px solid #e0e0e0;
+    /* Border Color */
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.OurServices_perent .OurServices_chaild:hover {
+    transform: scale(1.05);
+    background-color: #00bcd4;
+    /* Cyan */
+    border-color: #bd0707;
+}
+
+.OurServices_chaild_img img {
+    width: 80px;
+    height: 80px;
+    margin-top: 20px;
+}
+
+.OurServices_chaild_ptag {
+    margin-top: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+.OurServices_perent .OurServices_chaild:nth-child(odd) {
+    background-color: #ffffff;
+    /* White for odd cards */
+}
+
+.OurServices_perent .OurServices_chaild:nth-child(even) {
+    background-color: #f8f8f8;
+    /* Light Gray for even cards */
+}
+
+
+@media (max-width: 768px) {
+    .OurServices {
+        text-align: center;
+        font-weight: 700;
+        font-size: 40px;
+        margin-top: 20px;
+        color: #281859;
+
+
+
+    }
+
+    .OurServices_perent {
+        display: flex;
+        flex-wrap: wrap;
+        height: auto;
+        width: 80%;
+        justify-content: start;
+        margin-top: 30px;
+        margin-left: 50px;
+
+    }
+
+    .OurServices_perent .OurServices_chaild {
+        border-radius: 20px;
+        width: 200px;
+        height: 200px;
+        background-color: #f0f0f0;
+        /* Light Gray */
+        border: 2px solid #e0e0e0;
+        /* Border Color */
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .OurServices_perent .OurServices_chaild:hover {
+        transform: scale(1.05);
+        background-color: #00bcd4;
+        /* Cyan */
+        border-color: #bd0707;
+    }
+
+    .OurServices_chaild_img img {
+        width: 80px;
+        height: 80px;
+        margin-top: 20px;
+    }
+
+    .OurServices_chaild_ptag {
+        margin-top: 10px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .OurServices_perent .OurServices_chaild:nth-child(odd) {
+        background-color: #ffffff;
+        /* White for odd cards */
+    }
+
+    .OurServices_perent .OurServices_chaild:nth-child(even) {
+        background-color: #f8f8f8;
+        /* Light Gray for even cards */
+    }
+
+}

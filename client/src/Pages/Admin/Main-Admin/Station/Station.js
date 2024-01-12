@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import Sidebar1 from "../../../../Layout/Admin/Sidebar1";
 import Navbar from "../../../../Layout/Admin/Navbar";
@@ -44,7 +45,6 @@ const Station = () => {
     const handleResize = () => {
       setSidebarHidden(window.innerWidth < 768);
     };
-
     window.addEventListener("resize", handleResize);
 
     return () => {

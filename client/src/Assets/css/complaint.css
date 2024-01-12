@@ -33,7 +33,7 @@
 .container form {
     position: relative;
     margin-top: 16px;
-    min-height: 550px;
+    height: 550px;
     background-color: #fff;
     overflow: hidden;
 }
@@ -235,5 +235,23 @@ form .buttons button,
     .container .form {
         margin: 0;
     }
+
+}
+
+/* star css */
+
+.star-rating {
+    display: flex;
+    font-size: 24px;
+    color: #ccc;
+}
+
+.star-rating span {
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.star-rating .active {
+    color: rgb(188, 120, 43);
 
 }

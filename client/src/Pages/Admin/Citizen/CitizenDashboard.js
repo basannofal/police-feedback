@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../../Layout/Admin/Navbar";
-import Sidebar from "../../../Layout/Admin/Sidebar";
+import Sidebar from "../../../Layout/Admin/Sidebar1";
 import "../../../Assets/css/main.css";
 
 const CitizenDashboard = () => {

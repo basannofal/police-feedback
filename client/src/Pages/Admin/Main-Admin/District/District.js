@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import Sidebar1 from "../../../../Layout/Admin/Sidebar1";
 import Navbar from "../../../../Layout/Admin/Navbar";
@@ -58,6 +59,7 @@ const District = () => {
       [name]: value,
     }));
   };
+
 
   const saveDistrictData = async (e) => {
     e.preventDefault();

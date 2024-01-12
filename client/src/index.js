@@ -4,6 +4,12 @@ import { BrowserRouter } from "react-router-dom";
 import CitizenRegisterLoginRoute from "./Routes/Client/Citizen/CitizenRegisterLoginRoute";
 import DistrictRoute from "./Routes/Admin/Main-Admin/DistrictRoute";
 import StationRoute from "./Routes/Admin/Main-Admin/StationRoute";
+import ComplaintRoute from "./Routes/Client/Complaint/ComplaintRoute";
+import HomeRoute from "./Routes/Client/Home/HomeRoute";
+import ContactRoute from "./Routes/Client/Contact/ContactRoute";
+import ServiseRoute from "./Routes/Client/Servise/ServiseRoute";
+import FeedbacksRoute from "./Routes/Client/Feedbacks/FeedbacksRoute";
+
 import ClientMainRoute from "./Routes/Client/ClientMainRoute";
 import AdminLoginRoute from "./Routes/Admin/AdminLoginRoute";
 import MainDashboardRoute from "./Routes/Admin/Main-Admin/MainDashboardRoute";
@@ -14,6 +20,14 @@ ReactDOM.render(
   <BrowserRouter>
     {/* Citizen Routes */}
     <CitizenRegisterLoginRoute />
+    <CitizenRoute />
+    <DistrictRoute />
+    <StationRoute />
+    <ComplaintRoute />
+    <HomeRoute />
+    <ContactRoute />
+    <ServiseRoute />
+    <FeedbacksRoute />
     <ClientMainRoute />
     {/* Main Admin Routes */}
     <MainDashboardRoute />
