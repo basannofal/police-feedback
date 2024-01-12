@@ -3,7 +3,6 @@ const conn = require("../../Database/conn");
 
 //ADD CONATCT DATA
 const addDistrict = (req, res) => {
-    console.log("object")
     const { district_name, email, password, address, number } = req.body;
     const sql =
         "INSERT INTO rj_district (district_name,email,password,address,number) VALUES (?,?,?,?,?)";
