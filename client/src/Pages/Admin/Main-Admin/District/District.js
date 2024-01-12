@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Sidebar from '../../../../Layout/Admin/Sidebar';
+import Sidebar from '../../../../Layout/Admin/Sidebar1';
 import Navbar from '../../../../Layout/Admin/Navbar';
 import '../../../../Assets/css/form.css';
 import axios from 'axios';
