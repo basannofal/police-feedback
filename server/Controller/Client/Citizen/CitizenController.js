@@ -1,6 +1,42 @@
 const conn = require("../../../Database/conn");
 const twilio = require("twilio");
 
+// OpenAI
+const OpenAI = require("openai");
+
+const openai = new OpenAI({
+  apiKey: "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",
+});
+
+const chatBoat = async (req, res) => {
+  const { prompt } = req.body;
+  try {
+    // Use an appropriate model, e.g., "gpt-3.5-turbo" or another available model
+    const chatCompletion = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        { role: "system", content: "You are a helpful assistant." },
+        { role: "user", content: prompt },
+      ],
+      max_tokens: 4000,
+    });
+
+    console.log(chatCompletion.choices[0].message.content);
+    return res.send(chatCompletion.choices[0].message.content);
+  } catch (error) {
+    console.error(error);
+
+    if (error.response && error.response.status === 429) {
+      // Handle rate-limiting error
+      return res
+        .status(429)
+        .send("Rate Limit Exceeded. Please try again later.");
+    }
+
+    return res.status(500).send("Internal Server Error");
+  }
+};
+
 // Twilio credentials
 const accountSid = "ACa99f7e636f920b0fea25afac9c1485ce";
 const authToken = "d71a483a6f491a7dc33d136701768966";
@@ -114,4 +150,10 @@ const citizenLogin = async (req, res) => {
   });
 };
 
-module.exports = { sendOTP, verifyOTP, citizenRegister, citizenLogin };
+module.exports = {
+  chatBoat,
+  sendOTP,
+  verifyOTP,
+  citizenRegister,
+  citizenLogin,
+};

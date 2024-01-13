@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../../Assets/css/Ourservice.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import ChatBoat from "../Citizen/ChatBoat";
 
 function Ourservise() {
   const [isAuth, setIsAuth] = useState(false);
@@ -17,73 +18,76 @@ function Ourservise() {
   }, []);
 
   return (
-    <div>
-      <div className="OurServices">Our Services</div>
-      <div className="ouer">
-        <div className="OurServices_perent">
-          {/* 1 */}
-          <NavLink to={isAuth ? `/complaint/${userId}` : "/citizen-login"}>
-            <div className="OurServices_chaild">
-              <div className="OurServices_chaild_img" OurServices_chaild_img>
-                <img src={require("../../../Assets/Images/Fir.png")}></img>
+    <>
+      <div>
+        <div className="OurServices">Our Services</div>
+        <div className="ouer">
+          <div className="OurServices_perent">
+            {/* 1 */}
+            <NavLink to={isAuth ? `/complaint/${userId}` : "/citizen-login"}>
+              <div className="OurServices_chaild">
+                <div className="OurServices_chaild_img" OurServices_chaild_img>
+                  <img src={require("../../../Assets/Images/Fir.png")}></img>
+                </div>
+                <div className="OurServices_chaild_ptag">Get a Copy of FIR</div>
               </div>
-              <div className="OurServices_chaild_ptag">Get a Copy of FIR</div>
-            </div>
-          </NavLink>
+            </NavLink>
 
-          {/* 2*/}
-          <NavLink to={isAuth ? `/complaint/${userId}` : "/citizen-login"}>
-            <div className="OurServices_chaild">
-              <div className="OurServices_chaild_img" OurServices_chaild_img>
-                <img
-                  src={require("../../../Assets/Images/Eapplication.png")}
-                ></img>
+            {/* 2*/}
+            <NavLink to={isAuth ? `/complaint/${userId}` : "/citizen-login"}>
+              <div className="OurServices_chaild">
+                <div className="OurServices_chaild_img" OurServices_chaild_img>
+                  <img
+                    src={require("../../../Assets/Images/Eapplication.png")}
+                  ></img>
+                </div>
+                <div className="OurServices_chaild_ptag">e-Application</div>
               </div>
-              <div className="OurServices_chaild_ptag">e-Application</div>
-            </div>
-          </NavLink>
+            </NavLink>
 
-          {/* 3 */}
+            {/* 3 */}
 
-          <NavLink to={isAuth ? `/complaint/${userId}` : "/citizen-login"}>
-            <div className="OurServices_chaild">
-              <div className="OurServices_chaild_img" OurServices_chaild_img>
-                <img
-                  src={require("../../../Assets/Images/MissingPro.png")}
-                ></img>
+            <NavLink to={isAuth ? `/complaint/${userId}` : "/citizen-login"}>
+              <div className="OurServices_chaild">
+                <div className="OurServices_chaild_img" OurServices_chaild_img>
+                  <img
+                    src={require("../../../Assets/Images/MissingPro.png")}
+                  ></img>
+                </div>
+                <div className="OurServices_chaild_ptag">
+                  Report Missing / Stolen Property
+                </div>
               </div>
-              <div className="OurServices_chaild_ptag">
-                Report Missing / Stolen Property
-              </div>
-            </div>
-          </NavLink>
+            </NavLink>
 
-          {/* 4*/}
-          <NavLink to={isAuth ? `/complaint/${userId}` : "/citizen-login"}>
-            <div className="OurServices_chaild">
-              <div className="OurServices_chaild_img" OurServices_chaild_img>
-                <img src={require("../../../Assets/Images/2.png")}></img>
+            {/* 4*/}
+            <NavLink to={isAuth ? `/complaint/${userId}` : "/citizen-login"}>
+              <div className="OurServices_chaild">
+                <div className="OurServices_chaild_img" OurServices_chaild_img>
+                  <img src={require("../../../Assets/Images/2.png")}></img>
+                </div>
+                <div className="OurServices_chaild_ptag">
+                  eFIR(Vehicle / Mobile Theft)
+                </div>
               </div>
-              <div className="OurServices_chaild_ptag">
-                eFIR(Vehicle / Mobile Theft)
-              </div>
-            </div>
-          </NavLink>
+            </NavLink>
 
-          {/* 5 */}
-          <NavLink to={isAuth ? `/complaint/${userId}` : "/citizen-login"}>
-            <div className="OurServices_chaild">
-              <div className="OurServices_chaild_img" OurServices_chaild_img>
-                <img src={require("../../../Assets/Images/block.png")}></img>
+            {/* 5 */}
+            <NavLink to={isAuth ? `/complaint/${userId}` : "/citizen-login"}>
+              <div className="OurServices_chaild">
+                <div className="OurServices_chaild_img" OurServices_chaild_img>
+                  <img src={require("../../../Assets/Images/block.png")}></img>
+                </div>
+                <div className="OurServices_chaild_ptag">
+                  Block and Unblock Lost/Stolen Mo.
+                </div>
               </div>
-              <div className="OurServices_chaild_ptag">
-                Block and Unblock Lost/Stolen Mo.
-              </div>
-            </div>
-          </NavLink>
+            </NavLink>
+          </div>
         </div>
       </div>
-    </div>
+      <ChatBoat />
+    </>
   );
 }
 
