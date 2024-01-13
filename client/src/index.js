@@ -13,6 +13,8 @@ import AdminLoginRoute from "./Routes/Admin/AdminLoginRoute";
 import MainDashboardRoute from "./Routes/Admin/Main-Admin/MainDashboardRoute";
 import DistrictDashboardRoute from "./Routes/Admin/District-Admin/DistrictDashboardRoute";
 import LocalDashboardRoute from "./Routes/Admin/Local-Admin/LocalDashboardRoute";
+import MyapplicationRoute from "./Routes/Client/Myapplication/MyapplicationRoute";
+
 
 ReactDOM.render(
   <BrowserRouter>
@@ -34,6 +36,7 @@ ReactDOM.render(
     <LocalDashboardRoute />
     {/* Admins Login Routes */}
     <AdminLoginRoute />
+    <MyapplicationRoute />
   </BrowserRouter>,
   document.getElementById("root")
 );

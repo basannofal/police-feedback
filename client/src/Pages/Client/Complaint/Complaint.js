@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "../../../Assets/css/complaint.css";
 import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 const PORT = process.env.REACT_APP_PROXY_URL;
 
 const Complaint = () => {
+  const {id} = useParams("");
+  const navigate = useNavigate();
+
   const [distData, setDistData] = useState([]);
   const [stationData, setStationData] = useState([]);
   const [selectedDistrict, setSelectedDistrict] = useState("");
+  const [user, setuser] = useState([])
 
   const [formData, setFormData] = useState({
     fname: "",
@@ -42,10 +47,25 @@ const Complaint = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-
+    
     try {
-      const res = await axios.post(`${PORT}/addcomplaint`, formData)
+      const newData = new FormData();
+      newData.append("fname", formData.fname);
+      newData.append("mname", formData.mname);
+      newData.append("lname", formData.lname);
+      newData.append("email", formData.email);
+      newData.append("number", formData.number);
+      newData.append("address", formData.address);
+      newData.append("pincode", formData.pincode);
+      newData.append("did", formData.did);
+      newData.append("sid", formData.sid);
+      newData.append("itemname", formData.itemname);
+      newData.append("itemdesc", formData.itemdesc);
+      newData.append("itemimage", formData.itemimage);
 
+      const res = await axios.post(`${PORT}/addcomplaint/${id}`, newData)
+
+      navigate("/myapplication", { replace: true })
     } catch (error) {
       console.error("Error saving data", error);
 
@@ -54,10 +74,14 @@ const Complaint = () => {
   };
 
 
-
   useEffect(() => {
     getAllDistrictData();
     getAllStationData();
+    const storedUser = JSON.parse(localStorage.getItem("userToken"));
+
+    if (storedUser) {
+      setuser(storedUser)
+    }
   }, []);
 
   //get district data
@@ -97,7 +121,7 @@ const Complaint = () => {
       <div className="container secActive">
         <header>Complaint Form</header>
 
-        <form method="post" onSubmit={handleSubmit}>
+        <form method="post" encType="multipart/form-data">
           <div className="form first">
             <div class="details personal">
               <span class="title">Personal Details</span>
@@ -191,9 +215,9 @@ const Complaint = () => {
                 </div>
                 <div class="input_image">
                   <label>Item Images</label>
-                  <input className="" type="file" onChange={handleFileChange} name="itemimage" />
+                  <input  type="file" onChange={handleFileChange} name="itemimage" />
                 </div>
-                <button type="submit" class="sumbit">
+                <button type="button" onClick={handleSubmit} class="sumbit">
                   <span class="btnText">Submit</span>
                   <i class="uil uil-navigator"></i>
                 </button>
