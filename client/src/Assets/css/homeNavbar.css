@@ -65,7 +65,7 @@
 }
 
 .nav-link {
-    color: #c9e4ff;
+    color: white !important;
     text-decoration: none;
     margin: 0 20px;
     transition: color 0.3s ease;
@@ -74,7 +74,7 @@
 
 .nav-link:hover,
 .nav-link.active {
-    color: #ff0c08;
+    color: #ff0c08 !important;
 }
 
 .RAJASTHANPOLICE {
