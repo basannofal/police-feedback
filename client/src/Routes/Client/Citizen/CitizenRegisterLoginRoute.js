@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import CitizenRegister from "../../../Pages/Client/Citizen/CitizenRegister";
 import CitizenLogin from "../../../Pages/Client/Citizen/CitizenLogin";
+import Navbar from "../../../Layout/Client/Navbar";
 
 const CitizenRegisterLoginRoute = () => {
   return (
@@ -10,6 +11,7 @@ const CitizenRegisterLoginRoute = () => {
         path="/citizen-register"
         element={
           <>
+            <Navbar />
             <CitizenRegister />
           </>
         }
@@ -18,6 +20,7 @@ const CitizenRegisterLoginRoute = () => {
         path="/citizen-login"
         element={
           <>
+            <Navbar />
             <CitizenLogin />
           </>
         }

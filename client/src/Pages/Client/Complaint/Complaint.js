@@ -123,6 +123,8 @@ const Complaint = () => {
                             </div>
                         </div>
 
+                        
+
                         <div className="details ID">
                             <span class="title">Stolen Details</span>
 
