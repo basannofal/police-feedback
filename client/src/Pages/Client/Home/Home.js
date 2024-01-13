@@ -1,3 +1,4 @@
+import ChatBoat from "../Citizen/ChatBoat";
 import React from 'react';
 import '../../../Assets/css/home.css';
 import Footer from '../../../Layout/Client/Footer';
@@ -20,7 +21,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-
+<ChatBoat />
             <Footer />
         </>
     )
