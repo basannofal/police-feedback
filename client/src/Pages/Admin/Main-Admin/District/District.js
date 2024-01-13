@@ -65,7 +65,7 @@ const District = () => {
     e.preventDefault();
     console.log("object");
     await axios
-      .post(`http://localhost:1010/addDistrict`, addData)
+      .post(`${PORT}/addDistrict`, addData)
       .then(() => {
         setAddData({
           district_name: "",
@@ -84,13 +84,14 @@ const District = () => {
       });
   };
 
+
   //get All data
   useEffect(() => {
     getAllData();
   }, [addData]);
   const getAllData = () => {
     axios
-      .get("http://localhost:1010/getDistrict")
+      .get(`${PORT}/getDistrict`)
       .then((res) => {
         setAllData(res.data);
       })
@@ -116,7 +117,7 @@ const District = () => {
   };
   const deleteDistrictData = async (deleteId) => {
     try {
-      await axios.delete(`http://localhost:1010/deleteDistrict/${deleteId}`);
+      await axios.delete(`${PORT}/deleteDistrict/${deleteId}`);
       getAllData();
     } catch (error) {
       console.log("Error in delting data", error);
@@ -126,7 +127,7 @@ const District = () => {
   //GET DATA FOR EDIT
   const getDataForEdit = (editId) => {
     axios
-      .get(`http://localhost:1010/getDistrictForEdit/${editId}`)
+      .get(`${PORT}/getDistrictForEdit/${editId}`)
       .then((res) => {
         setEditData(res.data[0]);
       })
@@ -146,7 +147,7 @@ const District = () => {
 
   const handleSaveEditData = (editid) => {
     axios
-      .put(`http://localhost:1010/editDistData/${editid}`, editData)
+      .put(`${PORT}/editDistData/${editid}`, editData)
       .then(() => {
         getAllData();
       })

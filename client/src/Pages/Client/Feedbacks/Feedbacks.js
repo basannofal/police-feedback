@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../../Assets/css/complaint.css';
 import axios from 'axios';
-
+const PORT = process.env.REACT_APP_PROXY_URL;
 
 const Feedbacks = () => {
     const [rating, setRating] = useState(0);
@@ -12,12 +12,16 @@ const Feedbacks = () => {
             ans_6: selectedRating,
         }));
     };
+    const [distData, setDistData] = useState([]);
+    const [stationData, setStationData] = useState([]);
     const [addData, setAddData] = useState({
         ans_1: '',
         ans_2: '',
         ans_3: '',
         ans_4: '',
         ans_5: '',
+        did: "",
+        sid: "",
         ans_6: null,
     });
 
@@ -49,6 +53,41 @@ const Feedbacks = () => {
                 console.log("Error adding feedback:", error);
             });
     }
+
+    //get district data
+    const getAllDistrictData = () => {
+        axios
+            .get(`${PORT}/getDistrict`)
+            .then((res) => {
+                setDistData(res.data);
+                console.log(res.data);
+            })
+            .catch((error) => {
+                console.log("Error in Getting Data", error);
+            });
+    };
+
+    //get all station data
+    const getAllStationData = () => {
+        axios
+            .get(`${PORT}/getStationData`)
+            .then((res) => {
+                setStationData(res.data);
+                console.log(res.data);
+            })
+            .catch((error) => {
+                console.log("Error in Getting Data", error);
+            });
+    };
+
+    useEffect(() => {
+        getAllDistrictData();
+        getAllStationData();
+    }, []);
+
+    const filteredStations = stationData.filter(
+        (station) => station.district_id == addData.did
+    );
 
 
     return (
@@ -108,6 +147,51 @@ const Feedbacks = () => {
                                         <option value="Neutral">Neutral</option>
                                         <option value="Unlikely">Unlikely</option>
                                         <option value="VeryUnlikely">Very Unlikely</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div className="row">
+                            <div className="col-md-6">
+                                <div className="input-field">
+                                    <label htmlFor="districtSelect" className="col-form-label">
+                                        District Name:
+                                    </label>
+                                    <select
+                                        className="form-control"
+                                        id="districtSelect"
+                                        name="did"
+                                        onChange={handleAnswerChange}
+                                    >
+                                        <option value="">Select District</option>
+                                        {distData.map((district) => (
+                                            <option key={district.id} value={district.id}>
+                                                {district.district_name}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="col-md-6">
+                                <div className="input-field">
+                                    <label htmlFor="stationselect" className="col-form-label">
+                                        Station Name:
+                                    </label>
+                                    <select
+                                        className="form-control"
+                                        id="stationselect"
+                                        name="sid"
+                                        onChange={handleAnswerChange}
+                                    >
+                                        <option value="">Select District</option>
+                                        {filteredStations.map((station) => (
+                                            <option key={station.id} value={station.id}>
+                                                {station.station_name}
+                                            </option>
+                                        ))}
                                     </select>
                                 </div>
                             </div>
