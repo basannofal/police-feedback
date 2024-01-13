@@ -1,83 +1,108 @@
 /* Common styles for larger screens */
 .table_1 {
-    width: 50%;
+    width: 39.9%;
     margin: 0px auto;
     margin-top: 100px;
     flex-wrap: wrap;
+    border: 1px solid black;
+    overflow-y: scroll;
+}
+
+.table_1 td {
+    font-size: 11pt !important;
 }
 
 .table_1 td,
 .table_1 th {
     padding: 5px 10px;
-    font-size: 20px;
     font-weight: 500;
     flex-wrap: wrap;
+    border: 1px solid black;
 }
 
 .table_1 th {
     font-weight: 900;
+    font-size: 11pt;
+    text-align: center;
 }
 
 @media (max-width: 768px) {
 
     /* Common styles for larger screens */
     .table_1 {
+        width: 90%;
         margin-left: 25px;
-
+        color: black;
+        margin: 0 auto;
         margin-top: 30px;
+
         flex-wrap: wrap;
     }
 
     .table_1 td,
     .table_1 th {
-        padding: 0px 0px !important;
-        font-size: 11px;
-        font-weight: 400;
         flex-wrap: wrap;
+        font-size: 11pt !important;
 
+        padding: 5px 1px !important;
     }
 
     .table_1 th {
-        font-weight: 600;
+        font-weight: 900;
     }
 }
-
 
 /* Common styles for larger screens */
 .table_2 {
     margin-left: 0px;
-    width: 80%;
+    width: 70%;
+    overflow-y: scroll;
     margin: 0px auto;
     margin-top: 50px;
     flex-wrap: wrap;
+    border: 1px solid rgb(0, 0, 0) !important;
+    margin-bottom: 40px;
+
 }
 
 .table_2 td,
 .table_2 th {
     padding: 5px 10px;
-    font-size: 20px;
+
     font-weight: 500;
     flex-wrap: wrap;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .table_2 th {
     font-weight: 900;
+    font-size: 11pt;
+    text-align: center;
+}
+
+.table_2 td {
+    font-size: 14.66667px;
 }
 
 @media (max-width: 768px) {
-    .table_1 td,
-    .table_1 th {
-        padding: 5px 0px !important;
-        font-size: 11px;
-        font-weight: 400;
-        flex-wrap: wrap;
+    .table_2 {
+        width: 90%;
+        margin: 0% auto;
+        overflow-y: scroll;
+    }
+}
+
+@media (max-width: 1200px) {
+    .table_2 {
+        width: 90%;
+        margin: 0% auto;
+        overflow-y: scroll;
     }
 
-    .table_2 td,
-    .table_2 th {
-        padding: 5px 0px !important;
-        font-size: 8px;
-        /* font-weight: 100; */
-        flex-wrap: wrap;
+    .table_1 td,
+    .table_1 th {
+
+
+        padding: 5px 1px !important;
     }
 }
