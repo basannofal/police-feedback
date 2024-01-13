@@ -39,16 +39,16 @@ const Complaint = () => {
     });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
 
     try {
-        const res = await axios.post(`${PORT}/addcomplaint`, formData)
+      const res = await axios.post(`${PORT}/addcomplaint`, formData)
 
     } catch (error) {
-        console.error("Error saving data", error);
-        
+      console.error("Error saving data", error);
+
     }
 
   };
@@ -182,12 +182,12 @@ const Complaint = () => {
               <div class="fields">
                 <div class="input-field">
                   <label>Item Name</label>
-                  <input type="text"  onChange={handleInputChange} value={formData.itemname} name="itemname" placeholder="Enter Item name" />
+                  <input type="text" onChange={handleInputChange} value={formData.itemname} name="itemname" placeholder="Enter Item name" />
                 </div>
 
                 <div class="input-field">
                   <label>Item Description</label>
-                  <textarea type="text"  onChange={handleInputChange} value={formData.itemdesc} name="itemdesc" placeholder="Enter Item Description" />
+                  <textarea type="text" onChange={handleInputChange} value={formData.itemdesc} name="itemdesc" placeholder="Enter Item Description" />
                 </div>
                 <div class="input_image">
                   <label>Item Images</label>
