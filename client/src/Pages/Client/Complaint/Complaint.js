@@ -1,7 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../../Assets/css/complaint.css';
+import axios from 'axios';
 
 const Complaint = () => {
+    const [distData, setDistData] = useState([]);
+    const [stationData, setStationData] = useState([]);
+
+    useEffect(() => {
+        getAllDistrictData();
+        getAllStationData();
+    }, [])
+
+    //get district data
+    const getAllDistrictData = () => {
+        axios
+            .get("http://localhost:1010/getDistrict")
+            .then((res) => {
+                setDistData(res.data);
+                console.log(res.data);
+            })
+            .catch((error) => {
+                console.log("Error in Getting Data", error);
+            });
+    };
+
+    //get all station data
+    const getAllStationData = () => {
+        axios
+            .get("http://localhost:1010/getStationData")
+            .then((res) => {
+                setStationData(res.data);
+                console.log(res.data);
+            })
+            .catch((error) => {
+                console.log("Error in Getting Data", error);
+            });
+    };
+
     return (
         <>
             <div className="container secActive">
@@ -14,7 +49,7 @@ const Complaint = () => {
 
                             <div class="fields">
                                 <div class="input-field">
-                                   <label>First Name</label>
+                                    <label>First Name</label>
                                     <input type="text" placeholder="Enter First name" />
                                 </div>
 
@@ -46,6 +81,44 @@ const Complaint = () => {
                                 <div class="input-field">
                                     <label>Pin Code</label>
                                     <input type="number" placeholder="Enter Pin Code" />
+                                </div>
+                                <div className="input-field">
+                                    <label
+                                        htmlFor="districtSelect"
+                                        className="col-form-label"
+                                    >
+                                        District Name:
+                                    </label>
+                                    <select
+                                        className="form-control"
+                                        name="district_id"
+                                    >
+                                        <option value="">Select District</option>
+                                        {distData.map((district) => (
+                                            <option key={district.id} value={district.id}>
+                                                {district.district_name}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="input-field">
+                                    <label
+                                        htmlFor="districtSelect"
+                                        className="col-form-label"
+                                    >
+                                        District Name:
+                                    </label>
+                                    <select
+                                        className="form-control"
+                                        name="district_id"
+                                    >
+                                        <option value="">Select District</option>
+                                        {stationData.map((station) => (
+                                            <option key={station.id} value={station.id}>
+                                                {station.station_name}
+                                            </option>
+                                        ))}
+                                    </select>
                                 </div>
                             </div>
                         </div>

@@ -10,7 +10,7 @@
     top: 25%;
     right: -390px;
     width: 390px;
-    height: 400px;
+    height: 430px;
     background-color: #FFFFFF;
     color: black;
     border: 2px solid #E0E0E0;
@@ -37,6 +37,16 @@
     border-radius: 5px;
     margin-top: 100px;
 }
+#submit-btn{
+    transform: rotate(0deg) !important;
+    padding: 8px 18px;
+    font-size: 15px;
+    color: white;
+    background-color: #0B5ED7;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0px 0px 20px;
+}
 
 .feedback-button.open {
     right: 361px;
@@ -58,6 +68,25 @@
     /* align-items: center; */
     /* justify-content: center; */
     height: 100%;
+}
+
+.sidebar-content h2 {
+    text-align: center;
+    font-size: 28px;
+}
+
+.feed_back_form {
+    margin: 10px 20px;
+}
+
+.feed_back_form select {
+    width: 80%;
+    margin-top: 10px;
+}
+.feed_back_form textarea {
+    width: 80%;
+    margin-top: 10px;
+    padding: 5px;
 }
 
 .feedback-text {

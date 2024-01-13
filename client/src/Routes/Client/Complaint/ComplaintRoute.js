@@ -6,15 +6,15 @@ const ComplaintRoute = () => {
   return (
     <>
       <Routes>
-      <Route
-        path="/complaint"
-        element={
-          <>
-            <Complaint />
-          </>
-        }
-      />
-    </Routes>
+        <Route
+          path="/complaint"
+          element={
+            <>
+              <Complaint />
+            </>
+          }
+        />
+      </Routes>
     </>
   )
 }
