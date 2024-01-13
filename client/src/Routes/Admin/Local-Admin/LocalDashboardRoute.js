@@ -6,7 +6,7 @@ const LocalDashboardRoute = () => {
     <>
       <Routes>
         <Route
-          path="/local-station-admin"
+          path="/local-station-admin/:id"
           element={
             <>
               <LocalAdminDashboard />

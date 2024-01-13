@@ -7,7 +7,7 @@ const DistrictDashboardRoute = () => {
     <>
       <Routes>
         <Route
-          path="/district-admin"
+          path="/district-admin/:id"
           element={
             <>
               <DistrictAdminDashboard />

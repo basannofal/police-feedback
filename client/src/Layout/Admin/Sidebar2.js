@@ -53,19 +53,19 @@ const Sidebar2 = ({ isOpen }) => {
             </NavLink>
           </li>
           <li className={location.pathname === "/district" ? "active" : ""}>
-            <NavLink to="/district">
+            <NavLink to="/district-admin">
               <i class="bx bxs-city"></i>
               <span className="text">Police Station</span>
             </NavLink>
           </li>
           <li className={location.pathname === "/station" ? "active" : ""}>
-            <NavLink to="/station">
+            <NavLink to="/district-admin">
               <i class="bx bx-building-house"></i>
               <span className="text">Complaints</span>
             </NavLink>
           </li>
           <li className={location.pathname === "/notice" ? "active" : ""}>
-            <NavLink to="/notice">
+            <NavLink to="/district-admin">
               <i class="bx bxs-notification"></i>
               <span className="text">Notice</span>
             </NavLink>

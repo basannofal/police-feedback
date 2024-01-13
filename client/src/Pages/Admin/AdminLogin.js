@@ -44,6 +44,7 @@ const AdminLogin = () => {
             formData
           );
 
+          
           // Check the response status code
           if (response.data.success) {
             localStorage.setItem(
@@ -56,10 +57,10 @@ const AdminLogin = () => {
           }
         } else if (formData.role === "2") {
           // Send login data to the server
-          const response = await axios.post(
-            `${PORT}/district-admin-login`,
-            formData
+          const response = await axios.get(
+            `${PORT}/district-admin-login/${formData.email}/${formData.password}`,
           );
+
 
           // Check the response status code
           if (response.data.success) {
@@ -67,7 +68,7 @@ const AdminLogin = () => {
               "MainAdminToken",
               JSON.stringify(response.data.district_admin)
             );
-            navigate("../district-admin", { replace: true });
+            navigate(`../district-admin/${response?.data?.district_admin?.id}`, { replace: true });
           } else {
             setMessage(
               response.data.error || "Invalid District Admin Credentials"
@@ -86,7 +87,7 @@ const AdminLogin = () => {
               "MainAdminToken",
               JSON.stringify(response.data.local_admin)
             );
-            navigate("../local-station-admin", { replace: true });
+            navigate(`../local-station-admin/${response?.data?.local_admin?.id}`, { replace: true });
           } else {
             setMessage(
               response.data.error || "Invalid Local Station Admin Credentials"

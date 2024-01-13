@@ -1,11 +1,11 @@
 const conn = require("../../Database/conn");
 
 const districtAdminLogin = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, pass } = req.params;
 
   // Check if the provided email and password match the records in the database
   const query = `SELECT * FROM rj_district WHERE email = ? AND password = ?`;
-  conn.query(query, [email, password], (err, results) => {
+  conn.query(query, [email, pass], (err, results) => {
     if (err) {
       console.error("Error executing query: ", err);
       res.status(500).json({ success: false, error: "Internal server error" });
@@ -14,7 +14,7 @@ const districtAdminLogin = async (req, res) => {
 
     if (results.length === 0) {
       res
-        .status(200)
+        .status(500)
         .json({ success: false, error: "Invalid District Admin Credentials" });
       return;
     } else {

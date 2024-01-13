@@ -2,6 +2,7 @@ const conn = require("../../../Database/conn");
 
 const addFeedback = (req, res) => {
     const { ans_1, ans_2, ans_3, ans_4, ans_5, did, sid, ans_6 } = req.body;
+    console.log(req.body);
     const sql = "INSERT INTO rj_login_feedback (ans_1, ans_2, ans_3, ans_4, ans_5,did,sid, ans_6) VALUES (?,?,?, ?, ?, ?, ?, ?)";
     const data = [ans_1, ans_2, ans_3, ans_4, ans_5, did, sid, ans_6];
 

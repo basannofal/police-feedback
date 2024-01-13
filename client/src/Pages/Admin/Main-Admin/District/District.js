@@ -5,7 +5,7 @@ import Navbar from "../../../../Layout/Admin/Navbar";
 import "../../../../Assets/css/form.css";
 import axios from "axios";
 import DeleteModal from "../../../../Layout/Admin/DeleteModal";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 const PORT = process.env.REACT_APP_PROXY_URL;
 
 const District = () => {
@@ -156,6 +156,12 @@ const District = () => {
       });
   };
 
+  const navigate = useNavigate();
+
+  const goDistDashboard = (id) => {
+    navigate(`/district-admin/${id}`)
+  }
+
   return (
     <>
       <Sidebar1 isOpen={!sidebarHidden} />
@@ -237,6 +243,13 @@ const District = () => {
                           >
                             <i className="fa-sharp fa-solid fa-trash"></i>
                           </button>
+                          <button
+                            className="data_delete_btn"
+                            onClick={()=> goDistDashboard(distData.id)}
+                          >
+                            <i className="fa-sharp fa-solid fa-trash"></i>
+                          </button>
+                          
                         </td>
                       </tr>
                     );
