@@ -44,18 +44,18 @@ td:last-child {
   text-align: left;
 }
 
-th {
+/* th {
   background-color: #aadfe1;
   font-weight: 300;
-}
+} */
 
 tr:nth-child(2n) {
   background-color: white;
 }
 
-tr:nth-child(2n + 1) {
+/* tr:nth-child(2n + 1) {
   background-color: #bce6e8;
-}
+} */
 
 @media screen and (max-width: 700px) {
   table,

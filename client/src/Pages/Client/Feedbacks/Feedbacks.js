@@ -91,15 +91,15 @@ const Feedbacks = () => {
 
 
     return (
-        <div className="container secActive">
+        <div className="feedbacks mt-5 border">
             <header>Feedback Form</header>
             <form method='post' onSubmit={addFeedbackData}>
-                <div className="forms first" style={{ width: '90%' }}>
+                <div className="forms first">
                     <div className="details feedback">
-                        <span className="title">Feedback</span>
+                        <span className="feedbacktitle">Feedback</span>
 
                         <div className="row">
-                            <div className="col-md-7">
+                            <div className="col-md-7 feedbackDev">
                                 <div className="input-field">
                                     <label>How satisfied were you with the communication during your interaction with our service?</label>
                                     <select className="form-control" name='ans_1' onChange={handleAnswerChange}>
@@ -112,7 +112,7 @@ const Feedbacks = () => {
                                 </div>
                             </div>
 
-                            <div className="col-md-5">
+                            <div className="col-md-5 feedbackDev">
                                 <div className="input-field">
                                     <label>How satisfied are you with the resolution provided by our service?</label>
                                     <select className="form-control" name='ans_2' onChange={handleAnswerChange}>
@@ -126,7 +126,7 @@ const Feedbacks = () => {
                         </div>
 
                         <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-md-6 feedbackDev">
                                 <div className="input-field">
                                     <label>Would you use our service again?</label>
                                     <select className="form-control" name='ans_3' onChange={handleAnswerChange}>
@@ -137,7 +137,7 @@ const Feedbacks = () => {
                                 </div>
                             </div>
 
-                            <div className="col-md-6">
+                            <div className="col-md-6 feedbackDev">
                                 <div className="input-field">
                                     <label>How likely are you to recommend our service to others?</label>
                                     <select className="form-control" name='ans_4' onChange={handleAnswerChange}>
@@ -154,7 +154,7 @@ const Feedbacks = () => {
 
 
                         <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-md-6 feedbackDev">
                                 <div className="input-field">
                                     <label htmlFor="districtSelect" className="col-form-label">
                                         District Name:
@@ -175,7 +175,7 @@ const Feedbacks = () => {
                                 </div>
                             </div>
 
-                            <div className="col-md-6">
+                            <div className="col-md-6 feedbackDev">
                                 <div className="input-field">
                                     <label htmlFor="stationselect" className="col-form-label">
                                         Station Name:
@@ -198,7 +198,7 @@ const Feedbacks = () => {
                         </div>
 
                         <div className="row">
-                            <div className="col-md-12">
+                            <div className="col-md-12 feedbackDev">
                                 <div className="input-field">
                                     <label>Please provide additional comments or suggestions for improvement?</label>
                                     <textarea className="form-control" placeholder="Enter your comments" name='ans_5' onChange={handleAnswerChange}></textarea>
@@ -207,7 +207,7 @@ const Feedbacks = () => {
                         </div>
 
                         <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-md-6 feedbackDev">
                                 <div className="input-field">
                                     <label>Give me a rating on stars?</label>
                                     <div className="star-rating">
@@ -228,9 +228,8 @@ const Feedbacks = () => {
 
 
 
-                        <button className="submit" type='submit'>
+                        <button className="btn btn-primary feedbackDev" type='submit'>
                             <span className="btnText">Submit</span>
-                            <i className="uil uil-navigator"></i>
                         </button>
                     </div>
                 </div>

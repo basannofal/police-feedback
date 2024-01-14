@@ -93,7 +93,7 @@ const CitizenLogin = () => {
 
   return (
     <>
-      <section className="container">
+      <section className="containt border">
         <header>Citizen Login</header>
         <form action="#" className="form" onSubmit={handleLogin}>
           <div className="column">

@@ -7,12 +7,15 @@
 .home_main {
     display: flex;
     /* flex-wrap: wrap; */
+    width: 90%;
+    margin: 0px auto 10px;
 }
 
 .home_img img {
     width: 670px;
     height: 400px;
     margin-top: 1px;
+    border-radius: 0px;
 }
 
 .home_pg p {
