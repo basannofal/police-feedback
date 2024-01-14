@@ -64,8 +64,8 @@ const Sidebar2 = ({ isOpen }) => {
               <span className="text">Complaints</span>
             </NavLink>
           </li>
-          <li className={location.pathname === "/notice" ? "active" : ""}>
-            <NavLink to="/district-admin">
+          <li className={location.pathname === "/notis" ? "active" : ""}>
+            <NavLink to="/notis">
               <i class="bx bxs-notification"></i>
               <span className="text">Notice</span>
             </NavLink>

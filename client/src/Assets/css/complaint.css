@@ -10,24 +10,24 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.container header {
-    position: relative;
-    font-size: 20px;
-    font-weight: 600;
-    color: #333;
-    text-align: left;
-    margin-top: 10px;
+.containerForComplaint {
+    max-width: 80%;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 15px auto;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.container header::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    height: 3px;
-    width: 27px;
-    border-radius: 8px;
-    background-color: #4070f4;
+.container header {
+    position: relative;
+    font-size: 25px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .container form {
@@ -56,6 +56,10 @@ form.secActive .form.second {
     transform: translateX(0);
 }
 
+.complaints {
+    text-align: center !important;
+}
+
 form.secActive .form.first {
     opacity: 0;
     pointer-events: none;
@@ -65,7 +69,7 @@ form.secActive .form.first {
 .container form .title {
     display: block;
     margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 500;
     margin: 6px 0;
     color: #333;
@@ -86,7 +90,7 @@ form .fields .input-field {
 }
 
 .input-field label {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     color: #2e2e2e;
 }
@@ -254,4 +258,30 @@ form .buttons button,
 .star-rating .active {
     color: rgb(188, 120, 43);
 
+}
+
+/* feedback css */
+.feedbacks {
+    position: relative;
+    max-width: 80%;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 15px auto;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.feedbacks header{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+}
+.feedbacktitle{
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 25px;
+}
+.feedbackDev{
+    margin-top: 20px !important;
 }
