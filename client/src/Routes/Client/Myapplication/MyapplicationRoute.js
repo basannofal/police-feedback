@@ -9,7 +9,7 @@ const ServiseRoute = () => {
     return (
         <>
             <Routes>
-                <Route path='/myapplication' element={
+                <Route path='/myapplication/:id' element={
                     <>
                         <Navbar />
                         <Myapplication />

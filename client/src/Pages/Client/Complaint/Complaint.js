@@ -64,7 +64,8 @@ const Complaint = () => {
 
       const res = await axios.post(`${PORT}/addcomplaint/${id}`, newData);
 
-      navigate("/myapplication", { replace: true });
+
+      navigate(`/myapplication/${id}`, { replace: true })
     } catch (error) {
       console.error("Error saving data", error);
     }
@@ -114,7 +115,7 @@ const Complaint = () => {
 
   return (
     <>
-      <div className="container secActive">
+      <div className="container secActive mt-5 border">
         <header>Complaint Form</header>
 
         <form method="post" encType="multipart/form-data">

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "../../Assets/css/sidebar.css";
 import { useLocation } from "react-router-dom";
 import LogOut from "./LogOut";
 
 const Sidebar3 = ({ isOpen }) => {
+
+  const {id} = useParams("");
+  console.log(id)
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -35,6 +38,7 @@ const Sidebar3 = ({ isOpen }) => {
     navigate("/admin-login");
   };
 
+
   return (
     <>
       <section id="sidebar" className={isOpen ? "" : "hide"}>
@@ -45,21 +49,21 @@ const Sidebar3 = ({ isOpen }) => {
         <ul className="side-menu top">
           {/* Main Admin */}
           <li
-            className={location.pathname === "/district-admin" ? "active" : ""}
+            className={location.pathname.startsWith("/local-station-admin") ? "active" : ""}
           >
-            <NavLink to="/district-admin">
+            <NavLink to={`/local-station-admin/${id}`}>
               <i className="bx bxs-dashboard"></i>
               <span className="text">Dashboard</span>
             </NavLink>
           </li>
-          <li className={location.pathname === "/station" ? "active" : ""}>
-            <NavLink to="/station">
+          <li className={location.pathname.startsWith("/local-station-complaint") ? "active" : ""}>
+            <NavLink to={`/local-station-complaint/${id}`}>
               <i class="bx bx-building-house"></i>
               <span className="text">Complaints</span>
             </NavLink>
           </li>
-          <li className={location.pathname === "/notice" ? "active" : ""}>
-            <NavLink to="/notice">
+          <li className={location.pathname === "/notis" ? "active" : ""}>
+            <NavLink to="/notis">
               <i class="bx bxs-notification"></i>
               <span className="text">Notice</span>
             </NavLink>

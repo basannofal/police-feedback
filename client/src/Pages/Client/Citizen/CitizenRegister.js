@@ -205,8 +205,8 @@ const CitizenRegister = () => {
 
   return (
     <>
-      <section className="container">
-        <header>Citizen Registration</header>
+      <section className="container mt-5 border">
+        <header className="register-header">Citizen Registration</header>
         <form action="#" className="form" onSubmit={handleRegister}>
           <div className="column">
             <div className="input-box">
