@@ -7,7 +7,11 @@ const Myapplication = require("../../../Controller/Client/MyApplication/myapplic
 
 router.route("/getmyapplication/:id").get(Myapplication.getMyApplications);
 router.route("/getlocalapplication/:id").get(Myapplication.getLocalApplications);
-router.route("/editapoimenttime/:id").patch(Myapplication.editApoimentTime);
+router.route("/editapoimenttime/:cid/:id").patch(Myapplication.editApoimentTime);
+router.route("/editverify/:cid/:id").patch(Myapplication.editVerfiy);
+router.route("/editrejectbypolice/:cid/:id").patch(Myapplication.editRejectByPolice);
+router.route("/editrejectbyuser/:cid/:id").patch(Myapplication.editRejectByUser);
+router.route("/editsuccess/:cid/:id").patch(Myapplication.editsuccess);
 
 
 

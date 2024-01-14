@@ -11,6 +11,7 @@ const LocalComplaints = () => {
   const [isDarkMode, setDarkMode] = useState(false);
   const [allData, setAllData] = useState([]);
   const [complaintId, setComplaintId] = useState(null);
+  const [userId, setUserId] = useState(null);
 
   const [appointmentdata, setappointmentdata] = useState({
     appointment_date: "",
@@ -36,10 +37,42 @@ const LocalComplaints = () => {
     try {
       // Send a POST request with appointmentdata
       const res = await axios.patch(
-        `${PORT}/editapoimenttime/${complaintId}`,
+        `${PORT}/editapoimenttime/${complaintId}/${userId}`,
         appointmentdata
       );
-      getApplications()
+      getApplications();
+      // Handle the response as needed
+      console.log(res.data);
+    } catch (error) {
+      console.log("Error in saving district data", error);
+    }
+  };
+
+  const saveVerify = async (item) => {
+    setComplaintId(item.id);
+    setUserId(item.user_id);
+    try {
+      // Send a POST request with appointmentdata
+      const res = await axios.patch(
+        `${PORT}/editverify/${complaintId}/${userId}`
+      );
+      getApplications();
+      // Handle the response as needed
+      console.log(res.data);
+    } catch (error) {
+      console.log("Error in saving district data", error);
+    }
+  };
+
+  const saveSuccess = async (item) => {
+    setComplaintId(item.id);
+    setUserId(item.user_id);
+    try {
+      // Send a POST request with appointmentdata
+      const res = await axios.patch(
+        `${PORT}/editsuccess/${complaintId}/${userId}`
+      );
+      getApplications();
       // Handle the response as needed
       console.log(res.data);
     } catch (error) {
@@ -150,7 +183,6 @@ const LocalComplaints = () => {
                     const renderOperations = (item) => {
                       switch (item.status) {
                         case 0:
-                          
                           return (
                             <>
                               <button
@@ -159,7 +191,10 @@ const LocalComplaints = () => {
                                 data-bs-toggle="modal"
                                 data-bs-target="#exampleModal"
                                 data-bs-whatever="@mdo"
-                                onClick={() => setComplaintId(item.id)}
+                                onClick={() => {
+                                  setComplaintId(item.id);
+                                  setUserId(item.user_id);
+                                }}
                               >
                                 Set Appointment
                               </button>
@@ -168,7 +203,10 @@ const LocalComplaints = () => {
                         case 1:
                           return (
                             <>
-                              <button className="btn btn-success" >
+                              <button
+                                className="btn btn-warning"
+                                onClick={() => saveVerify(item)}
+                              >
                                 Verify
                               </button>
                               <button className="btn btn-danger">Reject</button>
@@ -177,7 +215,10 @@ const LocalComplaints = () => {
                         case 2:
                           return (
                             <>
-                              <button className="btn btn-success">
+                              <button
+                                className="btn btn-success"
+                                onClick={() => saveSuccess(item)}
+                              >
                                 Success
                               </button>
                               <button className="btn btn-danger">Reject</button>
