@@ -5,7 +5,7 @@ const twilio = require("twilio");
 const OpenAI = require("openai");
 
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: "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",
 });
 
 const chatBoat = async (req, res) => {
@@ -39,7 +39,8 @@ const chatBoat = async (req, res) => {
 
 // Twilio credentials
 const accountSid = "ACa99f7e636f920b0fea25afac9c1485ce";
-const authToken = "d71a483a6f491a7dc33d136701768966";
+// const authToken = "d71a483a6f491a7dc33d136701768966";
+const authToken = "6eb4f4447ac2802543e5cefebbe1edab";
 const client = new twilio(accountSid, authToken);
 
 // Map to store OTPs (replace with a database in a production environment)
