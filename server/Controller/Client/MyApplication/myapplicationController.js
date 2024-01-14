@@ -101,7 +101,6 @@ const editApoimentTime = async (req, res) => {
       text: `Hello, ${name} \n \n you application succesfully seen by police and take action for your complaint \n visit our station and verify your identity \n\n Appointment Date : ${appointment_date} \n Appointment Time : ${appointment_time}`,
     };
 
-
     await transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log("error " + error);
@@ -113,7 +112,6 @@ const editApoimentTime = async (req, res) => {
     console.log(err);
   }
 };
-
 
 const editVerfiy = async (req, res) => {
   console.log(req.params);
@@ -158,12 +156,7 @@ const editVerfiy = async (req, res) => {
     const email = Namedata[0].email;
     const sql =
       "UPDATE `rj_citizen_complaint` SET `status`= ?, `verify_date`= ?, `verify_time`= ?  WHERE id=?";
-    const data = [
-      2,
-      formattedDate,
-      formattedTime,
-      cid,
-    ];
+    const data = [2, formattedDate, formattedTime, cid];
 
     conn.query(sql, data, (error) => {
       if (error) {
@@ -189,7 +182,6 @@ const editVerfiy = async (req, res) => {
       subject: "Complaint Verification Latter",
       text: `Hello, ${name} \n \n you FIR succesfully Verifed by police and be patiant we are working start on your complaint  \n Thank you for your patiant \n\n Police Team`,
     };
-
 
     await transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
@@ -244,17 +236,13 @@ const editRejectByPolice = async (req, res) => {
     const Namedata = await getData(id);
     const name = Namedata[0].fname;
     const email = Namedata[0].email;
-    const { appointment_date, appointment_time } = req.body;
+    const userId = Namedata[0].id;
+
+    const { feedbackData } = req.body;
+
     const sql =
-      "UPDATE `rj_citizen_complaint` SET `status`= ?, `raw_fir_date`= ?, `raw_fir_time`= ?, `appointment_date`= ?, `appointment_time`= ?  WHERE id=?";
-    const data = [
-      1,
-      formattedDate,
-      formattedTime,
-      appointment_date,
-      appointment_time,
-      cid,
-    ];
+      "UPDATE `rj_citizen_complaint` SET `status`= ?, `verify_date`= ?, `verify_time`= ? , `msg`= ?  WHERE id=?";
+    const data = [4, formattedDate, formattedTime, feedbackData, cid];
 
     conn.query(sql, data, (error) => {
       if (error) {
@@ -277,10 +265,9 @@ const editRejectByPolice = async (req, res) => {
     const mailOptions = {
       from: "sunasarahusenahmad07@gmail.com",
       to: email,
-      subject: "Apoiment Latter",
-      text: `Hello, ${name} \n \n you application succesfully seen by police and take action for your complaint \n visit our station and verify your identity \n\n Appointment Date : ${appointment_date} \n Appointment Time : ${appointment_time}`,
+      subject: "Reject Complaint",
+      text: `Hello, ${name} \n \n Your compalaint Rejected by this Reason\n Reason : ${feedbackData}\n\n if you feel free then contact any other inquiry \n\n give feedback for batter work and we can improve our system \n feedback Link:- http://localhost:3000/feedback-page/${userId}`,
     };
-
 
     await transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
@@ -335,17 +322,13 @@ const editRejectByUser = async (req, res) => {
     const Namedata = await getData(id);
     const name = Namedata[0].fname;
     const email = Namedata[0].email;
-    const { appointment_date, appointment_time } = req.body;
+    const userId = Namedata[0].id;
+
+    const { feedbackData } = req.body;
+
     const sql =
-      "UPDATE `rj_citizen_complaint` SET `status`= ?, `raw_fir_date`= ?, `raw_fir_time`= ?, `appointment_date`= ?, `appointment_time`= ?  WHERE id=?";
-    const data = [
-      1,
-      formattedDate,
-      formattedTime,
-      appointment_date,
-      appointment_time,
-      cid,
-    ];
+      "UPDATE `rj_citizen_complaint` SET `status`= ?, `verify_date`= ?, `verify_time`= ? , `msg`= ?  WHERE id=?";
+    const data = [5, formattedDate, formattedTime, feedbackData, cid];
 
     conn.query(sql, data, (error) => {
       if (error) {
@@ -368,10 +351,9 @@ const editRejectByUser = async (req, res) => {
     const mailOptions = {
       from: "sunasarahusenahmad07@gmail.com",
       to: email,
-      subject: "Apoiment Latter",
-      text: `Hello, ${name} \n \n you application succesfully seen by police and take action for your complaint \n visit our station and verify your identity \n\n Appointment Date : ${appointment_date} \n Appointment Time : ${appointment_time}`,
+      subject: "Reject Complaint",
+      text: `Hello, ${name} \n \n Your compalaint Rejected by this Reason\n Reason : ${feedbackData}\n\n if you feel free then contact any other inquiry \n\n give feedback for batter work and we can improve our system \n feedback Link:- http://localhost:3000/feedback-page/${userId}`,
     };
-
 
     await transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
@@ -428,15 +410,9 @@ const editsuccess = async (req, res) => {
     const email = Namedata[0].email;
     const userId = Namedata[0].id;
 
-
     const sql =
       "UPDATE `rj_citizen_complaint` SET `status`= ?, `complete_date`= ?, `complete_time`= ?  WHERE id=?";
-    const data = [
-      3,
-      formattedDate,
-      formattedTime,
-      cid,
-    ];
+    const data = [3, formattedDate, formattedTime, cid];
 
     conn.query(sql, data, (error) => {
       if (error) {
@@ -463,7 +439,6 @@ const editsuccess = async (req, res) => {
       text: `Hello, ${name} \n \n your Complaint succesfully Solved by our police team and thank you for being patiant\n are we helpful for you ? \n\n give our feedback and if you want to give any suggestion give please \n\n feedback Link:- http://localhost:3000/feedback-page/${userId}`,
     };
 
-
     await transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log("error " + error);
@@ -476,4 +451,12 @@ const editsuccess = async (req, res) => {
   }
 };
 
-module.exports = { getMyApplications, getLocalApplications, editApoimentTime, editVerfiy, editRejectByPolice, editRejectByUser, editsuccess };
+module.exports = {
+  getMyApplications,
+  getLocalApplications,
+  editApoimentTime,
+  editVerfiy,
+  editRejectByPolice,
+  editRejectByUser,
+  editsuccess,
+};

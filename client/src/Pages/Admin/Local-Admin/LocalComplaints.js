@@ -12,6 +12,7 @@ const LocalComplaints = () => {
   const [allData, setAllData] = useState([]);
   const [complaintId, setComplaintId] = useState(null);
   const [userId, setUserId] = useState(null);
+  const [feedbackData, setfeedbackData] = useState("");
 
   const [appointmentdata, setappointmentdata] = useState({
     appointment_date: "",
@@ -80,6 +81,26 @@ const LocalComplaints = () => {
     }
   };
 
+  const saveReject = async (e) => {
+    e.preventDefault();
+    try {
+      const data = {
+        feedbackData: feedbackData,
+        // Include other properties if needed
+      };
+      // Send a POST request with appointmentdata
+      const res = await axios.patch(
+        `${PORT}/editrejectbypolice/${complaintId}/${userId}`,
+        data
+      );
+      getApplications();
+      // Handle the response as needed
+      console.log(res.data);
+    } catch (error) {
+      console.log("Error in saving district data", error);
+    }
+  };
+
   const toggleSidebar = () => {
     setSidebarHidden(!sidebarHidden);
   };
@@ -115,6 +136,11 @@ const LocalComplaints = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+
+  const handleFeedbackChange = (e) => {
+    setfeedbackData(e.target.value);
+  };
   return (
     <>
       <Sidebar3 isOpen={!sidebarHidden} />
@@ -209,7 +235,19 @@ const LocalComplaints = () => {
                               >
                                 Verify
                               </button>
-                              <button className="btn btn-danger">Reject</button>
+                              <button
+                                className="btn btn-danger mx-2"
+                                id="add-district"
+                                data-bs-toggle="modal"
+                                data-bs-target="#messageModal"
+                                data-bs-whatever="@mdo"
+                                onClick={() => {
+                                  setComplaintId(item.id);
+                                  setUserId(item.user_id);
+                                }}
+                              >
+                                Reject
+                              </button>
                             </>
                           );
                         case 2:
@@ -221,7 +259,19 @@ const LocalComplaints = () => {
                               >
                                 Success
                               </button>
-                              <button className="btn btn-danger">Reject</button>
+                              <button
+                                className="btn btn-danger mx-2"
+                                id="add-district"
+                                data-bs-toggle="modal"
+                                data-bs-target="#messageModal"
+                                data-bs-whatever="@mdo"
+                                onClick={() => {
+                                  setComplaintId(item.id);
+                                  setUserId(item.user_id);
+                                }}
+                              >
+                                Reject
+                              </button>
                             </>
                           );
                         case 3:
@@ -276,7 +326,7 @@ const LocalComplaints = () => {
                 <div className="modal-content">
                   <div className="modal-header">
                     <h1 className="modal-title fs-5" id="exampleModalLabel">
-                      Add District
+                      Set Appointment
                     </h1>
                     <button
                       type="button"
@@ -335,6 +385,64 @@ const LocalComplaints = () => {
                       data-bs-dismiss="modal"
                     >
                       Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <form method="post" onSubmit={saveReject}>
+            <div
+              className="modal fade"
+              id="messageModal"
+              tabIndex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h1 className="modal-title fs-5" id="exampleModalLabel">
+                      Send Feedback
+                    </h1>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-body">
+                    <form>
+                      <div className="mb-3">
+                        <label htmlFor="feedback" className="col-form-label">
+                          Feedback:
+                        </label>
+                        <textarea
+                          className="form-control"
+                          id="feedback"
+                          name="feedback"
+                          value={feedbackData}
+                          onChange={handleFeedbackChange}
+                        />
+                      </div>
+                    </form>
+                  </div>
+                  <div className="modal-footer">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="submit"
+                      className="btn btn-danger"
+                      data-bs-dismiss="modal"
+                    >
+                      Reject With Feedback
                     </button>
                   </div>
                 </div>
