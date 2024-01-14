@@ -9,9 +9,9 @@ const DistrictRoutes = require("./Routes/Admin/DistrictRoute");
 const StationRoutes = require("./Routes/Admin/StationRoute");
 const DistrictAdminRoute = require("./Routes/Admin/DistrictAdminRoute");
 const LocalAdminRoute = require("./Routes/Admin/LocalAdminRoute");
-const Feedback = require("./Routes/Client/Feedback/FeedbackRoute")
-const Complaint = require("./Routes/Client/complaints/complaintRoute")
-
+const Feedback = require("./Routes/Client/Feedback/FeedbackRoute");
+const Complaint = require("./Routes/Client/complaints/complaintRoute");
+const EmergencyComplaint = require("./Routes/Client/EmergencyComplaint/EmergencyComplaintRoute");
 
 app.use(express.json());
 app.use(cors());
@@ -26,6 +26,7 @@ app.use("/", DistrictAdminRoute);
 app.use("/", LocalAdminRoute);
 app.use("/", Feedback);
 app.use("/", Complaint);
+app.use("/", EmergencyComplaint);
 
 app.listen(1010, () => {
   console.log("SERVER CREATED AT 1010");

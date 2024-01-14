@@ -1,271 +1,270 @@
 .container {
-    position: relative;
-    /* max-width: 700px; */
-    width: 100%;
-    background: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  /* max-width: 700px; */
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .container header {
-    font-size: 1.5rem;
-    color: #333;
-    font-weight: 500;
-    text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
 }
 
 .container .form {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .form .input_box {
-    width: 100%;
-    margin-top: 20px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .input_box label {
-    color: #333;
+  color: #333;
 }
 
 .form :where(.input_box input, .select_box) {
-    position: relative;
-    height: 50px;
-    width: 100%;
-    outline: none;
-    font-size: 1rem;
-    color: #707070;
-    margin-top: 8px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 0 15px;
+  position: relative;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
 }
 
 .input_box input:focus {
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .form .column {
-    display: flex;
-    column-gap: 15px;
+  display: flex;
+  column-gap: 15px;
 }
 
 .form .gender_box {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .gender_box h3 {
-    color: #333;
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 8px;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 8px;
 }
 
 .form :where(.gender_option, .gender) {
-    display: flex;
-    align-items: center;
-    column-gap: 50px;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+  flex-wrap: wrap;
 }
 
 .form .gender {
-    column-gap: 5px;
+  column-gap: 5px;
 }
 
 .gender input {
-    accent-color: rgb(130, 106, 251);
+  accent-color: rgb(130, 106, 251);
 }
 
 .form :where(.gender input, .gender label) {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .gender label {
-    color: #707070;
+  color: #707070;
 }
 
 .address :where(input, .select_box) {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .select_box select {
-    height: 100%;
-    width: 100%;
-    outline: none;
-    border: none;
-    color: #707070;
-    font-size: 1rem;
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #707070;
+  font-size: 1rem;
 }
 
 .form button {
-    height: 55px;
-    width: 100%;
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 400;
-    margin-top: 30px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: rgb(130, 106, 251);
+  height: 55px;
+  width: 100%;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgb(130, 106, 251);
 }
 
 .form button:hover {
-    background: rgb(88, 56, 250);
+  background: rgb(88, 56, 250);
 }
 
 /*Responsive*/
 @media screen and (max-width: 500px) {
-    .form .column {
-        flex-wrap: wrap;
-    }
+  .form .column {
+    flex-wrap: wrap;
+  }
 
-    .form :where(.gender_option, .gender) {
-        row-gap: 15px;
-    }
+  .form :where(.gender_option, .gender) {
+    row-gap: 15px;
+  }
 }
 
-
 .editbutton {
-    background-color: #b5bbfe;
-    padding: 6px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15px;
-    height: 35px;
-    border: none;
+  background-color: #b5bbfe;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  height: 35px;
+  border: none;
 }
 
 .editbutton:hover {
-    background-color: #8992f1;
+  background-color: #8992f1;
 }
 
 .data_delete_btn {
-    background-color: rgb(199, 11, 42);
-    color: white;
-    padding: 6px 11px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15px;
-    height: 35px;
-    margin-left: 10px;
-    border: none;
+  background-color: rgb(199, 11, 42);
+  color: white;
+  padding: 6px 11px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  height: 35px;
+  margin-left: 10px;
+  border: none;
 }
 
 .data_delete_btn:hover {
-    background-color: rgb(239, 94, 118);
+  background-color: rgb(239, 94, 118);
 }
 
 #add-district {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* DELETE MODAL CSS */
 .delete_modal_content {
-    background: white;
-    padding: 1rem;
-    padding-right: 50px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    margin: auto;
-    /* Center horizontally */
-    position: absolute;
-    top: 10%;
-    /* Center vertically */
-    left: 40%;
-    transform: translate(-50%, -50%);
+  background: white;
+  padding: 1rem;
+  padding-right: 50px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: auto;
+  /* Center horizontally */
+  position: absolute;
+  top: 10%;
+  /* Center vertically */
+  left: 40%;
+  transform: translate(-50%, -50%);
 }
 
 .delete_modal_content p {
-    color: #414141;
-    margin-top: 5px;
-    /* text-align: center; */
-    padding-left: 20px;
+  color: #414141;
+  margin-top: 5px;
+  /* text-align: center; */
+  padding-left: 20px;
 }
 
 .delete_modal_content button {
-    outline: none;
-    cursor: pointer;
-    border: none;
+  outline: none;
+  cursor: pointer;
+  border: none;
 }
 
 .delete_modal_content #close-modal {
-    position: absolute;
-    right: 30px;
-    top: 15px;
-    color: #999;
-    background: transparent;
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  color: #999;
+  background: transparent;
 }
 
 .delete_modal_content #delete-button {
-    position: relative;
-    left: 85%;
-    background: linear-gradient(to right, #3b82f6, #2563eb, #2563eb, #3b82f6);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 8px 13px;
-    height: auto;
-    margin-top: 10px;
+  position: relative;
+  left: 85%;
+  background: linear-gradient(to right, #3b82f6, #2563eb, #2563eb, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 8px 13px;
+  height: auto;
+  margin-top: 10px;
 }
 
 .delete_modal_content #delete-button:hover {
-    background: linear-gradient(to bottom right, #3b82f6, #2563eb);
+  background: linear-gradient(to bottom right, #3b82f6, #2563eb);
 }
 
 .delete_title {
-    font-size: 25px;
-    font-weight: 600;
-    padding-left: 20px;
+  font-size: 25px;
+  font-weight: 600;
+  padding-left: 20px;
 }
 
 .delete_input {
-    border-radius: 5px;
-    margin: 8px 0px 0px 20px;
+  border-radius: 5px;
+  margin: 8px 0px 0px 20px;
 }
 
 .delete_modal_hidden {
-    display: none;
+  display: none;
 }
 
 .delete-modal {
-    position: fixed;
-    top: 40%;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
+  position: fixed;
+  top: 40%;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
 }
 
 .delete_input:focus {
-    outline: none;
+  outline: none;
 }
 
 @media only screen and (max-width: 770px) {
-    .delete_modal_content {
-        max-width: 70% !important;
-    }
+  .delete_modal_content {
+    max-width: 70% !important;
+  }
 
-    .delete_modal_content p {
-        margin-top: 5px !important;
-    }
+  .delete_modal_content p {
+    margin-top: 5px !important;
+  }
 
-    .delete_modal_content #delete-button {
-        left: 70% !important;
-        margin-top: 10px;
-    }
+  .delete_modal_content #delete-button {
+    left: 70% !important;
+    margin-top: 10px;
+  }
 
-    .delete_modal_content #close-modal {
-        right: 8px !important;
-        top: 0px !important;
-    }
+  .delete_modal_content #close-modal {
+    right: 8px !important;
+    top: 0px !important;
+  }
 
-    .delete-modal {
-        top: 40% !important;
-        left: 10% !important;
-        width: 100% !important;
-        height: 100% !important;
-    }
+  .delete-modal {
+    top: 40% !important;
+    left: 10% !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
 }

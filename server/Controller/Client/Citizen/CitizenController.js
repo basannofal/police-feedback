@@ -5,7 +5,7 @@ const twilio = require("twilio");
 const OpenAI = require("openai");
 
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: "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",
 });
 
 const chatBoat = async (req, res) => {
