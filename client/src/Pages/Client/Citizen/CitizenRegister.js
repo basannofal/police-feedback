@@ -4,6 +4,7 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ChatBoat from "./ChatBoat";
 
 const PORT = process.env.REACT_APP_PROXY_URL;
 
@@ -204,8 +205,8 @@ const CitizenRegister = () => {
 
   return (
     <>
-      <section className="container">
-        <header>Citizen Registration</header>
+      <section className="container mt-5 border">
+        <header className="register-header">Citizen Registration</header>
         <form action="#" className="form" onSubmit={handleRegister}>
           <div className="column">
             <div className="input-box">
@@ -359,6 +360,7 @@ const CitizenRegister = () => {
           <NavLink to={"/citizen-login"}> Click here</NavLink>
         </div>
       </section>
+      <ChatBoat />
     </>
   );
 };

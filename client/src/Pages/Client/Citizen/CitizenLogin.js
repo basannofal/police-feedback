@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../../Assets/css/register_login.css";
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
+import ChatBoat from "./ChatBoat";
 const PORT = process.env.REACT_APP_PROXY_URL;
 
 const CitizenLogin = () => {
@@ -93,7 +94,7 @@ const CitizenLogin = () => {
 
   return (
     <>
-      <section className="container">
+      <section className="containt border">
         <header>Citizen Login</header>
         <form action="#" className="form" onSubmit={handleLogin}>
           <div className="column">
@@ -138,6 +139,7 @@ const CitizenLogin = () => {
           <NavLink to={"/citizen-register"}> Click here</NavLink>
         </div>
       </section>
+      <ChatBoat />
     </>
   );
 };

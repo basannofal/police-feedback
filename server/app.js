@@ -9,6 +9,7 @@ const DistrictRoutes = require("./Routes/Admin/DistrictRoute");
 const StationRoutes = require("./Routes/Admin/StationRoute");
 const DistrictAdminRoute = require("./Routes/Admin/DistrictAdminRoute");
 const LocalAdminRoute = require("./Routes/Admin/LocalAdminRoute");
+const EmergencyComplaint = require("./Routes/Client/EmergencyComplaint/EmergencyComplaintRoute");
 const Feedback = require("./Routes/Client/Feedback/FeedbackRoute")
 const Complaint = require("./Routes/Client/complaints/complaintRoute")
 const MyapplicationRoute = require("./Routes/Client/myapplication/MyapplicationRoute")
@@ -27,6 +28,7 @@ app.use("/", DistrictAdminRoute);
 app.use("/", LocalAdminRoute);
 app.use("/", Feedback);
 app.use("/", Complaint);
+app.use("/", EmergencyComplaint);
 app.use("/", MyapplicationRoute);
 
 

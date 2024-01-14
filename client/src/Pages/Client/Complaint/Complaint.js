@@ -5,13 +5,13 @@ import { useNavigate, useParams } from "react-router-dom";
 const PORT = process.env.REACT_APP_PROXY_URL;
 
 const Complaint = () => {
-  const {id} = useParams("");
+  const { id } = useParams("");
   const navigate = useNavigate();
 
   const [distData, setDistData] = useState([]);
   const [stationData, setStationData] = useState([]);
   const [selectedDistrict, setSelectedDistrict] = useState("");
-  const [user, setuser] = useState([])
+  const [user, setuser] = useState([]);
 
   const [formData, setFormData] = useState({
     fname: "",
@@ -27,7 +27,6 @@ const Complaint = () => {
     itemdesc: "",
     itemimage: null,
   });
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -47,7 +46,7 @@ const Complaint = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    
+
     try {
       const newData = new FormData();
       newData.append("fname", formData.fname);
@@ -63,16 +62,14 @@ const Complaint = () => {
       newData.append("itemdesc", formData.itemdesc);
       newData.append("itemimage", formData.itemimage);
 
-      const res = await axios.post(`${PORT}/addcomplaint/${id}`, newData)
+      const res = await axios.post(`${PORT}/addcomplaint/${id}`, newData);
+
 
       navigate(`/myapplication/${id}`, { replace: true })
     } catch (error) {
       console.error("Error saving data", error);
-
     }
-
   };
-
 
   useEffect(() => {
     getAllDistrictData();
@@ -80,7 +77,7 @@ const Complaint = () => {
     const storedUser = JSON.parse(localStorage.getItem("userToken"));
 
     if (storedUser) {
-      setuser(storedUser)
+      setuser(storedUser);
     }
   }, []);
 
@@ -118,7 +115,7 @@ const Complaint = () => {
 
   return (
     <>
-      <div className="container secActive">
+      <div className="container secActive mt-5 border">
         <header>Complaint Form</header>
 
         <form method="post" encType="multipart/form-data">
@@ -129,37 +126,79 @@ const Complaint = () => {
               <div class="fields">
                 <div class="input-field">
                   <label>First Name</label>
-                  <input type="text" onChange={handleInputChange} value={formData.fname} name="fname" placeholder="Enter First name" />
+                  <input
+                    type="text"
+                    onChange={handleInputChange}
+                    value={formData.fname}
+                    name="fname"
+                    placeholder="Enter First name"
+                  />
                 </div>
 
                 <div class="input-field">
                   <label>Middle Name</label>
-                  <input type="text" onChange={handleInputChange} value={formData.mname} name="mname" placeholder="Enter Middle name" />
+                  <input
+                    type="text"
+                    onChange={handleInputChange}
+                    value={formData.mname}
+                    name="mname"
+                    placeholder="Enter Middle name"
+                  />
                 </div>
 
                 <div class="input-field">
                   <label>Last Name</label>
-                  <input type="text" onChange={handleInputChange} value={formData.lname} name="lname" placeholder="Enter Last name" />
+                  <input
+                    type="text"
+                    onChange={handleInputChange}
+                    value={formData.lname}
+                    name="lname"
+                    placeholder="Enter Last name"
+                  />
                 </div>
 
                 <div class="input-field">
                   <label>Email</label>
-                  <input type="text" onChange={handleInputChange} value={formData.email} name="email" placeholder="Enter your email" />
+                  <input
+                    type="text"
+                    onChange={handleInputChange}
+                    value={formData.email}
+                    name="email"
+                    placeholder="Enter your email"
+                  />
                 </div>
 
                 <div class="input-field">
                   <label>Mobile Number</label>
-                  <input type="number" onChange={handleInputChange} value={formData.number} name="number" placeholder="Enter mobile number" />
+                  <input
+                    type="number"
+                    onChange={handleInputChange}
+                    value={formData.number}
+                    name="number"
+                    placeholder="Enter mobile number"
+                  />
                 </div>
 
                 <div class="input-field">
                   <label>Present Address</label>
-                  <input type="text" onChange={handleInputChange} value={formData.address} name="address" placeholder="Enter Present Address" />
+                  <input
+                    type="text"
+                    onChange={handleInputChange}
+                    value={formData.address}
+                    name="address"
+                    placeholder="Enter Present Address"
+                  />
                 </div>
 
                 <div class="input-field">
                   <label>Pin Code</label>
-                  <input type="number" onChange={handleInputChange} value={formData.pincode} name="pincode" placeholder="Enter Pin Code" />
+                  <input
+                    type="number"
+                    onChange={handleInputChange}
+                    value={formData.pincode}
+                    name="pincode"
+                    placeholder="Enter Pin Code"
+                  />
                 </div>
                 <div className="input-field">
                   <label htmlFor="districtSelect" className="col-form-label">
@@ -189,7 +228,7 @@ const Complaint = () => {
                     name="sid"
                     onChange={handleInputChange}
                   >
-                    <option value="">Select District</option>
+                    <option value="">Select Station</option>
                     {filteredStations.map((station) => (
                       <option key={station.id} value={station.id}>
                         {station.station_name}
@@ -206,18 +245,39 @@ const Complaint = () => {
               <div class="fields">
                 <div class="input-field">
                   <label>Item Name</label>
-                  <input type="text" onChange={handleInputChange} value={formData.itemname} name="itemname" placeholder="Enter Item name" />
+                  <input
+                    type="text"
+                    onChange={handleInputChange}
+                    value={formData.itemname}
+                    name="itemname"
+                    placeholder="Enter Item name"
+                  />
                 </div>
 
                 <div class="input-field">
                   <label>Item Description</label>
-                  <textarea type="text" onChange={handleInputChange} value={formData.itemdesc} name="itemdesc" placeholder="Enter Item Description" />
+                  <textarea
+                    type="text"
+                    onChange={handleInputChange}
+                    value={formData.itemdesc}
+                    name="itemdesc"
+                    placeholder="Enter Item Description"
+                  />
                 </div>
                 <div class="input_image">
                   <label>Item Images</label>
-                  <input  type="file" onChange={handleFileChange} name="itemimage" />
+                  <input
+                    type="file"
+                    onChange={handleFileChange}
+                    name="itemimage"
+                  />
                 </div>
-                <button type="button" onClick={handleSubmit} class="sumbit">
+                <button
+                  className="com_btn"
+                  type="button"
+                  onClick={handleSubmit}
+                  class="sumbit"
+                >
                   <span class="btnText">Submit</span>
                   <i class="uil uil-navigator"></i>
                 </button>

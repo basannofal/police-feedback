@@ -14,13 +14,14 @@ import MainDashboardRoute from "./Routes/Admin/Main-Admin/MainDashboardRoute";
 import DistrictDashboardRoute from "./Routes/Admin/District-Admin/DistrictDashboardRoute";
 import LocalDashboardRoute from "./Routes/Admin/Local-Admin/LocalDashboardRoute";
 import MyapplicationRoute from "./Routes/Client/Myapplication/MyapplicationRoute";
-
+import EmergencyComplaintRoute from "./Routes/Client/EmergencyComplaint/EmergencyComplaintRoute";
 
 ReactDOM.render(
   <BrowserRouter>
     {/* Citizen Routes */}
     <CitizenRegisterLoginRoute />
     <ComplaintRoute />
+    <EmergencyComplaintRoute />
     <HomeRoute />
     <ContactRoute />
     <ServiseRoute />
