@@ -83,7 +83,7 @@ function Navbar() {
               to={`/myapplication/${user.id}`}
               activeClassName="active"
             >
-              <i class="fa-regular fa-envelope"></i> My Application
+              <i class="fa-regular fa-envelope"></i> My Complaints
             </NavLink>
             ) : ""
           }
