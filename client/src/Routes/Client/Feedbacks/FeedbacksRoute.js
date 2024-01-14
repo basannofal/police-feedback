@@ -7,7 +7,7 @@ const FeedbacksRoute = () => {
   return (
     <>
       <Routes>
-        <Route path='/feedback-page' element={
+        <Route path='/feedback-page/:id' element={
           <>
             <Navbar />
             <Feedbacks />

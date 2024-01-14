@@ -6,6 +6,8 @@ const Myapplication = require("../../../Controller/Client/MyApplication/myapplic
 
 
 router.route("/getmyapplication/:id").get(Myapplication.getMyApplications);
+router.route("/getlocalapplication/:id").get(Myapplication.getLocalApplications);
+router.route("/editapoimenttime/:id").patch(Myapplication.editApoimentTime);
 
 
 

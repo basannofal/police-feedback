@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../../../Assets/css/table.css";
+import styles from "./Myapplication.module.css";  // Import the CSS module
 import axios from "axios";
 import { useParams } from "react-router-dom";
 const PORT = process.env.REACT_APP_PROXY_URL;
@@ -8,6 +8,7 @@ const Myapplication = () => {
   const [myapplications, setMyapplications] = useState([]);
   const [itemStatus, setItemStatus] = useState(0);
   const { id } = useParams("");
+  
   const getApplications = async () => {
     try {
       const res = await axios.get(`${PORT}/getmyapplication/${id}`);
@@ -21,16 +22,17 @@ const Myapplication = () => {
       console.log("Error in Getting Data", error);
     }
   };
+
   useEffect(() => {
     getApplications();
   }, []);
 
   return (
     <>
-      <div class="table-users">
-        <div class="header">My Complaints</div>
+      <div className={styles.applicationTable}>
+        <div className={styles.applicationTableHeader}>My Complaints</div>
 
-        <table cellspacing="0">
+        <table cellSpacing="0">
           <tr>
             <th>Stolen Item</th>
             <th>Item Name</th>
@@ -69,6 +71,7 @@ const Myapplication = () => {
                   <img
                     src={`/upload/complaint/${item.item_img}`}
                     alt={item.item_name}
+                    className={styles.applicationTableImg}
                   />
                 </td>
                 <td>{item.item_name}</td>
@@ -86,37 +89,37 @@ const Myapplication = () => {
                 </td>
                 <td>
                   {item.complaint_date != null ? (
-                    <i class="fa-regular fa-circle-check"></i>
+                    <i className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}></i>
                   ) : (
-                    <i class="fa-solid fa-calendar-day"></i>
+                    <i className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}></i>
                   )}
                 </td>
                 <td>
                   {item.complete_date != null ? (
-                    <i class="fa-regular fa-circle-check"></i>
+                    <i className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}></i>
                   ) : (
-                    <i class="fa-solid fa-calendar-day"></i>
+                    <i className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}></i>
                   )}
                 </td>
                 <td>
                   {item.raw_fir_date != null ? (
-                    <i class="fa-regular fa-circle-check"></i>
+                    <i className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}></i>
                   ) : (
-                    <i class="fa-solid fa-calendar-day"></i>
+                    <i className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}></i>
                   )}
                 </td>
                 <td>
                   {item.verify_date != null ? (
-                    <i class="fa-regular fa-circle-check"></i>
+                    <i className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}></i>
                   ) : (
-                    <i class="fa-solid fa-calendar-day"></i>
+                    <i className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}></i>
                   )}
                 </td>
                 <td>
                   <button
-                    className="btn btn-danger"
+                    className={`btn btn-danger ${styles.applicationTableCell}`}
                   >
-                    <i class="fa-solid fa-circle-xmark"></i>
+                    <i className={`fa-solid fa-circle-xmark ${styles.applicationTableCell}`}></i>
                   </button>
                 </td>
               </tr>

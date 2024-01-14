@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import '../../../Assets/css/complaint.css';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 const PORT = process.env.REACT_APP_PROXY_URL;
 
 const Feedbacks = () => {
+    const {id} = useParams("")
     const [rating, setRating] = useState(0);
     const handleStarClick = (selectedRating) => {
         setRating(selectedRating);
@@ -42,7 +44,7 @@ const Feedbacks = () => {
         }
 
         await axios
-            .post(`http://localhost:1010/addFeedback`, addData)
+            .post(`http://localhost:1010/addFeedback/${id}`, addData)
             .then(() => {
                 const form = e.target;
                 form.reset();
