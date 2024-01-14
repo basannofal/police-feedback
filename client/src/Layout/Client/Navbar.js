@@ -80,7 +80,7 @@ function Navbar() {
             isAuth ? (
               <NavLink
               className="nav-link"
-              to="/citizen-login"
+              to={`/myapplication/${user.id}`}
               activeClassName="active"
             >
               <i class="fa-regular fa-envelope"></i> My Application
