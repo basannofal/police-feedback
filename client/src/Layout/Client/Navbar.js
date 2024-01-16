@@ -137,7 +137,7 @@ function Navbar() {
           )}
         </div>
 
-        <select value={lang} onChange={handleChange}>
+        {/* <select value={lang} onChange={handleChange}>
           {languages.map((item) => {
             return (
               <option key={item.value} value={item.value}>
@@ -145,7 +145,7 @@ function Navbar() {
               </option>
             );
           })}
-        </select>
+        </select> */}
       </nav>
     </div>
   );
