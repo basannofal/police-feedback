@@ -11,24 +11,23 @@
 }
 
 .containerForComplaint {
-    max-width: 80%;
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-    padding: 30px;
-    margin: 15px auto;
-    background-color: #fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  padding: 30px;
+  margin: 15px auto;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .container header {
-
-    position: relative;
-    font-size: 25px;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    margin-top: 10px;
+  position: relative;
+  font-size: 25px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .container form {
@@ -58,7 +57,7 @@ form.secActive .form.second {
 }
 
 .complaints {
-    text-align: center !important;
+  text-align: center !important;
 }
 
 form.secActive .form.first {
@@ -68,13 +67,12 @@ form.secActive .form.first {
 }
 
 .container form .title {
-
-    display: block;
-    margin-bottom: 8px;
-    font-size: 19px;
-    font-weight: 500;
-    margin: 6px 0;
-    color: #333;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 19px;
+  font-weight: 500;
+  margin: 6px 0;
+  color: #333;
 }
 
 .container form .fields {
@@ -92,9 +90,9 @@ form .fields .input-field {
 }
 
 .input-field label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #2e2e2e;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2e2e2e;
 }
 
 .input-field input,
@@ -257,32 +255,40 @@ form .buttons button,
 }
 
 .star-rating .active {
-    color: rgb(188, 120, 43);
-
+  color: rgb(188, 120, 43);
 }
 
 /* feedback css */
 .feedbacks {
-    position: relative;
-    max-width: 80%;
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-    padding: 30px;
-    margin: 15px auto;
-    background-color: #fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-width: 80%;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  padding: 30px;
+  margin: 15px auto;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
-.feedbacks header{
-    text-align: center;
-    font-size: 25px;
-    font-weight: 500;
+.feedbacks header {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 500;
 }
-.feedbacktitle{
-    font-size: 19px;
-    font-weight: 600;
-    line-height: 25px;
+.feedbacktitle {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 25px;
 }
-.feedbackDev{
-    margin-top: 20px !important;
+.feedbackDev {
+  margin-top: 20px !important;
+}
+/* For WebKit browsers (Chrome, Safari) */
+form::-webkit-scrollbar {
+  width: 3px; /* Adjust as needed */
+}
+
+form::-webkit-scrollbar-thumb {
+  background-color: #281859;
+  border-radius: 10px; /* Adjust as needed to match the container's border radius */
 }
