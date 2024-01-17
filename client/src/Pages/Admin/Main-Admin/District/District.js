@@ -245,11 +245,11 @@ const District = () => {
                           </button>
                           <button
                             className="data_delete_btn"
-                            onClick={()=> goDistDashboard(distData.id)}
+                            onClick={() => goDistDashboard(distData.id)}
                           >
                             <i className="fa-sharp fa-solid fa-trash"></i>
                           </button>
-                          
+
                         </td>
                       </tr>
                     );

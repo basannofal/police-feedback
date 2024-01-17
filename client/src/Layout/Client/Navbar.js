@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+// import { useTranslation } from "react-i18next";
+// import i18next from "i18next";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../../Assets/css/homeNavbar.css";
 
@@ -23,23 +23,23 @@ function Navbar() {
   }, []);
 
   // Contains the value and text for the options
-  const languages = [
-    { value: "", text: "Options" },
-    { value: "en", text: "English" },
-    { value: "hi", text: "Hindi" },
-  ];
-  const { t } = useTranslation();
-  const [lang, setLang] = useState("en");
+  // const languages = [
+  //   { value: "", text: "Options" },
+  //   { value: "en", text: "English" },
+  //   { value: "hi", text: "Hindi" },
+  // ];
+  // const { t } = useTranslation();
+  // const [lang, setLang] = useState("en");
 
   // This function put query that helps to
   // change the language
-  const handleChange = (e) => {
-    const selectedLang = e.target.value;
-    setLang(selectedLang);
+  // const handleChange = (e) => {
+  //   const selectedLang = e.target.value;
+  //   setLang(selectedLang);
 
-    // Use i18next to change the language
-    i18next.changeLanguage(selectedLang);
-  };
+  //   // Use i18next to change the language
+  //   i18next.changeLanguage(selectedLang);
+  // };
 
   return (
     <div>
@@ -64,7 +64,7 @@ function Navbar() {
           />
         </div>
         <div className="rj_text">
-          <p>{t("CITIZEN PORTAL, RAJASTHAN POLICE")}</p>
+          <p>CITIZEN PORTAL, RAJASTHAN POLICE</p>
           (HOME DEPARTMENT, GOVERNMENT OF RAJASTHAN)
         </div>
       </div>
@@ -137,7 +137,7 @@ function Navbar() {
           )}
         </div>
 
-        <select value={lang} onChange={handleChange}>
+        {/* <select value={lang} onChange={handleChange}>
           {languages.map((item) => {
             return (
               <option key={item.value} value={item.value}>
@@ -145,7 +145,7 @@ function Navbar() {
               </option>
             );
           })}
-        </select>
+        </select> */}
       </nav>
     </div>
   );

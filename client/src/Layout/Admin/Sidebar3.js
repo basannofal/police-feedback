@@ -73,7 +73,7 @@ const Sidebar3 = ({ isOpen }) => {
               location.pathname === "/citizen-feedback" ? "active" : ""
             }
           >
-            <NavLink to="/citizen-feedback">
+            <NavLink to={`/feedback/${id}`}>
               <i class="bx bxs-notification"></i>
               <span className="text">Feedback</span>
             </NavLink>
