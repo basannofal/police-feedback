@@ -137,8 +137,7 @@ const MainAdminDashboard = () => {
           <ResponsiveContainer width="100%" height={300}>
         <BarChart
           data={chartData}
-          width={500}
-          height={300}
+          width={50} height={40}
           margin={{
             top: 5,
             right: 30,
