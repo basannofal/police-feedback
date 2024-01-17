@@ -15,6 +15,7 @@ const Complaint = require("./Routes/Client/complaints/complaintRoute")
 const MyapplicationRoute = require("./Routes/Client/myapplication/MyapplicationRoute");
 const ContactRoute = require("./Routes/Client/Contact/ContactRoute")
 const FeedbackRoute = require("./Routes/Admin/FeedbackRoute")
+const AllFeedbackRoute = require("./Routes/Admin/AllFeedbackRoute")
 
 
 app.use(express.json());
@@ -34,6 +35,7 @@ app.use("/", EmergencyComplaint);
 app.use("/", MyapplicationRoute);
 app.use("/", ContactRoute);
 app.use("/", FeedbackRoute);
+app.use("/", AllFeedbackRoute);
 
 
 app.listen(1010, () => {

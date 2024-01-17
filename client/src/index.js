@@ -16,6 +16,7 @@ import LocalDashboardRoute from "./Routes/Admin/Local-Admin/LocalDashboardRoute"
 import MyapplicationRoute from "./Routes/Client/Myapplication/MyapplicationRoute";
 import EmergencyComplaintRoute from "./Routes/Client/EmergencyComplaint/EmergencyComplaintRoute";
 import FeedbackRoute from "./Routes/Admin/Local-Admin/FeedbackRoute";
+import AllFeedbackRoute from "./Routes/Admin/Local-Admin/AllFeedbackRoute";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -36,6 +37,7 @@ ReactDOM.render(
 
     {/* Local Admin Routes */}
     <LocalDashboardRoute />
+    <AllFeedbackRoute />
     <FeedbackRoute />
     {/* Admins Login Routes */}
     <AdminLoginRoute />
