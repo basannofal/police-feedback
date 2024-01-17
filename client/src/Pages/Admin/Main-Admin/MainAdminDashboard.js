@@ -2,6 +2,20 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../../Layout/Admin/Navbar";
 import Sidebar1 from "../../../Layout/Admin/Sidebar1";
 import "../../../Assets/css/main.css";
+import axios from "axios";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  Rectangle,
+} from "recharts";
+
+const PORT = process.env.REACT_APP_PROXY_URL;
 
 const MainAdminDashboard = () => {
   const [sidebarHidden, setSidebarHidden] = useState(window.innerWidth < 768);
@@ -24,9 +38,72 @@ const MainAdminDashboard = () => {
     window.addEventListener("resize", handleResize);
 
     return () => {
+      console.log("Cleanup function called");
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const [citizenFeedback, setCitizenFeedback] = useState([]);
+  const [allDist, setAllDist] = useState([]);
+  const [allComplaints, setAllComplaints] = useState([])
+
+  const getFeedbackData = async () => {
+    try {
+      const res = await axios.get(`${PORT}/getcitizenfeedback`);
+      setCitizenFeedback(res.data);
+    } catch (error) {
+      console.log("Error in Getting Data", error);
+    }
+  };
+
+  const getAllDistrict = () => {
+    axios
+      .get(`${PORT}/getDistrict`)
+      .then((res) => {
+        setAllDist(res.data);
+      })
+      .catch((error) => {
+        console.log("Error in Getting Data", error);
+      });
+  };
+
+  const getAllComplaints = async () => {
+    try {
+      const res = await axios.get(`${PORT}/getallcomplaints`);
+      setAllComplaints(res.data);
+      console.log(allComplaints);
+    } catch (error) {
+      console.log("Error in Getting Data", error);
+    }
+  };
+
+  //get All feedback data
+  useEffect(() => {
+    getFeedbackData();
+    getAllDistrict();
+    getAllComplaints()
+  }, []);
+
+  // Create data for the chart
+  const chartData = allDist.map((district) => {
+    const districtFeedback = citizenFeedback.filter(
+      (feedback) => feedback.did === district.id
+    );
+
+    const districtComplaints = allComplaints.filter(
+      (complaint) => complaint.dist_id === district.id
+    );
+
+    return {
+      district: district.district_name,
+      complaints: districtComplaints.length, // Count of complaints for the district
+      feedback: districtFeedback.length, // Count of feedback for the district
+    };
+  });
+
+
+
+  const ratings = Array.from({ length: 5 }, (_, index) => `${index + 1} Star`);
 
   return (
     <>
@@ -57,144 +134,26 @@ const MainAdminDashboard = () => {
             </a>
           </div>
 
-          <ul className="box-info">
-            <li>
-              <i className="bx bxs-calendar-check"></i>
-              <span className="text">
-                <h3>1020</h3>
-                <p>New Order</p>
-              </span>
-            </li>
-            <li>
-              <i className="bx bxs-group"></i>
-              <span className="text">
-                <h3>2834</h3>
-                <p>Visitors</p>
-              </span>
-            </li>
-            <li>
-              <i className="bx bxs-dollar-circle"></i>
-              <span className="text">
-                <h3>$2543</h3>
-                <p>Total Sales</p>
-              </span>
-            </li>
-          </ul>
-
-          <div className="table-data">
-            <div className="order">
-              <div className="head">
-                <h3>Recent Orders</h3>
-                <i className="bx bx-search"></i>
-                <i className="bx bx-filter"></i>
-              </div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>User</th>
-                    <th>Date Order</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <img
-                        src={require("../../../Assets/Images/people.png")}
-                        alt="user"
-                      />
-                      <p>John Doe</p>
-                    </td>
-                    <td>01-10-2021</td>
-                    <td>
-                      <span className="status completed">Completed</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src={require("../../../Assets/Images/people.png")}
-                        alt="user"
-                      />
-                      <p>John Doe</p>
-                    </td>
-                    <td>01-10-2021</td>
-                    <td>
-                      <span className="status pending">Pending</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src={require("../../../Assets/Images/people.png")}
-                        alt="user"
-                      />
-                      <p>John Doe</p>
-                    </td>
-                    <td>01-10-2021</td>
-                    <td>
-                      <span className="status process">Process</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src={require("../../../Assets/Images/people.png")}
-                        alt="user"
-                      />
-                      <p>John Doe</p>
-                    </td>
-                    <td>01-10-2021</td>
-                    <td>
-                      <span className="status pending">Pending</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src={require("../../../Assets/Images/people.png")}
-                        alt="user"
-                      />
-                      <p>John Doe</p>
-                    </td>
-                    <td>01-10-2021</td>
-                    <td>
-                      <span className="status completed">Completed</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="todo">
-              <div className="head">
-                <h3>Todos</h3>
-                <i className="bx bx-plus"></i>
-                <i className="bx bx-filter"></i>
-              </div>
-              <ul className="todo-list">
-                <li className="completed">
-                  <p>Todo List</p>
-                  <i className="bx bx-dots-vertical-rounded"></i>
-                </li>
-                <li className="completed">
-                  <p>Todo List</p>
-                  <i className="bx bx-dots-vertical-rounded"></i>
-                </li>
-                <li className="not-completed">
-                  <p>Todo List</p>
-                  <i className="bx bx-dots-vertical-rounded"></i>
-                </li>
-                <li className="completed">
-                  <p>Todo List</p>
-                  <i className="bx bx-dots-vertical-rounded"></i>
-                </li>
-                <li className="not-completed">
-                  <p>Todo List</p>
-                  <i className="bx bx-dots-vertical-rounded"></i>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <ResponsiveContainer width="100%" height={300}>
+        <BarChart
+          data={chartData}
+          width={50} height={40}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="district" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="complaints" fill="#8884d8" />
+          <Bar dataKey="feedback" fill="#82ca9d" />
+        </BarChart>
+      </ResponsiveContainer>
         </main>
       </section>
     </>

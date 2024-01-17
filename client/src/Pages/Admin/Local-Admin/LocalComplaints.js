@@ -206,103 +206,105 @@ const LocalComplaints = () => {
                           }
                         };
 
-                        const renderOperations = (item) => {
-                          switch (item.status) {
-                            case 0:
-                              return (
-                                <>
-                                  <button
-                                    className="btn btn-primary"
-                                    id="add-district"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal"
-                                    data-bs-whatever="@mdo"
-                                    onClick={() => {
-                                      setComplaintId(item.id);
-                                      setUserId(item.user_id);
-                                    }}
-                                  >
-                                    Set Appointment
-                                  </button>
-                                </>
-                              );
-                            case 1:
-                              return (
-                                <>
-                                  <button
-                                    className="btn btn-warning"
-                                    onClick={() => saveVerify(item)}
-                                  >
-                                    Verify
-                                  </button>
-                                  <button
-                                    className="btn btn-danger mx-2"
-                                    id="add-district"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#messageModal"
-                                    data-bs-whatever="@mdo"
-                                    onClick={() => {
-                                      setComplaintId(item.id);
-                                      setUserId(item.user_id);
-                                    }}
-                                  >
-                                    Reject
-                                  </button>
-                                </>
-                              );
-                            case 2:
-                              return (
-                                <>
-                                  <button
-                                    className="btn btn-success"
-                                    onClick={() => saveSuccess(item)}
-                                  >
-                                    Success
-                                  </button>
-                                  <button
-                                    className="btn btn-danger mx-2"
-                                    id="add-district"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#messageModal"
-                                    data-bs-whatever="@mdo"
-                                    onClick={() => {
-                                      setComplaintId(item.id);
-                                      setUserId(item.user_id);
-                                    }}
-                                  >
-                                    Reject
-                                  </button>
-                                </>
-                              );
-                            case 3:
-                            case 4:
-                            case 5:
-                              return <span>Close Complaint</span>;
-                            default:
-                              return null;
-                          }
-                        };
-                        return (
-                          <tr key={item.id}>
-                            <td>
-                              <img
-                                src={`/upload/complaint/${item.item_img}`}
-                                alt={item.item_name}
-                              />
-                            </td>
-                            <td>{item.item_name}</td>
-                            <td>{item.item_desc}</td>
-                            <td>
-                              {item.appointment_date != null
-                                ? item.appointment_date.substring(0, 10)
-                                : "Waiting"}
-                            </td>
-                            <td>
-                              {item.appointment_time != null
-                                ? item.appointment_time
-                                : "Waiting"}
-                            </td>
-                            <td>{getStatusMessage()}</td>
+                    const renderOperations = (item) => {
+                      switch (item.status) {
+                        case 0:
+                          return (
+                            <>
+                              <button
+                                className="btn btn-primary"
+                                id="add-district"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                data-bs-whatever="@mdo"
+                                onClick={() => {
+                                  setComplaintId(item.id);
+                                  setUserId(item.user_id);
+                                }}
+                              >
+                                Set Appointment
+                              </button>
+                            </>
+                          );
+                        case 1:
+                          return (
+                            <>
+                              <button
+                                className="btn btn-warning"
+                                onClick={() => saveVerify(item)}
+                              >
+                                Verify
+                              </button>
+                              <button
+                                className="btn btn-danger mx-2"
+                                id="add-district"
+                                data-bs-toggle="modal"
+                                data-bs-target="#messageModal"
+                                data-bs-whatever="@mdo"
+                                onClick={() => {
+                                  setComplaintId(item.id);
+                                  setUserId(item.user_id);
+                                }}
+                              >
+                                Reject
+                              </button>
+                            </>
+                          );
+                        case 2:
+                          return (
+                            <>
+                              <button
+                                className="btn btn-success"
+                                onClick={() => saveSuccess(item)}
+                              >
+                                Success
+                              </button>
+                              <button
+                                className="btn btn-danger mx-2"
+                                id="add-district"
+                                data-bs-toggle="modal"
+                                data-bs-target="#messageModal"
+                                data-bs-whatever="@mdo"
+                                onClick={() => {
+                                  setComplaintId(item.id);
+                                  setUserId(item.user_id);
+                                }}
+                              >
+                                Reject
+                              </button>
+                            </>
+                          );
+                        case 3:
+                        case 4:
+                        case 5:
+                          return <span>Close Complaint</span>;
+                        default:
+                          return null;
+                      }
+                    };
+                    return (
+                      <tr key={item.id}>
+                        <td>
+                          <img
+                            src={`/upload/complaint/${item.item_img}`}
+                            alt={item.item_name}
+                            className="tableimg"
+                            // className={styles.applicationTableImg}
+                          />
+                        </td>
+                        <td>{item.item_name}</td>
+                        <td>{item.item_desc}</td>
+                        <td>
+                          {item.appointment_date != null
+                            ? item.appointment_date.substring(0, 10)
+                            : "Waiting"}
+                        </td>
+                        <td>
+                          {item.appointment_time != null
+                            ? item.appointment_time
+                            : "Waiting"}
+                        </td>
+                        <td>{getStatusMessage()}</td>
 
                             <td>{renderOperations(item)}</td>
                           </tr>
