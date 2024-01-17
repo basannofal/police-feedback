@@ -43,7 +43,7 @@ const chatBoat = async (req, res) => {
 const accountSid = "ACa99f7e636f920b0fea25afac9c1485ce";
 // const authToken = "d71a483a6f491a7dc33d136701768966";
 // const authToken = "6eb4f4447ac2802543e5cefebbe1edab";/
-const authToken = "756ddaf7157fc16cf63b06b002df22c2";
+const authToken = "8ea0427198c8dac70d8fcc4e63645d20";
 const client = new twilio(accountSid, authToken);
 
 // Map to store OTPs (replace with a database in a production environment)
