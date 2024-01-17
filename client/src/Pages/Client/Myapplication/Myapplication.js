@@ -69,7 +69,7 @@ const Myapplication = () => {
             <th>Appointment Date</th>
             <th>Appointment Time</th>
             <th>Complained</th>
-            <th>Verified</th>
+            <th>give Appointment</th>
             <th>Station Visited</th>
             <th>Completed</th>
             <th>Reject</th>
@@ -127,17 +127,6 @@ const Myapplication = () => {
                   )}
                 </td>
                 <td>
-                  {item.complete_date != null ? (
-                    <i
-                      className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}
-                    ></i>
-                  ) : (
-                    <i
-                      className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}
-                    ></i>
-                  )}
-                </td>
-                <td>
                   {item.raw_fir_date != null ? (
                     <i
                       className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}
@@ -150,6 +139,17 @@ const Myapplication = () => {
                 </td>
                 <td>
                   {item.verify_date != null ? (
+                    <i
+                      className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}
+                    ></i>
+                  ) : (
+                    <i
+                      className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}
+                    ></i>
+                  )}
+                </td>
+                <td>
+                  {item.complete_date != null ? (
                     <i
                       className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}
                     ></i>

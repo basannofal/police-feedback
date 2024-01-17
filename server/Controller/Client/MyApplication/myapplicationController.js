@@ -89,7 +89,7 @@ const editApoimentTime = async (req, res) => {
       service: "Gmail",
       auth: {
         user: "sunasarahusenahmad07@gmail.com", // Your email
-        pass: "evwd ocgp ojwh oich",
+        pass: "unms orfe qpfm ircc",
       },
     });
 
@@ -171,7 +171,7 @@ const editVerfiy = async (req, res) => {
       service: "Gmail",
       auth: {
         user: "sunasarahusenahmad07@gmail.com", // Your email
-        pass: "evwd ocgp ojwh oich",
+        pass: "unms orfe qpfm ircc",
       },
     });
 
@@ -257,7 +257,7 @@ const editRejectByPolice = async (req, res) => {
       service: "Gmail",
       auth: {
         user: "sunasarahusenahmad07@gmail.com", // Your email
-        pass: "evwd ocgp ojwh oich",
+        pass: "unms orfe qpfm ircc",
       },
     });
 
@@ -343,7 +343,7 @@ const editRejectByUser = async (req, res) => {
       service: "Gmail",
       auth: {
         user: "sunasarahusenahmad07@gmail.com", // Your email
-        pass: "evwd ocgp ojwh oich",
+        pass: "unms orfe qpfm ircc",
       },
     });
 
@@ -427,7 +427,7 @@ const editsuccess = async (req, res) => {
       service: "Gmail",
       auth: {
         user: "sunasarahusenahmad07@gmail.com", // Your email
-        pass: "evwd ocgp ojwh oich",
+        pass: "unms orfe qpfm ircc",
       },
     });
 

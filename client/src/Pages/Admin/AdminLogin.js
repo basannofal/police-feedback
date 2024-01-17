@@ -51,6 +51,10 @@ const AdminLogin = () => {
               "MainAdminToken",
               JSON.stringify(response.data.main_admin)
             );
+            localStorage.setItem(
+              "role",
+              1
+            );
             navigate("../main-admin", { replace: true });
           } else {
             setMessage(response.data.error || "Invalid Admin Credentials");
@@ -67,6 +71,10 @@ const AdminLogin = () => {
             localStorage.setItem(
               "MainAdminToken",
               JSON.stringify(response.data.district_admin)
+            );
+            localStorage.setItem(
+              "role",
+              2
             );
             navigate(`../district-admin/${response?.data?.district_admin?.id}`, { replace: true });
           } else {
@@ -86,6 +94,10 @@ const AdminLogin = () => {
             localStorage.setItem(
               "MainAdminToken",
               JSON.stringify(response.data.local_admin)
+            );
+            localStorage.setItem(
+              "role",
+              2
             );
             navigate(`../local-station-admin/${response?.data?.local_admin?.id}`, { replace: true });
           } else {
@@ -132,7 +144,9 @@ const AdminLogin = () => {
   useEffect(() => {
     // Check if the user is already authenticated (for example, using localStorage)
     const storedAdmin = JSON.parse(localStorage.getItem("MainAdminToken"));
-    if (storedAdmin) {
+    const role = localStorage.getItem("role");
+
+    if (storedAdmin && role == 1) {
       navigate("/main-admin", { replace: true });
     }
   }, [navigate]);

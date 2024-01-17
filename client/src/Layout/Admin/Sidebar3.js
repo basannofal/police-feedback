@@ -5,15 +5,20 @@ import { useLocation } from "react-router-dom";
 import LogOut from "./LogOut";
 
 const Sidebar3 = ({ isOpen }) => {
-
-  const {id} = useParams("");
-  console.log(id)
+  const { id } = useParams("");
+  console.log(id);
   const location = useLocation();
   const navigate = useNavigate();
 
+  const [userRole, setUserRole] = useState(0);
+
   useEffect(() => {
     const token = localStorage.getItem("MainAdminToken");
-    if (!token) {
+    const role = localStorage.getItem("role");
+    setUserRole(role);
+    console.log(token);
+    console.log(role == 1 || role == 2);
+    if (!token || (role != 1 && role != 2 && role != 3)) {
       navigate("/admin-login");
     }
   }, []);
@@ -38,46 +43,54 @@ const Sidebar3 = ({ isOpen }) => {
     navigate("/admin-login");
   };
 
-
   return (
     <>
       <section id="sidebar" className={isOpen ? "" : "hide"}>
         <NavLink to="/district-admin" className="brand">
           <i class="bx bxs-chat"></i>
-          <span className="text">PeopleHelps</span>
+          <span className="text">Police Station</span>
         </NavLink>
         <ul className="side-menu top">
           {/* Main Admin */}
           <li
-            className={location.pathname.startsWith("/local-station-admin") ? "active" : ""}
+            className={
+              location.pathname.startsWith("/local-station-admin")
+                ? "active"
+                : ""
+            }
           >
             <NavLink to={`/local-station-admin/${id}`}>
               <i className="bx bxs-dashboard"></i>
               <span className="text">Dashboard</span>
             </NavLink>
           </li>
-          <li className={location.pathname.startsWith("/local-station-complaint") ? "active" : ""}>
+          <li
+            className={
+              location.pathname.startsWith("/local-station-complaint")
+                ? "active"
+                : ""
+            }
+          >
             <NavLink to={`/local-station-complaint/${id}`}>
               <i class="bx bx-building-house"></i>
               <span className="text">Complaints</span>
             </NavLink>
           </li>
-          <li className={location.pathname.startsWith("/local-station-feedback") ? "active" : ""}>
-            <NavLink to={`/local-station-feedback/${id}`}>
-              <i class="bx bxs-notification"></i>
-              <span className="text">Feedbacks</span>
-            </NavLink>
-          </li>
           <li
-            className={
-              location.pathname === `/feedback/${id}` ? "active" : ""
-            }
+            className={location.pathname === `/feedback/${id}` ? "active" : ""}
           >
             <NavLink to={`/feedback/${id}`}>
               <i class="bx bxs-notification"></i>
               <span className="text">Feedback</span>
-
-          <li className={location.pathname.startsWith("/local-station-emergency-complaint") ? "active" : ""}>
+            </NavLink>
+          </li>
+          <li
+            className={
+              location.pathname.startsWith("/local-station-emergency-complaint")
+                ? "active"
+                : ""
+            }
+          >
             <NavLink to={`/local-station-emergency-complaint/${id}`}>
               <i class="bx bx-building-house"></i>
               <span className="text">Emergency Complain</span>
@@ -96,6 +109,26 @@ const Sidebar3 = ({ isOpen }) => {
         </ul>
 
         <ul className="side-menu">
+          {userRole == 2 ? (
+            <li>
+              <NavLink to="/station">
+                <i class="bx bx-left-arrow-alt"></i>
+                <span className="text">Back to Admin</span>
+              </NavLink>
+            </li>
+          ) : (
+            ""
+          )}
+          {userRole == 1 ? (
+            <li>
+              <NavLink to="/station">
+                <i class="bx bx-left-arrow-alt"></i>
+                <span className="text">Back to Admin</span>
+              </NavLink>
+            </li>
+          ) : (
+            ""
+          )}
           <li>
             <NavLink to="/dashboard">
               <i className="bx bxs-cog"></i>

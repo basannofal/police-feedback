@@ -7,10 +7,14 @@ import LogOut from "./LogOut";
 const Sidebar2 = ({ isOpen }) => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [userRole, setUserRole] = useState(0);
 
   useEffect(() => {
     const token = localStorage.getItem("MainAdminToken");
-    if (!token) {
+    const role = localStorage.getItem("role");
+    setUserRole(role);
+    console.log(role == 1 || role == 2);
+    if (!token || (role != 1 && role != 2)) {
       navigate("/admin-login");
     }
   }, []);
@@ -40,7 +44,7 @@ const Sidebar2 = ({ isOpen }) => {
       <section id="sidebar" className={isOpen ? "" : "hide"}>
         <NavLink to="/district-admin" className="brand">
           <i class="bx bxs-chat"></i>
-          <span className="text">PeopleHelps</span>
+          <span className="text">District Panel</span>
         </NavLink>
         <ul className="side-menu top">
           {/* Main Admin */}
@@ -73,6 +77,16 @@ const Sidebar2 = ({ isOpen }) => {
         </ul>
 
         <ul className="side-menu">
+          {userRole == 1 ? (
+            <li>
+              <NavLink to="/main-admin">
+              <i class='bx bx-left-arrow-alt'></i>
+                <span className="text">Back to Admin</span>
+              </NavLink>
+            </li>
+          ) : (
+            ""
+          )}
           <li>
             <NavLink to="/dashboard">
               <i className="bx bxs-cog"></i>

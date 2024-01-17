@@ -10,7 +10,9 @@ const Sidebar1 = ({ isOpen }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("MainAdminToken");
-    if (!token) {
+    const role = localStorage.getItem("role");
+    
+    if (!token || role != 1) {
       navigate("/admin-login");
     }
   }, []);
@@ -40,7 +42,7 @@ const Sidebar1 = ({ isOpen }) => {
       <section id="sidebar" className={isOpen ? "" : "hide"}>
         <NavLink to="/main-admin" className="brand">
           <i class="bx bxs-chat"></i>
-          <span className="text">PeopleHelps</span>
+          <span className="text">Main Admin</span>
         </NavLink>
         <ul className="side-menu top">
           {/* Main Admin */}
