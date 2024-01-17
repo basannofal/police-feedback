@@ -68,10 +68,29 @@ const Sidebar3 = ({ isOpen }) => {
               <span className="text">Feedbacks</span>
             </NavLink>
           </li>
+          <li
+            className={
+              location.pathname === `/feedback/${id}` ? "active" : ""
+            }
+          >
+            <NavLink to={`/feedback/${id}`}>
+              <i class="bx bxs-notification"></i>
+              <span className="text">Feedback</span>
+
           <li className={location.pathname.startsWith("/local-station-emergency-complaint") ? "active" : ""}>
             <NavLink to={`/local-station-emergency-complaint/${id}`}>
               <i class="bx bx-building-house"></i>
               <span className="text">Emergency Complain</span>
+            </NavLink>
+          </li>
+          <li
+            className={
+              location.pathname === `/allfeedback/${id}` ? "active" : ""
+            }
+          >
+            <NavLink to={`/allfeedback/${id}`}>
+              <i class="bx bxs-notification"></i>
+              <span className="text">All Feedback</span>
             </NavLink>
           </li>
         </ul>

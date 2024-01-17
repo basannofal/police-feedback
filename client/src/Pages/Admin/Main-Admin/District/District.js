@@ -246,6 +246,7 @@ const District = () => {
                           >
                             <i className="fa fa-eye"></i>
                           </button>
+
                         </td>
                       </tr>
                     );

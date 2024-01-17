@@ -10,9 +10,12 @@ const StationRoutes = require("./Routes/Admin/StationRoute");
 const DistrictAdminRoute = require("./Routes/Admin/DistrictAdminRoute");
 const LocalAdminRoute = require("./Routes/Admin/LocalAdminRoute");
 const EmergencyComplaint = require("./Routes/Client/EmergencyComplaint/EmergencyComplaintRoute");
-const Feedback = require("./Routes/Client/Feedback/FeedbackRoute");
-const Complaint = require("./Routes/Client/complaints/complaintRoute");
+const Feedback = require("./Routes/Client/Feedback/FeedbackRoute")
+const Complaint = require("./Routes/Client/complaints/complaintRoute")
 const MyapplicationRoute = require("./Routes/Client/myapplication/MyapplicationRoute");
+const ContactRoute = require("./Routes/Client/Contact/ContactRoute")
+const FeedbackRoute = require("./Routes/Admin/FeedbackRoute")
+const AllFeedbackRoute = require("./Routes/Admin/AllFeedbackRoute")
 const EmergencyComplaintAdmin = require("./Routes/Admin/EmergencyComplaint");
 
 app.use(express.json());
@@ -30,6 +33,9 @@ app.use("/", Feedback);
 app.use("/", Complaint);
 app.use("/", EmergencyComplaint);
 app.use("/", MyapplicationRoute);
+app.use("/", ContactRoute);
+app.use("/", FeedbackRoute);
+app.use("/", AllFeedbackRoute);
 app.use("/", EmergencyComplaintAdmin);
 
 app.listen(1010, () => {
