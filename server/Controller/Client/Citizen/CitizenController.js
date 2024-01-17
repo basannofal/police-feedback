@@ -7,7 +7,7 @@ const OpenAI = require("openai");
 const openai = new OpenAI({
   apiKey:
     process.env.REACT_APP_OPENAI ||
-    "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",
+    "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",
 });
 
 const chatBoat = async (req, res) => {
