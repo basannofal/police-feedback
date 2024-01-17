@@ -288,6 +288,7 @@ const LocalComplaints = () => {
                           <img
                             src={`/upload/complaint/${item.item_img}`}
                             alt={item.item_name}
+                            className="tableimg"
                             // className={styles.applicationTableImg}
                           />
                         </td>

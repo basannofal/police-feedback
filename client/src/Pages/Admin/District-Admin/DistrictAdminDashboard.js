@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../../Layout/Admin/Navbar";
 import "../../../Assets/css/main.css";
 import Sidebar2 from "../../../Layout/Admin/Sidebar2";
+import { useParams } from "react-router-dom";
 
 const DistrictAdminDashboard = () => {
+  const {id} = useParams("");
   const [sidebarHidden, setSidebarHidden] = useState(window.innerWidth < 768);
   const [isDarkMode, setDarkMode] = useState(false);
 
@@ -17,6 +19,7 @@ const DistrictAdminDashboard = () => {
   };
 
   useEffect(() => {
+    getAllFeedbackData();
     const handleResize = () => {
       setSidebarHidden(window.innerWidth < 768);
     };
@@ -27,6 +30,17 @@ const DistrictAdminDashboard = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const getAllFeedbackData = async () => {
+    try {
+      console.log(id);
+      // const res = await axios.get(`${PORT}/getstationofdistfeedback/${id}`);
+      // setAllFeedback(res.data);
+      // console.log(res.data);
+    } catch (error) {
+      console.log("Error in Getting Data", error);
+    }
+  };
 
   return (
     <>
