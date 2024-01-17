@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "../../Assets/css/sidebar.css";
 import { useLocation } from "react-router-dom";
 import LogOut from "./LogOut";
 
 const Sidebar2 = ({ isOpen }) => {
+  const { id } = useParams("");
   const location = useLocation();
   const navigate = useNavigate();
   const [userRole, setUserRole] = useState(0);
@@ -49,29 +50,23 @@ const Sidebar2 = ({ isOpen }) => {
         <ul className="side-menu top">
           {/* Main Admin */}
           <li
-            className={location.pathname === "/district-admin" ? "active" : ""}
+            className={location.pathname === `/district-admin/${id}` ? "active" : ""}
           >
-            <NavLink to="/district-admin">
+            <NavLink to={`/district-admin/${id}`}>
               <i className="bx bxs-dashboard"></i>
               <span className="text">Dashboard</span>
             </NavLink>
           </li>
-          <li className={location.pathname === "/district" ? "active" : ""}>
-            <NavLink to="/district-admin">
+          <li className={location.pathname === `/district-station/${id}` ? "active" : ""}>
+            <NavLink to={`/district-station/${id}`}>
               <i class="bx bxs-city"></i>
               <span className="text">Police Station</span>
             </NavLink>
           </li>
-          <li className={location.pathname === "/station" ? "active" : ""}>
-            <NavLink to="/district-admin">
+          <li className={location.pathname === `/district-complaint/${id}` ? "active" : ""}>
+            <NavLink to={`/district-complaint/${id}`}>
               <i class="bx bx-building-house"></i>
               <span className="text">Complaints</span>
-            </NavLink>
-          </li>
-          <li className={location.pathname === "/notis" ? "active" : ""}>
-            <NavLink to="/notis">
-              <i class="bx bxs-notification"></i>
-              <span className="text">Notice</span>
             </NavLink>
           </li>
         </ul>
@@ -80,19 +75,13 @@ const Sidebar2 = ({ isOpen }) => {
           {userRole == 1 ? (
             <li>
               <NavLink to="/main-admin">
-              <i class='bx bx-left-arrow-alt'></i>
+                <i class='bx bx-left-arrow-alt'></i>
                 <span className="text">Back to Admin</span>
               </NavLink>
             </li>
           ) : (
             ""
           )}
-          <li>
-            <NavLink to="/dashboard">
-              <i className="bx bxs-cog"></i>
-              <span className="text">Settings</span>
-            </NavLink>
-          </li>
           <li>
             <a
               onClick={openLogOutModal}

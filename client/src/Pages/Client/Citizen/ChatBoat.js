@@ -78,14 +78,20 @@ const ChatBoat = () => {
             </span>
           </header>
           <ul className="chatbox">
-            {messages.map((message, index) => (
-              <li key={index} className={`chat ${message.type}`}>
-                {message.type === "incoming" && (
-                  <span className="material-symbols-outlined">smart_toy</span>
-                )}
-                <p>{message.text}</p>
-              </li>
-            ))}
+            {
+              messages.length > 0 ? (
+                messages.map((message, index) => (
+                  <li key={index} className={`chat ${message.type}`}>
+                    {message.type === "incoming" && (
+                      <span className="material-symbols-outlined">smart_toy</span>
+                    )}
+                    <p>{message.text}</p>
+                  </li>
+                ))
+              ) : (
+                "Data is Not Avalible"
+              )
+            }
           </ul>
           <div className="chat-input">
             <textarea

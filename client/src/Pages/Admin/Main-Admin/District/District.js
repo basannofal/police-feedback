@@ -199,8 +199,6 @@ const District = () => {
             <div className="order">
               <div className="head">
                 <h3>District Names</h3>
-                <i className="bx bx-search"></i>
-                <i className="bx bx-filter"></i>
               </div>
               <table>
                 <thead>
@@ -215,42 +213,46 @@ const District = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {allData.map((distData, idx) => {
-                    return (
-                      <tr key={distData.id}>
-                        <td>{idx + 1}</td>
-                        <td>{distData.district_name}</td>
-                        <td>{distData.email}</td>
-                        <td>{distData.password}</td>
-                        <td>{distData.address}</td>
-                        <td>{distData.number}</td>
-                        <td>
-                          <button
-                            className="editbutton"
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1"
-                            data-bs-whatever="@mdo"
-                            onClick={() => getDataForEdit(distData.id)}
-                          >
-                            <i className="fa-regular fa-pen-to-square"></i>
-                          </button>
-                          <button
-                            className="data_delete_btn"
-                            onClick={() => openDeleteModal(distData.id)}
-                          >
-                            <i className="fa-sharp fa-solid fa-trash"></i>
-                          </button>
-                          <button
-                            className="data_delete_btn bg-success"
-                            onClick={() => goDistDashboard(distData.id)}
-                          >
-                            <i className="fa fa-eye"></i>
-                          </button>
+                  {
+                    allData.length > 0 ? (allData.map((distData, idx) => {
+                      return (
+                        <tr key={distData.id}>
+                          <td>{idx + 1}</td>
+                          <td>{distData.district_name}</td>
+                          <td>{distData.email}</td>
+                          <td>{distData.password}</td>
+                          <td>{distData.address}</td>
+                          <td>{distData.number}</td>
+                          <td>
+                            <button
+                              className="editbutton"
+                              data-bs-toggle="modal"
+                              data-bs-target="#exampleModal1"
+                              data-bs-whatever="@mdo"
+                              onClick={() => getDataForEdit(distData.id)}
+                            >
+                              <i className="fa-regular fa-pen-to-square"></i>
+                            </button>
+                            <button
+                              className="data_delete_btn"
+                              onClick={() => openDeleteModal(distData.id)}
+                            >
+                              <i className="fa-sharp fa-solid fa-trash"></i>
+                            </button>
+                            <button
+                              className="data_delete_btn bg-success"
+                              onClick={() => goDistDashboard(distData.id)}
+                            >
+                              <i className="fa fa-eye"></i>
+                            </button>
 
-                        </td>
-                      </tr>
-                    );
-                  })}
+                          </td>
+                        </tr>
+                      );
+                    })) : (
+                      "Data is Not Avalible"
+                    )
+                  }
                 </tbody>
               </table>
             </div>

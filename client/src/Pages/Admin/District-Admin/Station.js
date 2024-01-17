@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
-import { NavLink, useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../../../Layout/Admin/Navbar';
-import Sidebar3 from "../../../Layout/Admin/Sidebar3";
+import Sidebar2 from '../../../Layout/Admin/Sidebar2';
+import axios from 'axios';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 const PORT = process.env.REACT_APP_PROXY_URL;
 
-const Feedback = () => {
+const Station = () => {
     const { id } = useParams("");
     const [sidebarHidden, setSidebarHidden] = useState(window.innerWidth < 768);
     const [isDarkMode, setDarkMode] = useState(false);
-    const [feedback, setFeedback] = useState([]);
+
+    const [stationData, setSatationData] = useState([]);
+
     const toggleSidebar = () => {
         setSidebarHidden(!sidebarHidden);
     };
@@ -31,36 +33,43 @@ const Feedback = () => {
         };
     }, []);
 
-    const getFeedbackData = async () => {
+    const getStationData = async () => {
+        console.log(id)
         try {
-            const res = await axios.get(`${PORT}/getfeedback/${id}`);
-            setFeedback(res.data);
+            const res = await axios.get(`${PORT}/getstationdata/${id}`);
+            setSatationData(res.data);
+            console.log(res.data);
         } catch (error) {
             console.log("Error in Getting Data", error);
         }
     };
 
     useEffect(() => {
-        getFeedbackData();
+        getStationData();
     }, [])
+
+    const navigate = useNavigate();
+    const gostationDashboard = (id) => {
+        navigate(`/local-station-admin/${id}`);
+    };
     return (
         <>
-            <Sidebar3 isOpen={!sidebarHidden} />
+            <Sidebar2 isOpen={!sidebarHidden} />
             <Navbar toggleSidebar={toggleSidebar} toggleDarkMode={toggleDarkMode} />
             <section id="content">
                 <main>
                     <div className="head-title">
                         <div className="left">
-                            <h1>Feedback</h1>
+                            <h1>Station</h1>
                             <ul className="breadcrumb">
                                 <li>
-                                    <NavLink to="">Feedback</NavLink>
+                                    <NavLink to="">Station</NavLink>
                                 </li>
                                 <li>
                                     <i className="bx bx-chevron-right"></i>
                                 </li>
                                 <li>
-                                    <NavLink className="active" to="/citizen-dashboard">
+                                    <NavLink className="active" to="">
                                         Home
                                     </NavLink>
                                 </li>
@@ -71,33 +80,40 @@ const Feedback = () => {
                     <div className="table-data">
                         <div className="order">
                             <div className="head">
-                                <h3>Complaints Feddbacks</h3>
+                                <h3>Station Names</h3>
                             </div>
                             <table>
                                 <thead>
                                     <tr>
-                                        <th style={{ width: '2%', padding: '5px' }}>Id</th>
-                                        <th style={{ width: '20%', padding: '5px' }}>How satisfied were you with the communication during your interaction with our service?</th>
-                                        <th style={{ width: '20%', padding: '5px' }}>How satisfied are you with the resolution provided by our service?</th>
-                                        <th style={{ width: '10%', padding: '5px' }}>Would you use our service again?</th>
-                                        <th style={{ width: '20%', padding: '5px' }}>How likely are you to recommend our service to others?</th>
-                                        <th style={{ width: '20%', padding: '5px' }}>Please provide additional comments or suggestions for improvement?</th>
-                                        <th style={{ width: '10%', padding: '5px' }}>Give me a rating on stars?</th>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        <th>Address</th>
+                                        <th>Mobile Number</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
-                                        feedback.length > 0 ? (
-                                            feedback.map((feed, idx) => {
+                                        stationData.length > 0 ? (
+                                            stationData.map((station, idx) => {
                                                 return (
-                                                    <tr key={feed?.id}>
+                                                    <tr key={station.id}>
                                                         <td>{idx + 1}</td>
-                                                        <td>{feed.ans_1}</td>
-                                                        <td>{feed.ans_2}</td>
-                                                        <td>{feed.ans_3}</td>
-                                                        <td>{feed.ans_4}</td>
-                                                        <td>{feed.ans_5}</td>
-                                                        <td>{feed.ans_6}</td>
+                                                        <td>{station.station_name}</td>
+                                                        <td>{station.email}</td>
+                                                        <td>{station.password}</td>
+                                                        <td>{station.address}</td>
+                                                        <td>{station.number}</td>
+                                                        <td>
+                                                            <button
+                                                                className="data_delete_btn bg-success"
+                                                                onClick={() => gostationDashboard(station.id)}
+                                                            >
+                                                                <i className="fa fa-eye"></i>
+                                                            </button>
+                                                        </td>
                                                     </tr>
                                                 );
                                             })
@@ -110,14 +126,9 @@ const Feedback = () => {
                         </div>
                     </div>
                 </main>
-                {/* <DeleteModal
-                    isOpen={isDeleteModalOpen}
-                    onClose={closeDeleteModal}
-                    onDelete={deleteDistrict}
-                /> */}
             </section>
         </>
     )
 }
 
-export default Feedback
+export default Station

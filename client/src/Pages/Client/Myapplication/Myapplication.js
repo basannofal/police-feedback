@@ -74,111 +74,117 @@ const Myapplication = () => {
             <th>Completed</th>
             <th>Reject</th>
           </tr>
-          {myapplications.map((item, idx) => {
-            const getStatusMessage = () => {
-              switch (item.status) {
-                case 0:
-                  return "Pending";
-                case 1:
-                  return "In Progress";
-                case 2:
-                  return "Verified";
-                case 3:
-                  return "Success";
-                case 4:
-                  return "Rejected by Police";
-                case 5:
-                  return "Rejected by User";
-                default:
-                  return "Waiting";
-              }
-            };
-            return (
-              <tr key={item.id}>
-                <td>
-                  <img
-                    src={`/upload/complaint/${item.item_img}`}
-                    alt={item.item_name}
-                    className={styles.applicationTableImg}
-                  />
-                </td>
-                <td>{item.item_name}</td>
-                <td>{item.item_desc}</td>
-                <td>{getStatusMessage()}</td>
-                <td>
-                  {item.appointment_date != null
-                    ? item.appointment_date.substring(0, 10)
-                    : "Waiting"}
-                </td>
-                <td>
-                  {item.appointment_time != null
-                    ? item.appointment_time
-                    : "Waiting"}
-                </td>
-                <td>
-                  {item.complaint_date != null ? (
-                    <i
-                      className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}
-                    ></i>
-                  ) : (
-                    <i
-                      className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}
-                    ></i>
-                  )}
-                </td>
-                <td>
-                  {item.raw_fir_date != null ? (
-                    <i
-                      className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}
-                    ></i>
-                  ) : (
-                    <i
-                      className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}
-                    ></i>
-                  )}
-                </td>
-                <td>
-                  {item.verify_date != null ? (
-                    <i
-                      className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}
-                    ></i>
-                  ) : (
-                    <i
-                      className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}
-                    ></i>
-                  )}
-                </td>
-                <td>
-                  {item.complete_date != null ? (
-                    <i
-                      className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}
-                    ></i>
-                  ) : (
-                    <i
-                      className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}
-                    ></i>
-                  )}
-                </td>
-                <td>
-                 { item.status == 3 || item.status == 4 || item.status == 5 ? "Closing" : <button
-                    id="add-district"
-                    data-bs-toggle="modal"
-                    data-bs-target="#messageModal"
-                    data-bs-whatever="@mdo"
-                    className={`btn btn-danger ${styles.applicationTableCell}`}
-                    onClick={() => {
-                      setComplaintId(item.id);
-                      setUserId(item.user_id);
-                    }}
-                  >
-                    <i
-                      className={`fa-solid fa-circle-xmark ${styles.applicationTableCell}`}
-                    ></i>
-                  </button>}
-                </td>
-              </tr>
-            );
-          })}
+          {
+            myapplications.length > 0 ? (
+              myapplications.map((item, idx) => {
+                const getStatusMessage = () => {
+                  switch (item.status) {
+                    case 0:
+                      return "Pending";
+                    case 1:
+                      return "In Progress";
+                    case 2:
+                      return "Verified";
+                    case 3:
+                      return "Success";
+                    case 4:
+                      return "Rejected by Police";
+                    case 5:
+                      return "Rejected by User";
+                    default:
+                      return "Waiting";
+                  }
+                };
+                return (
+                  <tr key={item.id}>
+                    <td>
+                      <img
+                        src={`/upload/complaint/${item.item_img}`}
+                        alt={item.item_name}
+                        className={styles.applicationTableImg}
+                      />
+                    </td>
+                    <td>{item.item_name}</td>
+                    <td>{item.item_desc}</td>
+                    <td>{getStatusMessage()}</td>
+                    <td>
+                      {item.appointment_date != null
+                        ? item.appointment_date.substring(0, 10)
+                        : "Waiting"}
+                    </td>
+                    <td>
+                      {item.appointment_time != null
+                        ? item.appointment_time
+                        : "Waiting"}
+                    </td>
+                    <td>
+                      {item.complaint_date != null ? (
+                        <i
+                          className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}
+                        ></i>
+                      ) : (
+                        <i
+                          className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}
+                        ></i>
+                      )}
+                    </td>
+                    <td>
+                      {item.raw_fir_date != null ? (
+                        <i
+                          className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}
+                        ></i>
+                      ) : (
+                        <i
+                          className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}
+                        ></i>
+                      )}
+                    </td>
+                    <td>
+                      {item.verify_date != null ? (
+                        <i
+                          className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}
+                        ></i>
+                      ) : (
+                        <i
+                          className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}
+                        ></i>
+                      )}
+                    </td>
+                    <td>
+                      {item.complete_date != null ? (
+                        <i
+                          className={`fa-regular fa-circle-check ${styles.applicationTableCell}`}
+                        ></i>
+                      ) : (
+                        <i
+                          className={`fa-solid fa-calendar-day ${styles.applicationTableCell}`}
+                        ></i>
+                      )}
+                    </td>
+                    <td>
+                      {item.status == 3 || item.status == 4 || item.status == 5 ? "Closing" : <button
+                        id="add-district"
+                        data-bs-toggle="modal"
+                        data-bs-target="#messageModal"
+                        data-bs-whatever="@mdo"
+                        className={`btn btn-danger ${styles.applicationTableCell}`}
+                        onClick={() => {
+                          setComplaintId(item.id);
+                          setUserId(item.user_id);
+                        }}
+                      >
+                        <i
+                          className={`fa-solid fa-circle-xmark ${styles.applicationTableCell}`}
+                        ></i>
+                      </button>}
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              "Data is Not Avalible"
+            )
+          }
         </table>
         <form method="post" onSubmit={saveReject}>
           <div

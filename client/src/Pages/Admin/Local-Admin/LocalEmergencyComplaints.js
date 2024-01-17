@@ -82,8 +82,6 @@ const LocalEmergencyComplaints = () => {
             <div className="order">
               <div className="head">
                 <h3>Complaints</h3>
-                <i className="bx bx-search"></i>
-                <i className="bx bx-filter"></i>
               </div>
               <table>
                 <thead>
@@ -134,7 +132,7 @@ const LocalEmergencyComplaints = () => {
                     ))
                   ) : (
                     <tr>
-                      <td colSpan="5">Records Not Found</td>
+                      <td colSpan="5">Data is Not Avalible</td>
                     </tr>
                   )}
                 </tbody>
