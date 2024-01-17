@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import Sidebar1 from "../../../../Layout/Admin/Sidebar1";
 import Navbar from "../../../../Layout/Admin/Navbar";
@@ -60,7 +59,6 @@ const District = () => {
     }));
   };
 
-
   const saveDistrictData = async (e) => {
     e.preventDefault();
     console.log("object");
@@ -83,7 +81,6 @@ const District = () => {
         console.log("Error adding district data in Brand.js:", error);
       });
   };
-
 
   //get All data
   useEffect(() => {
@@ -159,8 +156,8 @@ const District = () => {
   const navigate = useNavigate();
 
   const goDistDashboard = (id) => {
-    navigate(`/district-admin/${id}`)
-  }
+    navigate(`/district-admin/${id}`);
+  };
 
   return (
     <>
@@ -244,10 +241,10 @@ const District = () => {
                             <i className="fa-sharp fa-solid fa-trash"></i>
                           </button>
                           <button
-                            className="data_delete_btn"
+                            className="data_delete_btn bg-success"
                             onClick={() => goDistDashboard(distData.id)}
                           >
-                            <i className="fa-sharp fa-solid fa-trash"></i>
+                            <i className="fa fa-eye"></i>
                           </button>
 
                         </td>

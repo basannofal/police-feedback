@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import LocalAdminDashboard from "../../../Pages/Admin/Local-Admin/LocalAdminDashboard";
 import LocalComplaints from "../../../Pages/Admin/Local-Admin/LocalComplaints";
+import LocalFeedback from "../../../Pages/Admin/Local-Admin/LocalFeedback";
+import LocalEmergencyComplaints from "../../../Pages/Admin/Local-Admin/LocalEmergencyComplaints";
 const LocalDashboardRoute = () => {
   return (
     <>
@@ -14,11 +16,29 @@ const LocalDashboardRoute = () => {
             </>
           }
         />
-         <Route
+        <Route
           path="/local-station-complaint/:id"
           element={
             <>
               <LocalComplaints />
+            </>
+          }
+        />
+
+        <Route
+          path="/local-station-feedback/:id"
+          element={
+            <>
+              <LocalFeedback />
+            </>
+          }
+        />
+
+        <Route
+          path="/local-station-emergency-complaint/:id"
+          element={
+            <>
+              <LocalEmergencyComplaints />
             </>
           }
         />

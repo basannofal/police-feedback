@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import Sidebar1 from "../../../../Layout/Admin/Sidebar1";
 import Navbar from "../../../../Layout/Admin/Navbar";
@@ -164,8 +163,8 @@ const Station = () => {
   const navigate = useNavigate();
 
   const gostationDashboard = (id) => {
-    navigate(`/local-station-admin/${id}`)
-  }
+    navigate(`/local-station-admin/${id}`);
+  };
 
   return (
     <>
@@ -256,10 +255,10 @@ const Station = () => {
                             <i className="fa-sharp fa-solid fa-trash"></i>
                           </button>
                           <button
-                            className="data_delete_btn"
-                            onClick={()=> gostationDashboard(station.id)}
+                            className="data_delete_btn bg-success"
+                            onClick={() => gostationDashboard(station.id)}
                           >
-                            <i className="fa-sharp fa-solid fa-trash"></i>
+                            <i className="fa fa-eye"></i>
                           </button>
                         </td>
                       </tr>
