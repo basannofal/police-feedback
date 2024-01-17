@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import DistrictAdminDashboard from "../../../Pages/Admin/District-Admin/DistrictAdminDashboard";
+import Complaint from "../../../Pages/Admin/District-Admin/Complaint";
 
 const DistrictDashboardRoute = () => {
   return (
@@ -10,7 +10,7 @@ const DistrictDashboardRoute = () => {
           path="/district-admin/:id"
           element={
             <>
-              <DistrictAdminDashboard />
+              <Complaint />
             </>
           }
         />

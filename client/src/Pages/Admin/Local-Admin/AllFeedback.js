@@ -74,8 +74,6 @@ const AllFeedback = () => {
                         <div className="order">
                             <div className="head">
                                 <h3>All Feddbacks</h3>
-                                <i className="bx bx-search"></i>
-                                <i className="bx bx-filter"></i>
                             </div>
                             <table>
                                 <thead>
@@ -87,16 +85,22 @@ const AllFeedback = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {allFeedback.map((feed, idx) => {
-                                        return (
-                                            <tr key={feed?.id}>
-                                                <td>{idx + 1}</td>
-                                                <td>{feed.ans_1}</td>
-                                                <td>{feed.ans_2}</td>
-                                                <td>{feed.ans_3}</td>
-                                            </tr>
-                                        );
-                                    })}
+                                    {allFeedback.length > 0 ? (
+                                        allFeedback.map((feed, idx) => {
+                                            return (
+                                                <tr key={feed?.id}>
+                                                    <td>{idx + 1}</td>
+                                                    <td>{feed.ans_1}</td>
+                                                    <td>{feed.ans_2}</td>
+                                                    <td>{feed.ans_3}</td>
+                                                </tr>
+                                            );
+                                        })
+                                    ) : (
+                                        "Data is Not Avalible"
+                                    )
+
+                                    }
                                 </tbody>
                             </table>
                         </div>

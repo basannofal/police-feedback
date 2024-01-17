@@ -18,6 +18,8 @@ const ContactRoute = require("./Routes/Client/Contact/ContactRoute")
 const FeedbackRoute = require("./Routes/Admin/FeedbackRoute")
 const AllFeedbackRoute = require("./Routes/Admin/AllFeedbackRoute")
 const EmergencyComplaintAdmin = require("./Routes/Admin/EmergencyComplaint");
+const DistrictStationRoute = require("./Routes/Admin/DistrictStationRoute");
+const StationComplaintRoute = require("./Routes/Admin/StationComplaintRoute");
 
 app.use(express.json());
 app.use(cors());
@@ -39,6 +41,8 @@ app.use("/", ContactRoute);
 app.use("/", FeedbackRoute);
 app.use("/", AllFeedbackRoute);
 app.use("/", EmergencyComplaintAdmin);
+app.use("/", DistrictStationRoute);
+app.use("/", StationComplaintRoute);
 
 app.listen(1010, () => {
   console.log("SERVER CREATED AT 1010");

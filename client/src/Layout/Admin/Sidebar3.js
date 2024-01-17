@@ -113,7 +113,7 @@ const Sidebar3 = ({ isOpen }) => {
             <li>
               <NavLink to="/station">
                 <i class="bx bx-left-arrow-alt"></i>
-                <span className="text">Back to Admin</span>
+                <span className="text">Back to District</span>
               </NavLink>
             </li>
           ) : (
@@ -129,12 +129,6 @@ const Sidebar3 = ({ isOpen }) => {
           ) : (
             ""
           )}
-          <li>
-            <NavLink to="/dashboard">
-              <i className="bx bxs-cog"></i>
-              <span className="text">Settings</span>
-            </NavLink>
-          </li>
           <li>
             <a
               onClick={openLogOutModal}

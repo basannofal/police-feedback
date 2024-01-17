@@ -170,8 +170,6 @@ const LocalComplaints = () => {
             <div className="order">
               <div className="head">
                 <h3>Complaints</h3>
-                <i className="bx bx-search"></i>
-                <i className="bx bx-filter"></i>
               </div>
               <table>
                 <thead>
@@ -186,25 +184,27 @@ const LocalComplaints = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {allData.map((item, idx) => {
-                    const getStatusMessage = () => {
-                      switch (item.status) {
-                        case 0:
-                          return "Pending";
-                        case 1:
-                          return "In Progress";
-                        case 2:
-                          return "Verified";
-                        case 3:
-                          return "Success";
-                        case 4:
-                          return "Rejected by Police";
-                        case 5:
-                          return "Rejected by User";
-                        default:
-                          return "Waiting";
-                      }
-                    };
+                  {
+                    allData.length > 0 ? (
+                      allData.map((item, idx) => {
+                        const getStatusMessage = () => {
+                          switch (item.status) {
+                            case 0:
+                              return "Pending";
+                            case 1:
+                              return "In Progress";
+                            case 2:
+                              return "Verified";
+                            case 3:
+                              return "Success";
+                            case 4:
+                              return "Rejected by Police";
+                            case 5:
+                              return "Rejected by User";
+                            default:
+                              return "Waiting";
+                          }
+                        };
 
                     const renderOperations = (item) => {
                       switch (item.status) {
@@ -306,10 +306,14 @@ const LocalComplaints = () => {
                         </td>
                         <td>{getStatusMessage()}</td>
 
-                        <td>{renderOperations(item)}</td>
-                      </tr>
-                    );
-                  })}
+                            <td>{renderOperations(item)}</td>
+                          </tr>
+                        );
+                      })
+                    ) : (
+                      "Data is Not Avalible"
+                    )
+                  }
                 </tbody>
               </table>
             </div>

@@ -206,8 +206,6 @@ const Station = () => {
             <div className="order">
               <div className="head">
                 <h3>Station Names</h3>
-                <i className="bx bx-search"></i>
-                <i className="bx bx-filter"></i>
               </div>
               <table>
                 <thead>
@@ -223,7 +221,7 @@ const Station = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {allstationData.map((station, idx) => {
+                  {allstationData.length > 0 ? (allstationData.map((station, idx) => {
                     const district = allData.find(
                       (district) => district.id === station.district_id
                     );
@@ -263,7 +261,10 @@ const Station = () => {
                         </td>
                       </tr>
                     );
-                  })}
+                  })) : (
+                    "Data is Not Avalible"
+                  )
+                  }
                 </tbody>
               </table>
             </div>
