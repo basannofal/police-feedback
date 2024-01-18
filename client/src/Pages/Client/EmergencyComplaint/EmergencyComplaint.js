@@ -141,9 +141,8 @@ const EmergencyComplaint = () => {
         if (!allowedTypes.includes(file.type)) {
           setErrorMessages({
             ...errorMessages,
-            images: `Only PNG, JPG, JPEG, and WebP images are allowed for Image ${
-              i + 1
-            }.`,
+            images: `Only PNG, JPG, JPEG, and WebP images are allowed for Image ${i + 1
+              }.`,
           });
           return;
         }
@@ -303,9 +302,8 @@ const EmergencyComplaint = () => {
       } else if (!allowedTypes.includes(image.file.type)) {
         setErrorMessages({
           ...errorMessages,
-          images: `Only PNG, JPG, JPEG, and WebP images are allowed for Image ${
-            i + 1
-          }.`,
+          images: `Only PNG, JPG, JPEG, and WebP images are allowed for Image ${i + 1
+            }.`,
         });
         return false;
       }
@@ -356,14 +354,15 @@ const EmergencyComplaint = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container" id="imergenci-complaint">
         <form
           encType="multipart/form-data"
           method="post"
           onSubmit={handleSubmit}
-          style={{ overflowY: "auto", maxHeight: "500px" }}
+          style={{ overflowY: "auto", maxHeight: "500px",height:'auto' }}
         >
           <div className="row">
+            <p className="text-center" style={{ fontSize: "22px", fontWeight: '600' }}>Emergency Complaint</p>
             <div className="form-group col-lg-6 col-md-6 col-sm-12">
               <label className="pt-2" htmlFor="videoUpload">
                 Video Upload:{" "}

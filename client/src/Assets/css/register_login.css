@@ -4,23 +4,25 @@
 .container {
   position: relative;
   max-width: 700px;
-  width:95%;
+  width: 95%;
   background: #fff;
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
-.containt{
+
+.containt {
   max-width: 700px;
   margin: 50px auto 20px;
   /* position: relative; */
-  width:95%;
+  width: 95%;
   background: #fff;
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
-.containt header{
+
+.containt header {
   font-size: 25px;
   text-align: center;
   font-weight: 600;
@@ -38,6 +40,7 @@
 
 .input-box label {
   color: #333;
+  font-weight: 700;
 }
 
 .form :where(.input-box input, .select-box) {
@@ -143,6 +146,10 @@
   background: rgb(88, 56, 250);
 }
 
+.table-help {
+  border-bottom: 1px solid black;
+}
+
 /*Responsive*/
 @media screen and (max-width: 500px) {
   .form .column {
@@ -168,4 +175,53 @@
 
 .register-header:before {
   content: none !important;
+}
+
+/* admin panel form css */
+#admin-conatact {
+  width: 40% !important;
+  margin-top: 50px;
+  border: 1px solid rgb(142, 139, 139);
+}
+
+#admin-conatact-form {
+  height: auto;
+}
+
+#imergenci-complaint {
+  width: 80%;
+  border: 1px solid rgb(151, 144, 144);
+  margin-top: 50px;
+  padding: 10px 30px;
+}
+
+#table1-contact {
+  width: 50%;
+  border: 1px solid rgb(151, 144, 144);
+  margin: 40px auto;
+  padding: 10px 30px;
+}
+
+@media screen and (min-width:600px) and (max-width:990px) {
+  #admin-conatact {
+    width: 60% !important;
+  }
+
+  #imergenci-complaint {
+    width: 90% !important;
+  }
+}
+
+@media screen and (min-width:300px) and (max-width:600px) {
+  #admin-conatact {
+    width: 95% !important;
+  }
+
+  #imergenci-complaint {
+    width: 100% !important;
+  }
+
+  #table1-contact {
+    width: 80%;
+  }
 }

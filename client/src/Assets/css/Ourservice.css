@@ -1,7 +1,15 @@
 .OurServices {
     text-align: center;
     font-weight: bolder;
-    font-size: 60px;
+    font-size: 40px;
+    margin-top: 20px;
+}
+.OurServices:after{
+    content: "";
+    display: block;
+    border-top: 3px solid blue;  /* Use border-top for a vertical line */
+    margin: 5px auto;
+    width: 50px; 
 }
 
 

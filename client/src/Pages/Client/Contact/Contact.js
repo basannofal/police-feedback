@@ -37,8 +37,34 @@ function Contact() {
 
   return (
     <>
+      <table class="table table-striped" id="table1-contact">
+        <thead>
+          <tr>
+            <th scope="col">Sr. No.</th>
+            <th scope="col">Helpline Number</th>
+            <th scope="col">Type of Helpline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>100</td>
+            <td>Police Helpline</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>108</td>
+            <td>Helpline for medical emergency</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>181</td>
+            <td>Abhayam Women helpline</td>
+          </tr>
+        </tbody>
+      </table>
       <div className="table-responsive">
-        <table className="table" id="table-contact">
+        <table className="table table-striped" id="table-contact">
           <thead>
             <tr>
               <th scope="col">Id</th>

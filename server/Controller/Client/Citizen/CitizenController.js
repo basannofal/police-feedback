@@ -154,11 +154,13 @@ const citizenLogin = async (req, res) => {
   });
 };
 
-const getRegisteredCitizen = (req, res) => {
-  const sql = 'SELECT * FROM rj_local_station';
+//get regisrationdata
+const getRegisData = (req, res) => {
+  const sql = 'SELECT * FROM rj_citizen_register'
   conn.query(sql, (err, data) => {
-      if (err) return res.json(err);
-      return res.json(data);
+    if (err) return res.json(err);
+    return res.json(data);
+
   });
 }
 
@@ -169,4 +171,5 @@ module.exports = {
   citizenRegister,
   getRegisteredCitizen,
   citizenLogin,
+  getRegisData,
 };

@@ -8,6 +8,10 @@
     display: none;
 }
 
+.rj_img2 img {
+    width: 110px;
+}
+
 .rj_main {
     display: flex;
     justify-content: center;
@@ -34,6 +38,7 @@
     padding: 10px 20px;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding-left: 80px;
 }
 
@@ -142,6 +147,10 @@
         width: 80px;
         height: auto;
         margin-right: 180px;
+    }
+
+    .rj_img2 img {
+        display: none;
     }
 
     .logo-menu {

@@ -6,7 +6,8 @@ const CitizenController = require("../../../Controller/Client/Citizen/CitizenCon
 router.post("/send-otp", CitizenController.sendOTP);
 router.post("/verify-otp", CitizenController.verifyOTP);
 router.post("/citizen-register", CitizenController.citizenRegister);
-router.get("/getregisteredcitizen", CitizenController.getRegisteredCitizen);
+router.get("/getregisdata", CitizenController.getRegisData);
+
 router.post("/citizen-login", CitizenController.citizenLogin);
 router.post("/chat-boat", CitizenController.chatBoat);
 
