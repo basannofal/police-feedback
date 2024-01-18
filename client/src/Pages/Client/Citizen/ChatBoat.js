@@ -5,7 +5,7 @@
   const ChatBoat = () => {
     const [prompt, setPrompt] = useState("");
     const [messages, setMessages] = useState([
-      { text: "Hi there 👋 \nHow can I help you today?", type: "incoming" },
+      { text: "Hi there 👋 \nHow can Rajasthan Police help you today?", type: "incoming" },
     ]);
     const [showChatbot, setShowChatbot] = useState(false);
     const [isSending, setIsSending] = useState(false);

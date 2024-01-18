@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../Assets/css/home.css';
 import Footer from '../../../Layout/Client/Footer';
+import ChatBoat from '../Citizen/ChatBoat';
 
 function Home() {
   return (
@@ -82,6 +83,7 @@ function Home() {
       </div>
 
       <Footer />
+      <ChatBoat/>
     </>
   );
 }

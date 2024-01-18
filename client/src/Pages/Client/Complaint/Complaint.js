@@ -64,8 +64,7 @@ const Complaint = () => {
 
       const res = await axios.post(`${PORT}/addcomplaint/${id}`, newData);
 
-
-      navigate(`/myapplication/${id}`, { replace: true })
+      navigate(`/myapplication/${id}`, { replace: true });
     } catch (error) {
       console.error("Error saving data", error);
     }
@@ -129,7 +128,7 @@ const Complaint = () => {
                   <input
                     type="text"
                     onChange={handleInputChange}
-                    value={formData.fname}
+                    value={user && user?.fname}
                     name="fname"
                     placeholder="Enter First name"
                   />
@@ -140,7 +139,7 @@ const Complaint = () => {
                   <input
                     type="text"
                     onChange={handleInputChange}
-                    value={formData.mname}
+                    value={user && user?.mname}
                     name="mname"
                     placeholder="Enter Middle name"
                   />
@@ -151,7 +150,7 @@ const Complaint = () => {
                   <input
                     type="text"
                     onChange={handleInputChange}
-                    value={formData.lname}
+                    value={user && user?.surname}
                     name="lname"
                     placeholder="Enter Last name"
                   />
@@ -162,7 +161,7 @@ const Complaint = () => {
                   <input
                     type="text"
                     onChange={handleInputChange}
-                    value={formData.email}
+                    value={user && user?.email}
                     name="email"
                     placeholder="Enter your email"
                   />
@@ -173,7 +172,7 @@ const Complaint = () => {
                   <input
                     type="number"
                     onChange={handleInputChange}
-                    value={formData.number}
+                    value={user && user?.number}
                     name="number"
                     placeholder="Enter mobile number"
                   />
