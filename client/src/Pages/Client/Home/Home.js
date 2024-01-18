@@ -82,8 +82,8 @@ function Home() {
         </div>
       </div>
 
-      <Footer />
       <ChatBoat/>
+      <Footer />
     </>
   );
 }

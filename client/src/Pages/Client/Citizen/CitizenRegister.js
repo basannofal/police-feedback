@@ -10,7 +10,7 @@ import ChatBoat from "./ChatBoat";
 const PORT = process.env.REACT_APP_PROXY_URL;
 
 const CitizenRegister = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -33,7 +33,7 @@ const CitizenRegister = () => {
   }, [])
   const getAllData = () => {
     axios
-      .get(`${PORT}/getregisdata`)
+      .get(`${PORT}/getregisteredcitizen`)
       .then((res) => {
         setGetRegisData(res.data);
       })

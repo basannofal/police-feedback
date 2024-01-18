@@ -41,9 +41,7 @@ const chatBoat = async (req, res) => {
 
 // Twilio credentials
 const accountSid = "ACa99f7e636f920b0fea25afac9c1485ce";
-// const authToken = "d71a483a6f491a7dc33d136701768966";
-// const authToken = "6eb4f4447ac2802543e5cefebbe1edab";/
-const authToken = "8ea0427198c8dac70d8fcc4e63645d20";
+const authToken = "149d2c7283037c8622c0f5357103f6c5";
 const client = new twilio(accountSid, authToken);
 
 // Map to store OTPs (replace with a database in a production environment)
@@ -156,11 +154,24 @@ const citizenLogin = async (req, res) => {
 
 //get regisrationdata
 const getRegisData = (req, res) => {
-  const sql = 'SELECT * FROM rj_citizen_register'
+  console.log("******************************")
+  const sql = "SELECT * FROM rj_citizen_register";
   conn.query(sql, (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
+    if (err) {
+      console.log(err);
+      return res.json(err);
+    } else {
+      console.log(data);
+      return res.json(data);
+    }
+  });
+};
 
+const getRegisteredCitizen = (req, res) => {
+  const sql = 'SELECT * FROM rj_citizen_register';
+  conn.query(sql, (err, data) => {
+      if (err) return res.json(err);
+      return res.json(data);
   });
 }
 
@@ -169,7 +180,7 @@ module.exports = {
   sendOTP,
   verifyOTP,
   citizenRegister,
-  getRegisteredCitizen,
   citizenLogin,
   getRegisData,
+  getRegisteredCitizen
 };

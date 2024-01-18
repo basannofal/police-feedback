@@ -72,7 +72,7 @@ const MainAdminDashboard = () => {
     try {
       const res = await axios.get(`${PORT}/getallcomplaints`);
       setAllComplaints(res.data);
-      console.log(allComplaints);
+      console.log(res.data);
     } catch (error) {
       console.log("Error in Getting Data", error);
     }
@@ -82,6 +82,7 @@ const MainAdminDashboard = () => {
     try {
       const res = await axios.get(`${PORT}/getregisteredcitizen`);
       setAllCitizen(res.data);
+      console.log(allCitizen)
     } catch (error) {
       console.log("Error in Getting Data", error);
     }
