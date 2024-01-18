@@ -7,7 +7,7 @@ const OpenAI = require("openai");
 const openai = new OpenAI({
   apiKey:
     process.env.REACT_APP_OPENAI ||
-    "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",
+    "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",
 });
 
 const chatBoat = async (req, res) => {
@@ -160,6 +160,7 @@ const getRegisData = (req, res) => {
   conn.query(sql, (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
+
   });
 }
 
@@ -168,6 +169,7 @@ module.exports = {
   sendOTP,
   verifyOTP,
   citizenRegister,
+  getRegisteredCitizen,
   citizenLogin,
   getRegisData,
 };

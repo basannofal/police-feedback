@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../../Layout/Admin/Navbar";
 import "../../../Assets/css/main.css";
 import Sidebar3 from "../../../Layout/Admin/Sidebar3";
+import axios from "axios"
+import AllFeedback from "./AllFeedback";
+const PORT = process.env.REACT_APP_PROXY_URL;
 
 const LocalAdminDashboard = () => {
   const [sidebarHidden, setSidebarHidden] = useState(window.innerWidth < 768);
@@ -28,6 +31,46 @@ const LocalAdminDashboard = () => {
     };
   }, []);
 
+  const [allComplaints, setAllComplaints] = useState([])
+  const [citizenFeedback, setCitizenFeedback] = useState([]);
+  const [allCitizen, setAllCitizen] = useState([])
+
+  const getFeedbackData = async () => {
+    try {
+      const res = await axios.get(`${PORT}/getcitizenfeedback`);
+      setCitizenFeedback(res.data);
+    } catch (error) {
+      console.log("Error in Getting Data", error);
+    }
+  };
+
+  const getAllComplaints = async () => {
+    try {
+      const res = await axios.get(`${PORT}/getallcomplaints`);
+      setAllComplaints(res.data);
+      console.log(allComplaints);
+    } catch (error) {
+      console.log("Error in Getting Data", error);
+    }
+  };
+
+  const getAllCitizen = async () => {
+    try {
+      const res = await axios.get(`${PORT}/getregisteredcitizen`);
+      setAllCitizen(res.data);
+    } catch (error) {
+      console.log("Error in Getting Data", error);
+    }
+  };
+
+    //get All feedback data
+    useEffect(() => {
+      getFeedbackData();
+      getAllCitizen();
+      getAllComplaints()
+    }, []);
+  
+
   return (
     <>
       <Sidebar3 isOpen={!sidebarHidden} />
@@ -51,150 +94,32 @@ const LocalAdminDashboard = () => {
                 </li>
               </ul>
             </div>
-            <a href="#" className="btn-download">
-              <i className="bx bxs-cloud-download"></i>
-              <span className="text">Download PDF</span>
-            </a>
           </div>
 
           <ul className="box-info">
             <li>
-              <i className="bx bxs-calendar-check"></i>
+              <i className="bx bxs-book-content"></i>
               <span className="text">
-                <h3>1020</h3>
-                <p>New Order</p>
+                <h3>{allComplaints.length}</h3>
+                <p>Total Complaints</p>
               </span>
             </li>
             <li>
               <i className="bx bxs-group"></i>
               <span className="text">
-                <h3>2834</h3>
-                <p>Visitors</p>
+                <h3>{allCitizen.length}</h3>
+                <p>Total Citizen</p>
               </span>
             </li>
             <li>
-              <i className="bx bxs-dollar-circle"></i>
+              <i className="bx bxs-book-reader"></i>
               <span className="text">
-                <h3>$2543</h3>
-                <p>Total Sales</p>
+                <h3>{citizenFeedback.length}</h3>
+                <p>Total Registred Feedbacks</p>
               </span>
             </li>
           </ul>
 
-          <div className="table-data">
-            <div className="order">
-              <div className="head">
-                <h3>Recent Orders</h3>
-                <i className="bx bx-search"></i>
-                <i className="bx bx-filter"></i>
-              </div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>User</th>
-                    <th>Date Order</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <img
-                        src={require("../../../Assets/Images/people.png")}
-                        alt="user"
-                      />
-                      <p>John Doe</p>
-                    </td>
-                    <td>01-10-2021</td>
-                    <td>
-                      <span className="status completed">Completed</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src={require("../../../Assets/Images/people.png")}
-                        alt="user"
-                      />
-                      <p>John Doe</p>
-                    </td>
-                    <td>01-10-2021</td>
-                    <td>
-                      <span className="status pending">Pending</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src={require("../../../Assets/Images/people.png")}
-                        alt="user"
-                      />
-                      <p>John Doe</p>
-                    </td>
-                    <td>01-10-2021</td>
-                    <td>
-                      <span className="status process">Process</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src={require("../../../Assets/Images/people.png")}
-                        alt="user"
-                      />
-                      <p>John Doe</p>
-                    </td>
-                    <td>01-10-2021</td>
-                    <td>
-                      <span className="status pending">Pending</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src={require("../../../Assets/Images/people.png")}
-                        alt="user"
-                      />
-                      <p>John Doe</p>
-                    </td>
-                    <td>01-10-2021</td>
-                    <td>
-                      <span className="status completed">Completed</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="todo">
-              <div className="head">
-                <h3>Todos</h3>
-                <i className="bx bx-plus"></i>
-                <i className="bx bx-filter"></i>
-              </div>
-              <ul className="todo-list">
-                <li className="completed">
-                  <p>Todo List</p>
-                  <i className="bx bx-dots-vertical-rounded"></i>
-                </li>
-                <li className="completed">
-                  <p>Todo List</p>
-                  <i className="bx bx-dots-vertical-rounded"></i>
-                </li>
-                <li className="not-completed">
-                  <p>Todo List</p>
-                  <i className="bx bx-dots-vertical-rounded"></i>
-                </li>
-                <li className="completed">
-                  <p>Todo List</p>
-                  <i className="bx bx-dots-vertical-rounded"></i>
-                </li>
-                <li className="not-completed">
-                  <p>Todo List</p>
-                  <i className="bx bx-dots-vertical-rounded"></i>
-                </li>
-              </ul>
-            </div>
-          </div>
         </main>
       </section>
     </>

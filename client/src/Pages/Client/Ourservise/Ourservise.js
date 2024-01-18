@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../../Assets/css/Ourservice.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import ChatBoat from "../Citizen/ChatBoat";
+import Footer from "../../../Layout/Client/Footer";
 
 function Ourservise() {
   const [isAuth, setIsAuth] = useState(false);
@@ -86,6 +87,7 @@ function Ourservise() {
           </div>
         </div>
       </div>
+      <Footer/>
       <ChatBoat />
     </>
   );

@@ -3,12 +3,29 @@ import { NavLink, useParams } from "react-router-dom";
 import Sidebar3 from "../../../Layout/Admin/Sidebar3";
 import Navbar from "../../../Layout/Admin/Navbar";
 import axios from "axios";
+import "../../../Assets/css/complaint.css";
+// import Lightbox from "react-image-lightbox";
+// import "react-image-lightbox/style.css";
 const PORT = process.env.REACT_APP_PROXY_URL;
 
 const LocalEmergencyComplaints = () => {
   const { id } = useParams("");
 
   const [emergencyComplaints, setEmergencyComplaints] = useState([]);
+  const [allDistrictData, setAllDistrictData] = useState([]);
+
+  // get districts
+  const getAllDistrict = () => {
+    axios
+      .get(`${PORT}/getDistrict`)
+      .then((res) => {
+        setAllDistrictData(res.data);
+      })
+      .catch((error) => {
+        console.log("Error in Getting Data", error);
+      });
+  };
+
   // get emergency complaints
   const getEmerComplaints = async () => {
     try {
@@ -25,6 +42,7 @@ const LocalEmergencyComplaints = () => {
 
   useEffect(() => {
     getEmerComplaints();
+    getAllDistrict();
   }, []);
 
   // Dashboard Setting
@@ -61,18 +79,19 @@ const LocalEmergencyComplaints = () => {
         <main>
           <div className="head-title">
             <div className="left">
-              <h1>Complaints</h1>
+              <h1>Emergency Complaints</h1>
               <ul className="breadcrumb">
                 <li>
-                  <NavLink className="active" to={`/local-station-admin/${id}`}>
-                    Home
-                  </NavLink>
+                <NavLink>Emergency Complaints</NavLink>
                 </li>
                 <li>
                   <i className="bx bx-chevron-right"></i>
                 </li>
                 <li>
-                  <NavLink>Complaints</NavLink>
+                <NavLink className="active" to={`/local-station-admin/${id}`}>
+                    Home
+                  </NavLink>
+          
                 </li>
               </ul>
             </div>
@@ -81,16 +100,27 @@ const LocalEmergencyComplaints = () => {
           <div className="table-data">
             <div className="order">
               <div className="head">
-                <h3>Complaints</h3>
+                <h3>Emergency Complaints</h3>
               </div>
               <table>
                 <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>Location</th>
-                    <th>District</th>
-                    <th>Video</th>
-                    <th>Images</th>
+                    <th style={{ width: "5%", textAlign: "center" }}>ID</th>
+                    <th style={{ width: "20%", textAlign: "center" }}>
+                      Location
+                    </th>
+                    <th
+                      style={{
+                        width: "5%",
+                        textAlign: "center",
+                      }}
+                    >
+                      District
+                    </th>
+                    <th style={{ width: "30%", textAlign: "center" }}>Video</th>
+                    <th style={{ width: "40%", textAlign: "center" }}>
+                      Images
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -99,33 +129,47 @@ const LocalEmergencyComplaints = () => {
                       <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{data.location}</td>
-                        <td>{data.did}</td>
-                        <td>
+                        <td className="px-2">
+                          {" "}
+                          {allDistrictData.map((x) => {
+                            if (data.did === x.id) {
+                              return x.district_name;
+                            }
+                          })}
+                        </td>
+                        <td className="px-2">
                           {data.video && (
-                            <video controls width="200">
-                              <source
-                                src={`./upload/emegencycomplaint/${data.video}`}
-                                type="video/mp4"
-                              />
-                              Your browser does not support the video tag.
-                            </video>
+                            <div>
+                              <video controls width="300" height="auto">
+                                <source
+                                  src={`/upload/emegencycomplaint/${data.video}`}
+                                  type="video/mp4"
+                                />
+                                Your browser does not support the video tag.
+                              </video>
+                            </div>
                           )}
                         </td>
-                        <td>
-                          {data.images && Array.isArray(data.images) ? (
-                            <div>
-                              <h5>Images:</h5>
-                              {data.images.map((image, imageIndex) => (
+
+                        <td className="px-2">
+                          {data.images.length > 0 ? (
+                            <div style={{ display: "flex" }}>
+                              {data.images.split(",").map((image, index) => (
                                 <img
-                                  key={imageIndex}
-                                  src={`./upload/emegencycomplaint/${image}`}
-                                  alt={`Image ${imageIndex + 1}`}
-                                  style={{ width: "100px", height: "auto" }}
+                                  key={index}
+                                  src={`/upload/emegencycomplaint/${image}`}
+                                  alt=""
+                                  className="thumbnail-image"
+                                  // style={{
+                                  //   cursor: "pointer",
+                                  //   width: "50px",
+                                  //   height: "50px",
+                                  // }}
                                 />
                               ))}
                             </div>
                           ) : (
-                            <p>No images available</p>
+                            <span>No Images</span>
                           )}
                         </td>
                       </tr>

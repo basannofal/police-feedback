@@ -292,3 +292,18 @@ form::-webkit-scrollbar-thumb {
   background-color: #281859;
   border-radius: 10px; /* Adjust as needed to match the container's border radius */
 }
+
+.image-container {
+  display: flex;
+}
+
+.thumbnail-image {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  transition: transform 0.3s;
+}
+
+.thumbnail-image:hover {
+  transform: scale(5);
+}

@@ -51,7 +51,7 @@ const Feedback = () => {
                 <main>
                     <div className="head-title">
                         <div className="left">
-                            <h1>Feedback</h1>
+                            <h1>Registred Feedback</h1>
                             <ul className="breadcrumb">
                                 <li>
                                     <NavLink to="">Feedback</NavLink>
@@ -60,7 +60,7 @@ const Feedback = () => {
                                     <i className="bx bx-chevron-right"></i>
                                 </li>
                                 <li>
-                                    <NavLink className="active" to="/citizen-dashboard">
+                                    <NavLink className="active"  to={`/local-station-admin/${id}`}>
                                         Home
                                     </NavLink>
                                 </li>

@@ -11,7 +11,7 @@ const Sidebar1 = ({ isOpen }) => {
   useEffect(() => {
     const token = localStorage.getItem("MainAdminToken");
     const role = localStorage.getItem("role");
-    
+
     if (!token || role != 1) {
       navigate("/admin-login");
     }
@@ -64,21 +64,31 @@ const Sidebar1 = ({ isOpen }) => {
               <span className="text">Police Station</span>
             </NavLink>
           </li>
-          <li className={location.pathname === "/notis" ? "active" : ""}>
-            <NavLink to="/notis">
+          <li className={location.pathname === "/main-complaints" ? "active" : ""}>
+            <NavLink to="/main-complaints">
+              <i class="bx bx-building-house"></i>
+              <span className="text">Complaints</span>
+            </NavLink>
+          </li>
+          <li
+            className={
+              location.pathname === `/allfeedback` ? "active" : ""
+            }
+          >
+            <NavLink to={`/allfeedback`}>
               <i class="bx bxs-notification"></i>
-              <span className="text">Notice</span>
+              <span className="text">All Feedback</span>
             </NavLink>
           </li>
         </ul>
 
         <ul className="side-menu">
-          <li>
+          {/* <li>
             <NavLink to="/setting">
               <i className="bx bxs-cog"></i>
               <span className="text">Settings</span>
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <a
               onClick={openLogOutModal}

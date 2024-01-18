@@ -7,7 +7,7 @@ const AllFeedbackRoute = () => {
         <>
             <Routes>
                 <Route
-                    path="/allfeedback/:id"
+                    path="/allfeedback"
                     element={
                         <>
                             <AllFeedback />

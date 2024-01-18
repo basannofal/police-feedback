@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { NavLink, useParams } from 'react-router-dom';
 import Navbar from '../../../Layout/Admin/Navbar';
-import Sidebar3 from "../../../Layout/Admin/Sidebar3";
+import Sidebar1 from '../../../Layout/Admin/Sidebar1';
 const PORT = process.env.REACT_APP_PROXY_URL;
 
 const AllFeedback = () => {
@@ -47,7 +47,7 @@ const AllFeedback = () => {
 
     return (
         <>
-            <Sidebar3 isOpen={!sidebarHidden} />
+            <Sidebar1 isOpen={!sidebarHidden} />
             <Navbar toggleSidebar={toggleSidebar} toggleDarkMode={toggleDarkMode} />
             <section id="content">
                 <main>

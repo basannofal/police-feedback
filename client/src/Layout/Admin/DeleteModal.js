@@ -56,7 +56,7 @@ const DeleteModal = ({ isOpen, onClose, onDelete, itemType, itemId }) => {
                                 id="delete-button"
                                 disabled={!isValidCode}
                             >
-                                Deletef
+                                Delete
                             </button>
                         </div>
                     </div>

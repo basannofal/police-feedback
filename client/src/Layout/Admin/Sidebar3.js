@@ -81,7 +81,7 @@ const Sidebar3 = ({ isOpen }) => {
           >
             <NavLink to={`/feedback/${id}`}>
               <i class="bx bxs-notification"></i>
-              <span className="text">Feedback</span>
+              <span className="text">Registred Feedback</span>
             </NavLink>
           </li>
           <li
@@ -93,10 +93,10 @@ const Sidebar3 = ({ isOpen }) => {
           >
             <NavLink to={`/local-station-emergency-complaint/${id}`}>
               <i class="bx bx-building-house"></i>
-              <span className="text">Emergency Complain</span>
+              <span className="text">Emergency Complaints</span>
             </NavLink>
           </li>
-          <li
+          {/* <li
             className={
               location.pathname === `/allfeedback/${id}` ? "active" : ""
             }
@@ -105,7 +105,7 @@ const Sidebar3 = ({ isOpen }) => {
               <i class="bx bxs-notification"></i>
               <span className="text">All Feedback</span>
             </NavLink>
-          </li>
+          </li> */}
         </ul>
 
         <ul className="side-menu">

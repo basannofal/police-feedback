@@ -36,8 +36,9 @@ const Complaint = () => {
 
     const getAllData = () => {
         axios
-            .get(`${PORT}/getDistrict`)
+            .get(`${PORT}/getstationdata/${id}`)
             .then((res) => {
+                console.log(res.data);
                 setGetData(res.data);
             })
             .catch((error) => {
@@ -64,6 +65,7 @@ const Complaint = () => {
     }, [])
 
     const handleDistrictChange = (event) => {
+        console.log(event.target.value);
         const selectedDistrictId = event.target.value;
         setComplaintId(selectedDistrictId);
         getAllStationComplaintData(selectedDistrictId);
@@ -99,13 +101,13 @@ const Complaint = () => {
                             <div className="head">
                                 <h3>Complaints</h3>
                                 <select className="form-control" style={{ width: '300px' }} onChange={handleDistrictChange}>
-                                    <option>Select District</option>
+                                    <option>Select Station</option>
                                     {
                                         getData.length > 0 ? (
                                             getData.map((district) => {
                                                 return (
                                                     <option key={district.id} value={district.id}>
-                                                        {district.district_name}
+                                                        {district.station_name}
                                                     </option>
                                                 )
                                             })

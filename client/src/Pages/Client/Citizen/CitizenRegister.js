@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import "../../../Assets/css/register_login.css";
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ChatBoat from "./ChatBoat";
 
 const PORT = process.env.REACT_APP_PROXY_URL;
 
 const CitizenRegister = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     firstName: "",
     middleName: "",
@@ -76,10 +79,11 @@ const CitizenRegister = () => {
         const response = await axios.post(`${PORT}/citizen-register`, formData);
 
         // Check the response from the server
-        if (response.data.success) {
-          toast.success("Registration successful!", {
+        if (response.data) {
+          toast.success("Registration successfull!", {
             position: toast.POSITION.TOP_RIGHT,
           });
+          navigate("/citizen-login");
         } else {
           toast.error(`Registration failed: ${response.data.error}`, {
             position: toast.POSITION.TOP_RIGHT,
@@ -237,7 +241,12 @@ const CitizenRegister = () => {
     <>
       <section className="container mt-5 border">
         <header className="register-header">Citizen Registration</header>
-        <form action="#" className="form" onSubmit={handleRegister}>
+        <form
+          action="#"
+          className="form"
+          onSubmit={handleRegister}
+          style={{ overflowY: "auto", maxHeight: "500px" }}
+        >
           <div className="column">
             <div className="input-box">
               <label>
@@ -391,6 +400,7 @@ const CitizenRegister = () => {
         </div>
       </section>
       <ChatBoat />
+      <ToastContainer />
     </>
   );
 };
