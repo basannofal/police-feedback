@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../../Assets/css/register_login.css";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ChatBoat from "./ChatBoat";
@@ -24,6 +24,20 @@ const CitizenRegister = () => {
   const [success, setSuccess] = useState({});
   const [otpSent, setOtpSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [getRegisData, setGetRegisData] = useState([]);
+  useEffect(() => {
+    getAllData();
+  }, [])
+  const getAllData = () => {
+    axios
+      .get(`${PORT}/getregisdata`)
+      .then((res) => {
+        setGetRegisData(res.data);
+      })
+      .catch((error) => {
+        console.log("Error in Getting Data", error);
+      });
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,7 +46,7 @@ const CitizenRegister = () => {
       [name]: value,
     });
   };
-
+  const navigate = useNavigate();
   // Handle Register Form
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -44,6 +58,20 @@ const CitizenRegister = () => {
     if (Object.keys(validationErrors).length === 0) {
       try {
         setLoading(true);
+        // Check if the email already exists
+        const emailExists = getRegisData.find((user) => user.email === formData.email);
+        if (emailExists) {
+          alert("This email is already exits")
+          return;
+        }
+
+        // Check if the phone number already exists
+        // const phoneNumberExists = getRegisData.find((user) => user.phoneNumber === formData.phoneNumber);
+        // if (phoneNumberExists) {
+        //   alert("thisis number is already exits")
+        //   return;
+        // }
+
         // Send registration data to the server
         const response = await axios.post(`${PORT}/citizen-register`, formData);
 
@@ -57,6 +85,8 @@ const CitizenRegister = () => {
             position: toast.POSITION.TOP_RIGHT,
           });
         }
+        alert("You are succesfully registrad")
+        navigate('/citizen-login')
       } catch (error) {
         toast.error("Error during registration. Please try again.", {
           position: toast.POSITION.TOP_RIGHT,
@@ -236,12 +266,12 @@ const CitizenRegister = () => {
           <div className="column">
             <div className="input-box">
               <label>
-                Surname <span className="text-danger">*</span>
+                Last Name <span className="text-danger">*</span>
               </label>
               <input
                 type="text"
                 name="surname"
-                placeholder="Enter surname"
+                placeholder="Enter Last Name"
                 onChange={handleChange}
               />
               {errors.surname && (

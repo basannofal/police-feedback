@@ -44,7 +44,7 @@ const AdminLogin = () => {
             formData
           );
 
-          
+
           // Check the response status code
           if (response.data.success) {
             localStorage.setItem(
@@ -153,9 +153,9 @@ const AdminLogin = () => {
 
   return (
     <>
-      <section className="container">
+      <section className="container" id="admin-conatact">
         <header>Admin Login</header>
-        <form action="#" className="form" onSubmit={handleLogin}>
+        <form action="#" className="form" id='admin-conatact-form' onSubmit={handleLogin}>
           <div className="column">
             <div className="input-box">
               <label>

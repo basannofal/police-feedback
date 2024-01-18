@@ -17,17 +17,22 @@
 
 .footer_info label {
     margin-bottom: 15px;
-    font-size: 16px;
+    font-size: 20px;
     color: #00c7ff;
-    font-weight: 600;
+    font-weight: 500;
+    word-spacing: 5px;
 }
 
 .footer_info i {
     color: white;
     margin-left: 335px;
+    cursor: pointer;
     padding: 10px 7px;
     border-radius: 50%;
     background-color: #0450B0;
+}
+.footer_info span{
+    cursor: pointer;
 }
 
 .footer_info span {
@@ -50,6 +55,7 @@
 
 .footer_list li {
     padding: 0px 8px;
+    word-spacing: 5px;
     list-style-type: none;
 }
 

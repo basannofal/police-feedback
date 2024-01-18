@@ -64,8 +64,14 @@ function Navbar() {
           />
         </div>
         <div className="rj_text">
-          <p>CITIZEN PORTAL, RAJASTHAN POLICE</p>
-          (HOME DEPARTMENT, GOVERNMENT OF RAJASTHAN)
+          <p className="text-center">CITIZEN PORTAL, RAJASTHAN POLICE</p>
+          <p style={{fontSize:"15px",fontWeight:600,textAlign:"center"}}>(HOME DEPARTMENT, GOVERNMENT OF RAJASTHAN)</p>
+        </div>
+        <div className="rj_img2 ms-3">
+          <img
+            src={require("../../Assets/Images/Police.webp")}
+            alt="Police Logo"
+          />
         </div>
       </div>
 
