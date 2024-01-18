@@ -154,10 +154,19 @@ const citizenLogin = async (req, res) => {
   });
 };
 
+const getRegisteredCitizen = (req, res) => {
+  const sql = 'SELECT * FROM rj_local_station';
+  conn.query(sql, (err, data) => {
+      if (err) return res.json(err);
+      return res.json(data);
+  });
+}
+
 module.exports = {
   chatBoat,
   sendOTP,
   verifyOTP,
   citizenRegister,
+  getRegisteredCitizen,
   citizenLogin,
 };

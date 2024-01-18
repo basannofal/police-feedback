@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../../Assets/css/Contact.css";
 import ChatBoat from "../Citizen/ChatBoat";
 import axios from "axios";
+import Footer from "../../../Layout/Client/Footer";
 
 const PORT = process.env.REACT_APP_PROXY_URL;
 
@@ -85,6 +86,7 @@ function Contact() {
           </tbody>
         </table>
       </div>
+      <Footer/>
       <ChatBoat />
     </>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import Footer from "../../../Layout/Client/Footer";
 const PORT = process.env.REACT_APP_PROXY_URL;
 
 const EmergencyComplaint = () => {
@@ -520,6 +521,7 @@ const EmergencyComplaint = () => {
           </button>
         </form>
       </div>
+      <Footer/>
     </>
   );
 };

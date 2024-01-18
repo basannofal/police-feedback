@@ -43,7 +43,7 @@ const Sidebar2 = ({ isOpen }) => {
   return (
     <>
       <section id="sidebar" className={isOpen ? "" : "hide"}>
-        <NavLink to="/district-admin" className="brand">
+        <NavLink to={`/district-admin/${id}`} className="brand">
           <i class="bx bxs-chat"></i>
           <span className="text">District Panel</span>
         </NavLink>

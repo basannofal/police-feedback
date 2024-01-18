@@ -79,18 +79,19 @@ const LocalEmergencyComplaints = () => {
         <main>
           <div className="head-title">
             <div className="left">
-              <h1>Complaints</h1>
+              <h1>Emergency Complaints</h1>
               <ul className="breadcrumb">
                 <li>
-                  <NavLink className="active" to={`/local-station-admin/${id}`}>
-                    Home
-                  </NavLink>
+                <NavLink>Emergency Complaints</NavLink>
                 </li>
                 <li>
                   <i className="bx bx-chevron-right"></i>
                 </li>
                 <li>
-                  <NavLink>Complaints</NavLink>
+                <NavLink className="active" to={`/local-station-admin/${id}`}>
+                    Home
+                  </NavLink>
+          
                 </li>
               </ul>
             </div>
@@ -99,7 +100,7 @@ const LocalEmergencyComplaints = () => {
           <div className="table-data">
             <div className="order">
               <div className="head">
-                <h3>Complaints</h3>
+                <h3>Emergency Complaints</h3>
               </div>
               <table>
                 <thead>

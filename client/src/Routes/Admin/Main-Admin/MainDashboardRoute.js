@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import MainAdminDashboard from "../../../Pages/Admin/Main-Admin/MainAdminDashboard";
+import Complaints from "../../../Pages/Admin/Main-Admin/Complaints/Complaints";
 
 const MainDashboardRoute = () => {
   return (
@@ -11,6 +12,14 @@ const MainDashboardRoute = () => {
           element={
             <>
               <MainAdminDashboard />
+            </>
+          }
+        />
+        <Route
+          path="/main-complaints"
+          element={
+            <>
+              <Complaints />
             </>
           }
         />

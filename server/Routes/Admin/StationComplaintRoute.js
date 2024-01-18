@@ -5,6 +5,7 @@ const StationComplaint = require("../../Controller/Admin/StationComplaint");
 
 
 router.route('/getallstationcomplaint/:id').get(StationComplaint.getStationComplaint)
+router.route('/getalldistcomplaint/:id').get(StationComplaint.getDistComplaint)
 
 
 

@@ -48,9 +48,7 @@ const Navbar = ({ toggleSidebar, toggleDarkMode }) => {
             onChange={toggleDarkMode}
           />
           <label htmlFor="switch-mode" className="switch-mode"></label>
-          <NavLink to="/dashboard" className="profile">
-            <img src={require("../../Assets/Images/people.png")} alt="user" />
-          </NavLink>
+          
         </nav>
       </section>
     </>

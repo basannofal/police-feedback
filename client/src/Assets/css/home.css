@@ -8,14 +8,14 @@
     display: flex;
     /* flex-wrap: wrap; */
     width: 90%;
-    margin: 0px auto 10px;
+    margin: 30px auto 10px;
 }
 
 .home_img img {
     width: 670px;
     height: 400px;
     margin-top: 1px;
-    border-radius: 0px;
+    border-radius: 5px;
 }
 
 .home_pg p {
@@ -41,6 +41,9 @@
         width: 100%;
         padding-left: 25px;
     }
+    .carousel-inner .carousel-item {
+        height: 15vh;
+    }
 }
 
 @media only screen and (min-width: 568px) and (max-width:800px) {
@@ -58,6 +61,10 @@
     .home_pg p {
         width: 100%;
         padding-left: 25px;
+    }
+
+    .carousel-inner .carousel-item {
+        height: 20vh;
     }
 }
 

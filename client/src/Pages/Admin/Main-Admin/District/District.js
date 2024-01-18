@@ -176,7 +176,7 @@ const District = () => {
                   <i className="bx bx-chevron-right"></i>
                 </li>
                 <li>
-                  <NavLink className="active" to="/citizen-dashboard">
+                  <NavLink className="active" to="/main-admin">
                     Home
                   </NavLink>
                 </li>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Myapplication.module.css"; // Import the CSS module
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Footer from "../../../Layout/Client/Footer";
 const PORT = process.env.REACT_APP_PROXY_URL;
 
 const Myapplication = () => {
@@ -244,6 +245,7 @@ const Myapplication = () => {
           </div>
         </form>
       </div>
+      <Footer/>
     </>
   );
 };

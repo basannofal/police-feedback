@@ -17,16 +17,14 @@ const Footer = () => {
 
             <div className='footer_list'>
                 <ul>
-                    <li>Terms & Condition</li>
-                    <li>Sitemap</li>
-                    <li>Screen Reader Access</li>
-                    <li>Accessibility Statement</li>
-                    <li>Website Policy</li>
-
+                    <li>Home</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                    <li>EmergencyComplaint</li>
                 </ul>
             </div>
         </div>
     );
 }
 
-export default Footer;
+export default Footer;
